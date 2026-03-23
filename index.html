@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>瑷€缁?PromptLogic 鈥?AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲浣庝唬鐮佸钩鍙?/title>
-<meta name="description" content="鐢ㄨ嚜鐒惰瑷€鍒涘缓宸ヤ笟宸ヤ綔娴侊紝璁╁伐鍘傛妧鏈憳銆岃█鍑烘硶闅忋€嶃€傝瑙夋娴嬨€佽繍鍔ㄦ帶鍒躲€侀€氫俊鍗忚锛屼竴鍙ヨ瘽鎼炲畾銆?>
+<title>言绎 PromptLogic — AI 驱动的工业自动化低代码平台</title>
+<meta name="description" content="用自然语言创建工业工作流，让工厂技术员「言出法随」。视觉检测、运动控制、通信协议，一句话搞定。">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -14,8 +14,6 @@ body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:va
 a{color:var(--wine-light);text-decoration:none;transition:.3s}
 a:hover{color:var(--gold)}
 ::selection{background:var(--wine);color:#fff}
-
-/* Nav */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,12,.6);backdrop-filter:blur(28px) saturate(1.3);border-bottom:1px solid rgba(155,27,48,.06);transition:.4s}
 .navbar.scrolled{padding:.55rem 3rem;background:rgba(8,8,12,.92);border-bottom-color:rgba(155,27,48,.12);box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .nav-brand{display:flex;align-items:center;gap:.6rem}
@@ -32,19 +30,13 @@ a:hover{color:var(--gold)}
 .btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 44px var(--wine-glow);color:#fff}
 .btn-outline{background:transparent;color:var(--text);border:1.5px solid rgba(155,27,48,.3)}
 .btn-outline:hover{border-color:var(--wine-light);background:rgba(155,27,48,.05);color:#fff;transform:translateY(-1px)}
-
-/* Sections */
 section{padding:8rem 3rem;position:relative;overflow:hidden}
 .container{max-width:72rem;margin:0 auto}
 .section-label{display:inline-block;padding:.3rem 1rem;border-radius:2rem;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.2rem;background:rgba(155,27,48,.07);color:var(--wine-light);border:1px solid rgba(155,27,48,.12)}
 .section-title{font-size:3rem;font-weight:800;margin-bottom:1.2rem;letter-spacing:-.04em;line-height:1.12}
 .section-title .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .section-desc{font-size:1.05rem;color:var(--text2);max-width:34rem;line-height:1.9;margin-bottom:3rem}
-
-/* Particle canvas */
-#particles{position:absolute;inset:0;z-index:0;pointer-events:none}
-
-/* Hero */
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:5rem;position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 35%,rgba(155,27,48,.06) 0%,transparent 70%),radial-gradient(circle at 15% 85%,rgba(110,19,34,.04) 0%,transparent 35%),radial-gradient(circle at 85% 15%,rgba(201,169,110,.02) 0%,transparent 35%);pointer-events:none;z-index:0}
 .hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(155,27,48,.2),transparent)}
@@ -69,8 +61,6 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .hero-scroll span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--wine-light);animation:scrollDot 2.5s infinite}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
 @keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:20px}}
-
-/* Cards */
 .grid{display:grid;gap:1.5rem}
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:1fr 1fr 1fr}
@@ -82,8 +72,6 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .card .icon{font-size:2.4rem;margin-bottom:1.2rem;display:block}
 .card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
 .card p{font-size:.88rem;color:var(--text2);line-height:1.85}
-
-/* Comparison */
 .compare{display:flex;gap:2rem;align-items:stretch}
 .compare-side{flex:1;background:var(--bg2);border-radius:var(--radius);padding:2.5rem;border:1px solid rgba(255,255,255,.03)}
 .compare-side.good{border-color:rgba(155,27,48,.12);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.03))}
@@ -96,8 +84,6 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .flow-arrow{color:var(--text3);font-size:.85rem}
 .compare-side.good .flow-step{border-color:rgba(155,27,48,.12);background:rgba(155,27,48,.04)}
 .quote{border-left:3px solid var(--wine);padding:1rem 1.5rem;background:rgba(155,27,48,.025);border-radius:0 var(--radius) var(--radius) 0;font-size:.95rem;color:var(--wine-light);font-style:italic;margin-top:2.5rem}
-
-/* Showcase */
 .showcase-tabs{display:flex;gap:.6rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
 .showcase-tab{padding:.65rem 1.6rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;cursor:pointer;background:var(--bg3);border:1px solid rgba(155,27,48,.06);color:var(--text2);transition:.3s}
 .showcase-tab:hover{border-color:rgba(155,27,48,.2);color:var(--text)}
@@ -107,8 +93,6 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .showcase-frame img.hidden{display:none;opacity:0}
 .showcase-caption{text-align:center;margin-top:1.5rem;font-size:.88rem;color:var(--text2)}
 .showcase-caption strong{color:var(--text);font-weight:600}
-
-/* Architecture */
 .arch-layers{background:var(--bg2);border:1px solid rgba(155,27,48,.06);border-radius:var(--radius);padding:2.2rem;max-width:56rem;margin:0 auto}
 .arch-layer{border:1px solid rgba(155,27,48,.06);border-radius:.5rem;padding:1rem 1.2rem;margin-bottom:.6rem}
 .arch-layer:last-child{margin-bottom:0}
@@ -117,27 +101,21 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .arch-tag{background:rgba(155,27,48,.03);border:1px solid rgba(155,27,48,.06);border-radius:.35rem;padding:.35rem .8rem;font-size:.78rem}
 .arch-tag.highlight{border-color:rgba(155,27,48,.2);background:rgba(155,27,48,.08);font-weight:600}
 .arch-connector{text-align:center;color:var(--wine-light);font-size:.7rem;margin:.3rem 0;opacity:.5}
-
-/* Industry */
 .industry-card{text-align:center;padding:2.5rem 1.5rem}
 .industry-card .icon{font-size:2.8rem;margin-bottom:1rem}
 .industry-card h3{margin-bottom:.5rem}
 .industry-card .apps{font-size:.78rem;color:var(--text3)}
-
-/* Pricing */
 .pricing-card{text-align:center;padding:2.5rem 1.5rem;position:relative}
 .pricing-card.featured{border-color:rgba(155,27,48,.25);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.04))}
-.pricing-card.featured::before{content:'鎺ㄨ崘';position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--grad1);color:#fff;font-size:.58rem;font-weight:700;padding:.25rem .9rem;border-radius:1rem;letter-spacing:.06em}
+.pricing-card.featured::before{content:'推荐';position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--grad1);color:#fff;font-size:.58rem;font-weight:700;padding:.25rem .9rem;border-radius:1rem}
 .pricing-card .edition{font-size:.7rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.6rem}
 .pricing-card .price{font-size:1.8rem;font-weight:800;margin-bottom:.4rem}
 .pricing-card .price .unit{font-size:.8rem;font-weight:400;color:var(--text2)}
 .pricing-card .desc{font-size:.8rem;color:var(--text3);margin-bottom:1.4rem}
 .pricing-card ul{list-style:none;text-align:left;margin-bottom:1.8rem}
 .pricing-card li{font-size:.82rem;padding:.35rem 0;color:var(--text2)}
-.pricing-card li::before{content:'鉁?;color:var(--wine-light);margin-right:.5rem;font-weight:700}
+.pricing-card li::before{content:'✓';color:var(--wine-light);margin-right:.5rem;font-weight:700}
 .pricing-card .btn{width:100%}
-
-/* Footer */
 .footer{background:var(--bg2);border-top:1px solid rgba(155,27,48,.06);padding:3.5rem 3rem 2rem;text-align:center}
 .footer-brand{font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
 .footer-brand .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -146,8 +124,6 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .footer-links a{font-size:.8rem;color:var(--text3);transition:.3s}
 .footer-links a:hover{color:var(--wine-light)}
 .footer-copy{font-size:.68rem;color:var(--text3);border-top:1px solid rgba(255,255,255,.03);padding-top:1.2rem}
-
-/* Animations */
 .fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 .fade-up:nth-child(2){transition-delay:.1s}
@@ -155,19 +131,14 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
 .fade-up:nth-child(4){transition-delay:.3s}
 .fade-up:nth-child(5){transition-delay:.4s}
 .fade-up:nth-child(6){transition-delay:.5s}
-
-/* Responsive */
 @media(max-width:1024px){.g3,.g4{grid-template-columns:1fr 1fr}.hero h1{font-size:3.2rem}section{padding:5rem 2rem}.section-title{font-size:2.4rem}}
 @media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}.hero h1{font-size:2.4rem}.hero .subtitle{font-size:1rem}.hero-stats{flex-wrap:wrap;gap:2rem}.hero-stat::after{display:none}.compare{flex-direction:column}.compare-arrow{transform:rotate(90deg);justify-content:center}.navbar{padding:.6rem 1.2rem}.nav-links{display:none}.hero-cta{flex-direction:column;align-items:center}section{padding:4rem 1.2rem}.section-title{font-size:1.8rem}}
-
 </style>
 </head>
 <body>
 
 <canvas id="particles"></canvas>
 
-<!-- Nav -->
-<!-- 瀵艰埅鏍?-->
 <nav class="navbar" id="navbar">
   <div class="nav-brand">
     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -178,20 +149,19 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
       <line x1="28" y1="90" x2="28" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
       <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <span><span class="cn">瑷€缁?/span> PromptLogic</span>
+    <span><span class="cn">言绎</span> PromptLogic</span>
   </div>
   <div class="nav-links">
-    <a href="#showcase">鐣岄潰</a>
-    <a href="#features">鍔熻兘</a>
-    <a href="#architecture">鏋舵瀯</a>
-    <a href="#industries">琛屼笟</a>
-    <a href="#pricing">瀹氫环</a>
-    <a href="#contact">鑱旂郴</a>
-    <a href="#trial" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.8rem">鍏嶈垂璇曠敤</a>
+    <a href="#showcase">界面</a>
+    <a href="#features">功能</a>
+    <a href="#architecture">架构</a>
+    <a href="#industries">行业</a>
+    <a href="#pricing">定价</a>
+    <a href="#contact">联系</a>
+    <a href="#trial" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.8rem">免费试用</a>
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-content">
     <div class="hero-logo">
@@ -204,235 +174,273 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
         <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
       </svg>
     </div>
-    <h1><span class="hl">瑷€鍑烘硶闅?/span>锛屾櫤椹伐涓?/h1>
-    <div class="subtitle">AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲浣庝唬鐮佸钩鍙?/div>
-    <p class="tagline">鐢ㄨ嚜鐒惰瑷€鍒涘缓宸ヤ笟宸ヤ綔娴侊紝璁╁伐鍘傛妧鏈憳浠庣箒鐞愮紪绋嬩腑瑙ｆ斁銆?br>瑙嗚妫€娴嬨€佽繍鍔ㄦ帶鍒躲€侀€氫俊鍗忚鈥斺€斾竴鍙ヨ瘽锛屽叏鎼炲畾銆?/p>
+    <h1><span class="hl">言出法随</span>，智驭工业</h1>
+    <div class="subtitle">AI 驱动的工业自动化低代码平台</div>
+    <p class="tagline">用自然语言创建工业工作流，让工厂技术员从繁琐编程中解放。<br>视觉检测、运动控制、通信协议——一句话，全搞定。</p>
     <div class="hero-cta">
-      <a href="#trial" class="btn btn-primary">馃殌 鍏嶈垂璇曠敤 30 澶?/a>
-      <a href="#features" class="btn btn-outline">浜嗚В鏇村 鈫?/a>
+      <a href="#trial" class="btn btn-primary">🚀 免费试用 30 天</a>
+      <a href="#features" class="btn btn-outline">了解更多 ↓</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="val">16+</div><div class="lbl">鍐呯疆鑺傜偣</div></div>
-      <div class="hero-stat"><div class="val">6</div><div class="lbl">澶ц涓氳鐩?/div></div>
-      <div class="hero-stat"><div class="val">7脳24</div><div class="lbl">宸ヤ笟绾у彲闈?/div></div>
-      <div class="hero-stat"><div class="val">AI</div><div class="lbl">椹卞姩鏍稿績</div></div>
+      <div class="hero-stat"><div class="val">16+</div><div class="lbl">内置节点</div></div>
+      <div class="hero-stat"><div class="val">6</div><div class="lbl">大行业覆盖</div></div>
+      <div class="hero-stat"><div class="val">7×24</div><div class="lbl">工业级可靠</div></div>
+      <div class="hero-stat"><div class="val">AI</div><div class="lbl">驱动核心</div></div>
     </div>
   </div>
   <div class="hero-scroll"><span></span></div>
 </section>
 
-<!-- 鐥涚偣 鈫?浠峰€?-->
+<!-- 痛点 → 价值 -->
 <section id="problem">
   <div class="container">
-    <span class="section-label fade-up">涓轰粈涔堥€夋嫨瑷€缁?/span>
-    <h2 class="section-title fade-up">浠?span class="hl">绻佺悙缂栫▼</span>鍒?span class="hl">涓€鍙ヨ瘽鎼炲畾</span></h2>
+    <span class="section-label fade-up">为什么选择言绎</span>
+    <h2 class="section-title fade-up">从<span class="hl">繁琐编程</span>到<span class="hl">一句话搞定</span></h2>
+    <p class="section-desc fade-up">传统工业自动化开发：学 C#、学 Halcon、学 PLC 通信协议，培养一个合格工程师需要 2-3 年。言绎让工厂技术员用自然语言直接描述需求，AI 自动生成工作流。</p>
     <div class="compare fade-up">
       <div class="compare-side bad">
-        <h3>鉂?浼犵粺宸ユ帶杞欢</h3>
+        <h3>❌ 传统方式</h3>
         <div class="flow-steps">
-          <span class="flow-step">宸ョ▼甯?/span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">瀛︿範鑺傜偣</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">鎵嬪姩鎷栨嫿</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">鎵嬪姩杩炵嚎</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">璋冭瘯鍙傛暟</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">杩愯</span>
+          <span class="flow-step">学习 C# 语法</span><span class="flow-arrow">→</span>
+          <span class="flow-step">配置 Halcon 环境</span><span class="flow-arrow">→</span>
+          <span class="flow-step">编写视觉算法</span><span class="flow-arrow">→</span>
+          <span class="flow-step">调试 PLC 通信</span><span class="flow-arrow">→</span>
+          <span class="flow-step">手写状态机</span><span class="flow-arrow">→</span>
+          <span class="flow-step">反复调试</span>
         </div>
-        <p style="color:var(--text3);font-size:.88rem">鐥涚偣锛氬涔犳垚鏈珮 路 鎿嶄綔绻佺悙 路 浜烘墠渚濊禆寮?路 浜ゆ湡闀?/p>
+        <p style="color:var(--text3);font-size:.88rem">痛点：门槛高 · 周期长 · 人才稀缺 · 维护困难</p>
       </div>
-      <div class="compare-arrow">鈫?/div>
+      <div class="compare-arrow">→</div>
       <div class="compare-side good">
-        <h3>鉁?瑷€缁庢効鏅?/h3>
+        <h3>✅ 言绎方式</h3>
         <div class="flow-steps">
-          <span class="flow-step">鎶€鏈憳</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">璇翠竴鍙ヨ瘽</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">AI 鑷姩鐢熸垚</span><span class="flow-arrow">鈫?/span>
-          <span class="flow-step">寰皟杩愯</span>
+          <span class="flow-step">描述需求</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI 生成工作流</span><span class="flow-arrow">→</span>
+          <span class="flow-step">拖拽微调</span><span class="flow-arrow">→</span>
+          <span class="flow-step">一键运行</span>
         </div>
-        <p style="color:var(--text2);font-size:.88rem">浠峰€硷細闆跺涔犳垚鏈?路 AI 浠ｆ浛涓撳缁忛獙 路 闄嶄綆浜烘墠闂ㄦ</p>
+        <p style="color:var(--text2);font-size:.88rem">价值：零学习成本 · AI 代替专家经验 · 降低人才门槛</p>
       </div>
     </div>
-    <div class="quote fade-up">銆岃█缁庣殑绔炰簤瀵规墜涓嶆槸鍚岃锛岃€屾槸涓嶄細缂栫▼鐨勫伐鍘傛妧鏈憳鐨勫涔犳垚鏈€傘€?/div>
+    <div class="quote fade-up">「言绎的竞争对手不是同行，而是不会编程的工厂技术员的学习成本。」</div>
   </div>
 </section>
 
-<!-- Product UI Showcase -->
+<!-- 产品界面展示 -->
 <section id="showcase">
   <div class="container" style="text-align:center">
     <span class="section-label fade-up">PRODUCT INTERFACE</span>
-    <h2 class="section-title fade-up">涓撲笟绾?span class="hl">宸ヤ笟杞欢</span>鐣岄潰</h2>
-    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">娣辫壊涓婚璁捐锛屽噺灏戝伐鍘傜幆澧冨睆骞曞埡鐪笺€傚闈㈡澘甯冨眬锛屽彲鎷栨嫿鍋滈潬銆佹姌鍙犺嚜閫傚簲銆?/p>
+    <h2 class="section-title fade-up">专业级<span class="hl">工业软件</span>界面</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">深色主题设计，减少工厂环境屏幕刺眼。多面板布局，可拖拽停靠、折叠自适应。</p>
     <div class="showcase-tabs fade-up">
-      <div class="showcase-tab active" onclick="showScreenshot(0)">馃殌 鍚姩鐢婚潰</div>
-      <div class="showcase-tab" onclick="showScreenshot(1)">馃枼锔?涓诲伐浣滅晫闈?/div>
-      <div class="showcase-tab" onclick="showScreenshot(2)">馃 AI 宸ヤ綔娴佺敓鎴?/div>
-      <div class="showcase-tab" onclick="showScreenshot(3)">馃帹 鑺傜偣鐢诲竷</div>
-      <div class="showcase-tab" onclick="showScreenshot(4)">馃搳 鎵ц鐩戞帶</div>
+      <div class="showcase-tab active" onclick="showScreenshot(0)">🚀 启动画面</div>
+      <div class="showcase-tab" onclick="showScreenshot(1)">🖥️ 主工作界面</div>
+      <div class="showcase-tab" onclick="showScreenshot(2)">🤖 AI 工作流生成</div>
+      <div class="showcase-tab" onclick="showScreenshot(3)">🎨 节点画布</div>
+      <div class="showcase-tab" onclick="showScreenshot(4)">📊 执行监控</div>
     </div>
     <div class="showcase-frame fade-up">
-      <img id="ss0" src="images/splash.png" alt="splash screen">
-      <img id="ss1" src="images/main_interface.png" alt="main interface" class="hidden">
-      <img id="ss2" src="images/ai_workflow.png" alt="ai workflow generation" class="hidden">
-      <img id="ss3" src="images/canvas.png" alt="node canvas" class="hidden">
-      <img id="ss4" src="images/monitoring.png" alt="monitoring dashboard" class="hidden">
+      <img id="ss0" src="images/splash.png" alt="启动画面">
+      <img id="ss1" src="images/main_interface.png" alt="主工作界面" class="hidden">
+      <img id="ss2" src="images/ai_workflow.png" alt="AI 工作流生成" class="hidden">
+      <img id="ss3" src="images/canvas.png" alt="节点画布" class="hidden">
+      <img id="ss4" src="images/monitoring.png" alt="执行监控" class="hidden">
     </div>
     <div class="showcase-caption fade-up" id="ss-caption">
-      <strong>鍚姩鐢婚潰</strong> 鈥?鍝佺墝灞曠ず + 鍚庡彴鍔犺浇锛堟彃浠舵壂鎻忋€侀厤缃鍙栥€丄I 妯″瀷棰勭儹锛夛紝杩涘害瀹炴椂鍙嶉
+      <strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈
     </div>
   </div>
 </section>
 
-<!-- Core Features -->
+<!-- 核心功能 -->
 <section id="features" style="background:var(--bg2)">
   <div class="container">
-    <span class="section-label fade-up">鏍稿績鍔熻兘</span>
-    <h2 class="section-title fade-up">鍏ぇ<span class="hl">鏍稿績鑳藉姏</span>锛屽紑绠卞嵆鐢?/h2>
-    <p class="section-desc fade-up">浠?AI 鏅鸿兘鐢熸垚鍒板伐涓氱骇鎵ц锛岃鐩栬嚜鍔ㄥ寲鍏ㄩ摼璺€?/p>
+    <span class="section-label fade-up">CORE FEATURES</span>
+    <h2 class="section-title fade-up">六大<span class="hl">核心能力</span></h2>
+    <p class="section-desc fade-up">从自然语言到物理执行，端到端覆盖工业自动化全流程。</p>
     <div class="grid g3">
-      <div class="card fade-up"><div class="icon">馃</div><h3>AI銆岃█鍑烘硶闅忋€?/h3><p>鑷劧璇█椹卞姩宸ヤ綔娴佺敓鎴愩€傝"妫€娴嬪渾褰㈤浂浠讹紝涓嶅悎鏍肩殑鍓旈櫎"锛孉I 鑷姩鍒涘缓瀹屾暣瑙嗚妫€娴嬫祦绋嬨€傛敮鎸?Gemini / Ollama / DeepSeek 澶氭ā鍨嬨€?/p></div>
-      <div class="card fade-up"><div class="icon">馃帹</div><h3>鍙鍖栬妭鐐圭敾甯?/h3><p>GDI+ 楂樻€ц兘娓叉煋锛?0FPS 娴佺晠鎷栨嫿銆傛敮鎸佽礉濉炲皵鏇茬嚎杩炵嚎銆佹閫夈€佹挙閿€閲嶅仛銆佽嚜鍔ㄥ竷灞€銆?00+ 鑺傜偣渚濈劧涓濇粦銆?/p></div>
-      <div class="card fade-up"><div class="icon">馃彮</div><h3>宸ヤ笟绾у彲闈?/h3><p>7脳24 涓嶉棿鏂繍琛岃璁°€傚洓绾у紓甯稿鐞嗘満鍒躲€佸穿婧冭嚜鍔ㄦ仮澶嶃€佹柇鐢垫暟鎹繚鎶ゃ€佸師瀛愬寲鏂囦欢鍐欏叆銆俇I 宕╂簝涓嶅奖鍝嶆墽琛屻€?/p></div>
-      <div class="card fade-up"><div class="icon">馃攲</div><h3>鎻掍欢鍗虫彃鍗崇敤</h3><p>鍔ㄦ€?DLL 鍔犺浇锛屾敮鎸?Halcon 瑙嗚銆佽繍鍔ㄦ帶鍒跺崱銆乀CP/Modbus/涓插彛閫氫俊銆傛柊鎻掍欢鏀惧叆鍗崇敓鏁堬紝AI 鑷姩鎰熺煡鏂拌兘鍔涖€?/p></div>
-      <div class="card fade-up"><div class="icon">馃搳</div><h3>瀹炴椂鎵ц鐩戞帶</h3><p>浜ч噺銆佽壇鍝佺巼銆佽妭鎷嶆椂闂村疄鏃剁粺璁°€傝壇鐜囪秼鍔垮浘銆佸紓甯歌拷婧€佺彮娆＄鐞嗐€傜敓浜ф暟鎹?SQLite 鎸佷箙鍖?+ CSV 瀵煎嚭銆?/p></div>
-      <div class="card fade-up"><div class="icon">馃攼</div><h3>浼佷笟绾у畨鍏?/h3><p>绠＄悊鍛?/ 宸ョ▼甯?/ 鎿嶄綔鍛樹笁绾ц鑹叉潈闄愩€侭Crypt 瀵嗙爜鍝堝笇銆佹搷浣滃璁℃棩蹇椼€丷SA-2048 鎺堟潈浣撶郴銆傛敮鎸?Windows AD 鍩熼泦鎴愩€?/p></div>
+      <div class="card fade-up">
+        <span class="icon">🗣️</span>
+        <h3>自然语言编程</h3>
+        <p>输入一句话描述你的需求，AI 自动解析意图并生成完整的节点工作流。支持中文，无需编程基础。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">🔗</span>
+        <h3>可视化节点画布</h3>
+        <p>拖拽式节点编辑器，贝塞尔曲线连线，GDI+ 高性能渲染。200+ 节点依然 60FPS 流畅操作。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">👁️</span>
+        <h3>视觉检测集成</h3>
+        <p>内置 Halcon / VisionPro 插件，模板匹配、OCR、缺陷检测，节点库一站式覆盖主流视觉任务。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">⚙️</span>
+        <h3>运动控制</h3>
+        <p>支持雷赛、正运动等主流运动控制卡，多轴联动、回零、点位运动均封装为可配置节点。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">📡</span>
+        <h3>通信协议</h3>
+        <p>Modbus TCP/RTU、TCP/IP、串口通信、OPC UA，工厂常用协议全覆盖，拖入即用。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">🔌</span>
+        <h3>插件生态</h3>
+        <p>标准化 IPlugin 接口，第三方可开发自定义节点。独立 DLL 热加载，不影响主程序运行。</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 鎶€鏈灦鏋?-->
+<!-- 技术架构 -->
 <section id="architecture">
   <div class="container">
-    <span class="section-label fade-up">鎶€鏈灦鏋?/span>
-    <h2 class="section-title fade-up">AI-Centric <span class="hl">Graph-Document</span> 鍥涘眰鏋舵瀯</h2>
-    <p class="section-desc fade-up">浠?AI 涓轰竴绛夊叕姘戠殑鏋舵瀯璁捐鈥斺€擜I 涓嶆槸鐗规畩璺緞锛岃€屾槸鍜岄紶鏍囬敭鐩樹竴鏍风殑銆岃緭鍏ヨ澶囥€嶃€?/p>
+    <span class="section-label fade-up">ARCHITECTURE</span>
+    <h2 class="section-title fade-up">四层<span class="hl">工业级</span>架构</h2>
+    <p class="section-desc fade-up">.NET Framework 4.8 + C# 7.3，经过验证的工业运行时。四层解耦，每层可独立测试和替换。</p>
     <div class="arch-layers fade-up">
       <div class="arch-layer">
-        <div class="arch-label">馃枼锔?搴旂敤灞?Shell</div>
-        <div class="arch-tags"><span class="arch-tag">馃摝 鑺傜偣鏍?/span><span class="arch-tag">馃帹 鐢诲竷</span><span class="arch-tag">馃搵 灞炴€ч潰鏉?/span><span class="arch-tag highlight">馃挰 AI 鑱婂ぉ闈㈡澘</span></div>
+        <div class="arch-label">🖥️ Shell / UI 层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">AntdUI</span>
+          <span class="arch-tag">WinForms 深色主题</span>
+          <span class="arch-tag">节点画布 (GDI+)</span>
+          <span class="arch-tag">AI 聊天面板</span>
+        </div>
       </div>
-      <div class="arch-connector">鈫?EventBus 娑堟伅鎬荤嚎 鈫?/div>
+      <div class="arch-connector">↕ IEventBus</div>
       <div class="arch-layer">
-        <div class="arch-label">馃搫 鏂囨。灞?Document Layer</div>
-        <div class="arch-tags"><span class="arch-tag highlight">WorkflowDocument 鈥?鍞竴鏁版嵁婧?/span><span class="arch-tag">CommandManager 鈥?鎵€鏈夋搷浣滅粺涓€</span><span class="arch-tag">UndoRedoStack 鈥?浜嬪姟绾ф挙閿€</span></div>
+        <div class="arch-label">⚙️ Engine 引擎层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">ExecutionEngine</span>
+          <span class="arch-tag">CommandManager</span>
+          <span class="arch-tag">PluginManager</span>
+          <span class="arch-tag">WorkflowSerializer</span>
+        </div>
       </div>
+      <div class="arch-connector">↕ INode / IPlugin</div>
       <div class="arch-layer">
-        <div class="arch-label">鈿欙笍 鏈嶅姟灞?Service Layer</div>
-        <div class="arch-tags"><span class="arch-tag highlight">馃 AI Service锛堟牳蹇冪珵浜夊姏锛?/span><span class="arch-tag">鈻讹笍 Execution Service锛堢嫭绔嬭繘绋嬄?脳24锛?/span><span class="arch-tag">馃捑 Serialization Service</span></div>
+        <div class="arch-label">📦 Core 核心层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">WorkflowDocument</span>
+          <span class="arch-tag">NodeRegistry</span>
+          <span class="arch-tag">TypeResolver</span>
+          <span class="arch-tag">VariableManager</span>
+        </div>
       </div>
+      <div class="arch-connector">↕ Interfaces</div>
       <div class="arch-layer">
-        <div class="arch-label">馃攲 鎻掍欢灞?Plugin Layer</div>
-        <div class="arch-tags"><span class="arch-tag">瑙嗚 Halcon</span><span class="arch-tag">杩愭帶 杩愬姩鍗?/span><span class="arch-tag">閫氫俊 TCP/Modbus</span><span class="arch-tag">IO 鏁板瓧閲?/span><span class="arch-tag">绠楁硶 SPC</span><span class="arch-tag">鑷畾涔?DLL</span></div>
+        <div class="arch-label">📜 Contracts 契约层</div>
+        <div class="arch-tags">
+          <span class="arch-tag">INode</span>
+          <span class="arch-tag">IPlugin</span>
+          <span class="arch-tag">ICommand</span>
+          <span class="arch-tag">IEventBus</span>
+          <span class="arch-tag">DTO / Enum</span>
+        </div>
       </div>
-    </div>
-    <div class="grid g3" style="margin-top:2rem">
-      <div class="card fade-up" style="text-align:center"><div class="icon">馃攲</div><h3>AI = 杈撳叆璁惧</h3><p>鍜岄紶鏍囬敭鐩樿蛋瀹屽叏鐩稿悓鐨?Command 绠＄嚎锛孶ndo/Redo 澶╃劧瀹屾暣</p></div>
-      <div class="card fade-up" style="text-align:center"><div class="icon">馃洝锔?/div><h3>杩涚▼闅旂</h3><p>鎵ц寮曟搸鐙珛浜?UI 杩涚▼锛孶I 宕╂簝涓嶅奖鍝嶄骇绾胯繍琛?/p></div>
-      <div class="card fade-up" style="text-align:center"><div class="icon">馃</div><h3>涓婁笅鏂囨劅鐭?/h3><p>AI 瀹炴椂鎰熺煡鐢诲竷鐘舵€併€佹彃浠跺垪琛ㄥ拰鍘嗗彶瀵硅瘽锛岀簿鍑嗙悊瑙ｆ剰鍥?/p></div>
     </div>
   </div>
 </section>
 
-<!-- 琛屼笟搴旂敤 -->
+<!-- 行业应用 -->
 <section id="industries" style="background:var(--bg2)">
   <div class="container">
-    <span class="section-label fade-up">琛屼笟瑕嗙洊</span>
-    <h2 class="section-title fade-up">瑕嗙洊<span class="hl"> 6 澶?/span>鏍稿績鍒堕€犺涓?/h2>
-    <p class="section-desc fade-up">浠?3C 鐢靛瓙鍒伴噾灞炲姞宸ワ紝瑷€缁庝负姣忎釜琛屼笟鎻愪緵寮€绠卞嵆鐢ㄧ殑鑺傜偣鍜屾ā鏉裤€?/p>
+    <span class="section-label fade-up">INDUSTRIES</span>
+    <h2 class="section-title fade-up">覆盖<span class="hl">六大</span>行业</h2>
+    <p class="section-desc fade-up">从 3C 电子到新能源，言绎的节点化架构天然适配多行业、多场景部署。</p>
     <div class="grid g3">
-      <div class="card industry-card fade-up"><div class="icon">馃摫</div><h3>3C 鐢靛瓙鍒堕€?/h3><p class="apps">澶栬妫€娴?路 灏哄娴嬮噺 路 缁勮楠岃瘉</p></div>
-      <div class="card industry-card fade-up"><div class="icon">馃殫</div><h3>姹借溅闆堕儴浠?/h3><p class="apps">灏哄妫€娴?路 瑁呴厤鏍￠獙 路 杩芥函绠＄悊</p></div>
-      <div class="card industry-card fade-up"><div class="icon">馃攱</div><h3>閿傜數 / 鍏変紡</h3><p class="apps">鏋佺墖妫€娴?路 鐢佃姱鍒嗛€?路 鐒婃帴璐ㄦ</p></div>
-      <div class="card industry-card fade-up"><div class="icon">馃拵</div><h3>鍗婂浣撳皝瑁?/h3><p class="apps">寮曡剼妫€娴?路 鑺墖瀹氫綅 路 缂洪櫡鍒嗘瀽</p></div>
-      <div class="card industry-card fade-up"><div class="icon">馃拪</div><h3>椋熷搧鍖昏嵂</h3><p class="apps">鍖呰妫€娴?路 寮傜墿璇嗗埆 路 绉伴噸鍒嗘嫞</p></div>
-      <div class="card industry-card fade-up"><div class="icon">鈿欙笍</div><h3>閲戝睘鍔犲伐</h3><p class="apps">鐒婄紳妫€娴?路 琛ㄩ潰缂洪櫡 路 灏哄鎺у埗</p></div>
+      <div class="card industry-card fade-up"><span class="icon">📱</span><h3>3C 电子</h3><p class="apps">外观检测 · 尺寸测量 · 屏幕缺陷</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🔋</span><h3>新能源</h3><p class="apps">电芯焊缝 · 极片对齐 · 涂布检测</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🚗</span><h3>汽车零部件</h3><p class="apps">装配验证 · 螺丝检测 · 间隙测量</p></div>
+      <div class="card industry-card fade-up"><span class="icon">💊</span><h3>医药包装</h3><p class="apps">标签识别 · 液位检测 · 批号 OCR</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🍜</span><h3>食品饮料</h3><p class="apps">异物检测 · 封装完整 · 日期读取</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🏭</span><h3>通用制造</h3><p class="apps">分拣计数 · 定位引导 · 在线测量</p></div>
     </div>
   </div>
 </section>
 
-<!-- 瀹氫环鏂规 -->
+<!-- 定价 -->
 <section id="pricing">
-  <div class="container">
-    <span class="section-label fade-up">瀹氫环鏂规</span>
-    <h2 class="section-title fade-up">鐏垫椿鐨?span class="hl">鐗堟湰瀹氫环</span>锛屾寜闇€閫夋嫨</h2>
-    <p class="section-desc fade-up">浠庡厤璐硅瘯鐢ㄥ埌浼佷笟瀹氬埗锛屾弧瓒充笉鍚岃妯″洟闃熺殑闇€姹傘€?/p>
+  <div class="container" style="text-align:center">
+    <span class="section-label fade-up">PRICING</span>
+    <h2 class="section-title fade-up">灵活<span class="hl">定价</span>方案</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">从试用到企业级部署，总有一款适合你的规模。</p>
     <div class="grid g4">
       <div class="card pricing-card fade-up">
-        <div class="edition">璇曠敤鐗?/div>
-        <div class="price">鍏嶈垂</div>
-        <div class="desc">30 澶╁叏鍔熻兘浣撻獙</div>
-        <ul><li>鏈€澶?20 涓妭鐐?/li><li>鍩虹鍐呯疆鎻掍欢</li><li>鍦ㄧ嚎 AI 鏀寔</li><li>绀惧尯閭欢鏀寔</li></ul>
-        <a href="#trial" class="btn btn-outline">寮€濮嬭瘯鐢?/a>
+        <div class="edition">试用版</div>
+        <div class="price">免费</div>
+        <div class="desc">30 天全功能体验</div>
+        <ul><li>最多 20 个节点</li><li>基础内置插件</li><li>在线 AI 支持</li><li>社区邮件支持</li></ul>
+        <a href="#trial" class="btn btn-outline">开始试用</a>
       </div>
       <div class="card pricing-card fade-up">
-        <div class="edition">鏍囧噯鐗?/div>
-        <div class="price">鎸夊勾璁㈤槄</div>
-        <div class="desc">灏忓瀷闆嗘垚鍟嗛閫?/div>
-        <ul><li>鏈€澶?50 涓妭鐐?/li><li>瑙嗚鍩虹鎻掍欢</li><li>鍦ㄧ嚎 AI 鏀寔</li><li>5脳8h 宸ヤ綔鏃ユ敮鎸?/li><li>24h 鍝嶅簲</li></ul>
-        <a href="#contact" class="btn btn-outline">鑱旂郴鑾峰彇鎶ヤ环</a>
+        <div class="edition">标准版</div>
+        <div class="price">按年订阅</div>
+        <div class="desc">小型集成商首选</div>
+        <ul><li>最多 50 个节点</li><li>视觉基础插件</li><li>在线 AI 支持</li><li>5×8h 工作日支持</li><li>24h 响应</li></ul>
+        <a href="#contact" class="btn btn-outline">联系获取报价</a>
       </div>
       <div class="card pricing-card featured fade-up">
-        <div class="edition">涓撲笟鐗?/div>
-        <div class="price">鎸夊勾璁㈤槄</div>
-        <div class="desc">涓瀷闆嗘垚鍟?路 鏈€浣虫€т环姣?/div>
-        <ul><li>鏃犻檺鑺傜偣</li><li>鍏ㄩ儴鎻掍欢鍖?/li><li>绂荤嚎 AI锛堟湰鍦版ā鍨嬶級</li><li>7脳12h 鏀寔</li><li>4h 蹇€熷搷搴?/li><li>2 娆?骞寸幇鍦烘湇鍔?/li></ul>
-        <a href="#contact" class="btn btn-primary">鑱旂郴鑾峰彇鎶ヤ环</a>
+        <div class="edition">专业版</div>
+        <div class="price">按年订阅</div>
+        <div class="desc">中型集成商 · 最佳性价比</div>
+        <ul><li>无限节点</li><li>全部插件包</li><li>离线 AI（本地模型）</li><li>7×12h 支持</li><li>4h 快速响应</li><li>2 次/年现场服务</li></ul>
+        <a href="#contact" class="btn btn-primary">联系获取报价</a>
       </div>
       <div class="card pricing-card fade-up">
-        <div class="edition">浼佷笟鐗?/div>
-        <div class="price">涔版柇 + 缁翠繚</div>
-        <div class="desc">澶у瀷宸ュ巶瀹氬埗鏂规</div>
-        <ul><li>鍏ㄩ儴鍔熻兘鏃犻檺鍒?/li><li>婧愮爜绾у畾鍒?/li><li>澶氱敤鎴?+ API 鎺ュ彛</li><li>7脳24h 涓撳睘鏀寔</li><li>2h 鏋侀€熷搷搴?/li><li>涓嶉檺娆＄幇鍦烘湇鍔?/li></ul>
-        <a href="#contact" class="btn btn-outline">鑱旂郴鑾峰彇鎶ヤ环</a>
+        <div class="edition">企业版</div>
+        <div class="price">买断 + 维保</div>
+        <div class="desc">大型工厂定制方案</div>
+        <ul><li>全部功能无限制</li><li>源码级定制</li><li>多用户 + API 接口</li><li>7×24h 专属支持</li><li>2h 极速响应</li><li>不限次现场服务</li></ul>
+        <a href="#contact" class="btn btn-outline">联系获取报价</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section id="trial" style="background:linear-gradient(160deg,var(--bg),var(--bg3));text-align:center;padding:5rem 2.5rem">
+<section id="contact" style="background:var(--bg2);text-align:center">
   <div class="container">
-    <h2 class="section-title fade-up" style="margin-bottom:.8rem">鍑嗗濂借宸ュ巶<span class="hl">銆岃█鍑烘硶闅忋€?/span>浜嗗悧锛?/h2>
-    <p class="section-desc fade-up" style="margin:0 auto 2rem;text-align:center;max-width:32rem">30 澶╁厤璐硅瘯鐢紝闆堕闄╀綋楠?AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲骞冲彴銆?/p>
+    <h2 class="section-title fade-up" style="margin-bottom:.8rem">准备好让工厂<span class="hl">「言出法随」</span>了吗？</h2>
+    <p class="section-desc fade-up" style="margin:0 auto 2rem;text-align:center;max-width:32rem">30 天免费试用，零风险体验 AI 驱动的工业自动化平台。</p>
     <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
-      <a href="mailto:info@zhsji.com" class="btn btn-primary" style="padding:.7rem 2rem;font-size:1rem">馃摟 鑱旂郴鎴戜滑鑾峰彇璇曠敤</a>
+      <a href="mailto:info@zhsji.com" class="btn btn-primary" style="padding:.7rem 2rem;font-size:1rem">📧 联系我们获取试用</a>
     </div>
   </div>
 </section>
 
-<!-- 椤佃剼 -->
-<footer class="footer" id="contact">
-  <div class="footer-brand"><span class="hl">瑷€缁?/span> PromptLogic</div>
-  <div class="footer-company">鐝犳捣涓夌晫鏅鸿兘绉戞妧鏈夐檺鍏徃<br>Zhuhai SJI Technology Co., Ltd.</div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand"><span class="hl">言绎</span> PromptLogic</div>
+  <div class="footer-company">珠海三界智能科技有限公司</div>
   <div class="footer-links">
-    <a href="#features">浜у搧鍔熻兘</a>
-    <a href="#architecture">鎶€鏈灦鏋?/a>
-    <a href="#industries">琛屼笟搴旂敤</a>
-    <a href="#pricing">瀹氫环鏂规</a>
-    <a href="privacy.html">闅愮鏀跨瓥</a>
+    <a href="#features">核心功能</a>
+    <a href="#architecture">技术架构</a>
+    <a href="#industries">行业应用</a>
+    <a href="#pricing">定价方案</a>
+    <a href="privacy.html">隐私政策</a>
   </div>
-  <div class="footer-copy">漏 2026 鐝犳捣涓夌晫鏅鸿兘绉戞妧鏈夐檺鍏徃 路 绮CP澶嘪XXXXXXX鍙?路 淇濈暀鎵€鏈夋潈鍒?/div>
+  <div class="footer-copy">© 2026 珠海三界智能科技有限公司 · 粤ICP备XXXXXXXX号 · 保留所有权利</div>
 </footer>
 
-<!-- JS -->
 <script>
-// Particle background
+// 粒子背景
 (function(){
   var c=document.getElementById('particles'),ctx=c.getContext('2d');
-  var w,h,particles=[];
+  var w,h,pts=[];
   function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
   window.addEventListener('resize',resize);resize();
-  for(var i=0;i<80;i++){
-    particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.5,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,o:Math.random()*.3+.1});
-  }
+  for(var i=0;i<80;i++) pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.5,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,o:Math.random()*.3+.1});
   function draw(){
     ctx.clearRect(0,0,w,h);
-    for(var i=0;i<particles.length;i++){
-      var p=particles[i];
-      p.x+=p.dx;p.y+=p.dy;
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i];p.x+=p.dx;p.y+=p.dy;
       if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(155,27,48,'+p.o+')';ctx.fill();
-      for(var j=i+1;j<particles.length;j++){
-        var q=particles[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(155,27,48,'+p.o+')';ctx.fill();
+      for(var j=i+1;j<pts.length;j++){
+        var q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
         if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(155,27,48,'+((.08)*(1-d/120))+')';ctx.stroke()}
       }
     }
@@ -440,27 +448,20 @@ section{padding:8rem 3rem;position:relative;overflow:hidden}
   }
   draw();
 })();
-// Navbar scroll
+// 导航栏滚动
 window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)});
-// Scroll animations
-var observer=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
-},{threshold:0.12});
+// 滚动入场动画
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.12});
 document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
-// Smooth anchors
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var t=document.querySelector(this.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
-  });
-});
-// Screenshot tabs
+// 平滑锚点
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+// 截图切换
 var captions=[
-  '<strong>\u542f\u52a8\u753b\u9762</strong> \u2014 \u54c1\u724c\u5c55\u793a + \u540e\u53f0\u52a0\u8f7d\uff08\u63d2\u4ef6\u626b\u63cf\u3001\u914d\u7f6e\u8bfb\u53d6\u3001AI \u6a21\u578b\u9884\u70ed\uff09\uff0c\u8fdb\u5ea6\u5b9e\u65f6\u53cd\u9988',
-  '<strong>\u4e3b\u5de5\u4f5c\u754c\u9762</strong> \u2014 \u8282\u70b9\u5e93\u3001AI \u52a9\u624b\u3001\u8282\u70b9\u753b\u5e03\u3001\u5c5e\u6027\u9762\u677f\u3001\u5168\u5c40\u53d8\u91cf\u3001\u6267\u884c\u65e5\u5fd7\uff0c\u516d\u5927\u533a\u57df\u4e00\u89c8\u65e0\u4f59',
-  '<strong>AI \u5de5\u4f5c\u6d41\u751f\u6210</strong> \u2014 \u8f93\u5165\u4e00\u53e5\u8bdd\uff0cAI \u81ea\u52a8\u751f\u6210\u5b8c\u6574\u89c6\u89c9\u68c0\u6d4b\u5de5\u4f5c\u6d41\uff0c\u771f\u6b63\u505a\u5230\u300c\u8a00\u51fa\u6cd5\u968f\u300d',
-  '<strong>\u8282\u70b9\u753b\u5e03\u7279\u5199</strong> \u2014 \u8d1d\u585e\u5c14\u66f2\u7ebf\u8fde\u7ebf\u3001GDI+ \u9ad8\u6027\u80fd\u6e32\u67d3\u300160FPS \u6d41\u7545\u62d6\u62fd\uff0c200+ \u8282\u70b9\u4f9d\u7136\u4e1d\u6ed1',
-  '<strong>\u6267\u884c\u76d1\u63a7\u9762\u677f</strong> \u2014 \u4ea7\u91cf\u3001\u826f\u7387\u3001\u8282\u62cd\u65f6\u95f4\u5b9e\u65f6\u7edf\u8ba1\uff0c\u826f\u7387\u8d8b\u52bf\u56fe\uff0c\u5f02\u5e38\u8ffd\u6eaf\u4e00\u76ee\u4e86\u7136'
+  '<strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈',
+  '<strong>主工作界面</strong> — 节点库、AI 助手、节点画布、属性面板、全局变量、执行日志，六大区域一览无余',
+  '<strong>AI 工作流生成</strong> — 输入一句话，AI 自动生成完整视觉检测工作流，真正做到「言出法随」',
+  '<strong>节点画布特写</strong> — 贝塞尔曲线连线、GDI+ 高性能渲染、60FPS 流畅拖拽，200+ 节点依然丝滑',
+  '<strong>执行监控面板</strong> — 产量、良率、节拍时间实时统计，良率趋势图，异常追溯一目了然'
 ];
 function showScreenshot(idx){
   for(var i=0;i<5;i++){

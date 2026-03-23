@@ -1,185 +1,173 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>言绎 PromptLogic — AI 驱动的工业自动化低代码平台</title>
-<meta name="description" content="用自然语言创建工业工作流，让工厂技术员「言出法随」。视觉检测、运动控制、通信协议，一句话搞定。">
+<title>瑷€缁?PromptLogic 鈥?AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲浣庝唬鐮佸钩鍙?/title>
+<meta name="description" content="鐢ㄨ嚜鐒惰瑷€鍒涘缓宸ヤ笟宸ヤ綔娴侊紝璁╁伐鍘傛妧鏈憳銆岃█鍑烘硶闅忋€嶃€傝瑙夋娴嬨€佽繍鍔ㄦ帶鍒躲€侀€氫俊鍗忚锛屼竴鍙ヨ瘽鎼炲畾銆?>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ========== Reset & Variables ========== */
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#08080c;--bg2:#100d14;--bg3:#1a1520;--bg4:#221c2a;
-  --wine:#9b1b30;--wine-light:#c4354e;--wine-dark:#6e1322;--wine-glow:rgba(155,27,48,.25);
-  --gold:#c9a96e;--gold-light:#e0c992;
-  --text:#e8e4ec;--text2:#a09aaa;--text3:#6b6474;
-  --green:#34d399;--red:#ef4444;
-  --grad1:linear-gradient(135deg,#9b1b30,#c4354e);
-  --grad2:linear-gradient(135deg,#6e1322,#9b1b30);
-  --grad3:linear-gradient(135deg,#9b1b30,#c9a96e);
-  --radius:.6rem;
-}
+:root{--bg:#08080c;--bg2:#0e0c12;--bg3:#16121e;--wine:#9b1b30;--wine-light:#c4354e;--wine-dark:#6e1322;--wine-glow:rgba(155,27,48,.3);--gold:#c9a96e;--text:#f0ecf4;--text2:#a8a2b2;--text3:#6b6474;--grad1:linear-gradient(135deg,#9b1b30,#c4354e);--grad3:linear-gradient(135deg,#9b1b30,#c9a96e);--radius:.8rem}
 html{font-size:16px;scroll-behavior:smooth}
-body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
-a{color:var(--wine-light);text-decoration:none;transition:.2s}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.7}
+a{color:var(--wine-light);text-decoration:none;transition:.3s}
 a:hover{color:var(--gold)}
 ::selection{background:var(--wine);color:#fff}
 
-/* ========== Navigation ========== */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,12,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(155,27,48,.15);transition:.3s}
-.navbar.scrolled{padding:.5rem 2.5rem;background:rgba(8,8,12,.95);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+/* Nav */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,12,.6);backdrop-filter:blur(28px) saturate(1.3);border-bottom:1px solid rgba(155,27,48,.06);transition:.4s}
+.navbar.scrolled{padding:.55rem 3rem;background:rgba(8,8,12,.92);border-bottom-color:rgba(155,27,48,.12);box-shadow:0 8px 40px rgba(0,0,0,.5)}
 .nav-brand{display:flex;align-items:center;gap:.6rem}
-.nav-brand svg{width:32px;height:32px}
-.nav-brand span{font-size:1.1rem;font-weight:700;letter-spacing:.02em}
+.nav-brand svg{width:28px;height:28px}
+.nav-brand span{font-size:1rem;font-weight:700}
 .nav-brand .cn{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:.85rem;font-weight:500;color:var(--text2);transition:.2s;position:relative}
+.nav-links{display:flex;align-items:center;gap:2.2rem}
+.nav-links a{font-size:.82rem;font-weight:500;color:var(--text2);transition:.3s;position:relative}
 .nav-links a:hover{color:var(--text)}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--grad1);transition:.3s}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--grad1);transition:.3s}
 .nav-links a:hover::after{width:100%}
-.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.4rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;cursor:pointer;transition:.3s;border:none}
-.btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 20px var(--wine-glow)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--wine-glow);color:#fff}
-.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(155,27,48,.4)}
-.btn-outline:hover{border-color:var(--wine-light);background:rgba(155,27,48,.08);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.6rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;cursor:pointer;transition:.4s;border:none}
+.btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 24px var(--wine-glow)}
+.btn-primary:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 12px 44px var(--wine-glow);color:#fff}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid rgba(155,27,48,.3)}
+.btn-outline:hover{border-color:var(--wine-light);background:rgba(155,27,48,.05);color:#fff;transform:translateY(-1px)}
 
-/* ========== Sections ========== */
-section{padding:6rem 2.5rem;position:relative;overflow:hidden}
+/* Sections */
+section{padding:8rem 3rem;position:relative;overflow:hidden}
 .container{max-width:72rem;margin:0 auto}
-.section-label{display:inline-block;padding:.25rem .8rem;border-radius:2rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;background:rgba(155,27,48,.12);color:var(--wine-light);border:1px solid rgba(155,27,48,.2)}
-.section-title{font-size:2.4rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.03em;line-height:1.2}
+.section-label{display:inline-block;padding:.3rem 1rem;border-radius:2rem;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.2rem;background:rgba(155,27,48,.07);color:var(--wine-light);border:1px solid rgba(155,27,48,.12)}
+.section-title{font-size:3rem;font-weight:800;margin-bottom:1.2rem;letter-spacing:-.04em;line-height:1.12}
 .section-title .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.section-desc{font-size:1rem;color:var(--text2);max-width:40rem;line-height:1.8;margin-bottom:2.5rem}
+.section-desc{font-size:1.05rem;color:var(--text2);max-width:34rem;line-height:1.9;margin-bottom:3rem}
 
-/* ========== Hero ========== */
+/* Particle canvas */
+#particles{position:absolute;inset:0;z-index:0;pointer-events:none}
+
+/* Hero */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:5rem;position:relative}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(155,27,48,.08) 0%,transparent 70%),radial-gradient(circle at 20% 80%,rgba(110,19,34,.06) 0%,transparent 40%),radial-gradient(circle at 80% 20%,rgba(201,169,110,.03) 0%,transparent 40%);pointer-events:none}
-.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(155,27,48,.3),transparent)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 35%,rgba(155,27,48,.06) 0%,transparent 70%),radial-gradient(circle at 15% 85%,rgba(110,19,34,.04) 0%,transparent 35%),radial-gradient(circle at 85% 15%,rgba(201,169,110,.02) 0%,transparent 35%);pointer-events:none;z-index:0}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(155,27,48,.2),transparent)}
 .hero-content{position:relative;z-index:1}
-.hero-logo{margin-bottom:2rem}
-.hero-logo svg{width:90px;height:90px;filter:drop-shadow(0 0 30px rgba(155,27,48,.4))}
-.hero h1{font-size:3.8rem;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:.8rem}
+.hero-logo{margin-bottom:2.5rem}
+.hero-logo svg{width:110px;height:110px;filter:drop-shadow(0 0 40px rgba(155,27,48,.3));animation:logoPulse 4s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{filter:drop-shadow(0 0 30px rgba(155,27,48,.25))}50%{filter:drop-shadow(0 0 60px rgba(155,27,48,.5))}}
+.hero h1{font-size:4.8rem;font-weight:900;letter-spacing:-.05em;line-height:1.05;margin-bottom:1.2rem}
 .hero h1 .hl{background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero .subtitle{font-size:1.3rem;color:var(--text2);font-weight:300;letter-spacing:.06em;margin-bottom:.6rem}
-.hero .tagline{font-size:1rem;color:var(--text3);max-width:32rem;margin:0 auto 2rem;line-height:1.7}
-.hero-cta{display:flex;gap:1rem;justify-content:center;margin-bottom:3rem}
-.hero-stats{display:flex;gap:3rem;justify-content:center}
-.hero-stat{text-align:center}
-.hero-stat .val{font-size:2rem;font-weight:800;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-stat .lbl{font-size:.7rem;color:var(--text3);margin-top:.15rem;letter-spacing:.04em}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
-.hero-scroll span{display:block;width:20px;height:32px;border:2px solid var(--text3);border-radius:10px;position:relative}
-.hero-scroll span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--wine-light);animation:scrollDot 2s infinite}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
-@keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:18px}}
+.hero .subtitle{font-size:1.4rem;color:var(--text2);font-weight:300;letter-spacing:.1em;margin-bottom:1rem}
+.hero .tagline{font-size:1.05rem;color:var(--text3);max-width:28rem;margin:0 auto 3rem;line-height:1.9}
+.hero-cta{display:flex;gap:1.2rem;justify-content:center;margin-bottom:4.5rem}
+.hero-cta .btn{padding:.8rem 2.2rem;font-size:.95rem}
+.hero-stats{display:flex;gap:4.5rem;justify-content:center}
+.hero-stat{text-align:center;position:relative}
+.hero-stat::after{content:'';position:absolute;right:-2.25rem;top:50%;transform:translateY(-50%);width:1px;height:2rem;background:rgba(155,27,48,.12)}
+.hero-stat:last-child::after{display:none}
+.hero-stat .val{font-size:2.6rem;font-weight:800;font-family:'JetBrains Mono','Inter',monospace;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat .lbl{font-size:.68rem;color:var(--text3);margin-top:.35rem;letter-spacing:.08em;text-transform:uppercase}
+.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);animation:bounce 2.5s ease-in-out infinite}
+.hero-scroll span{display:block;width:22px;height:36px;border:2px solid rgba(155,27,48,.25);border-radius:11px;position:relative}
+.hero-scroll span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--wine-light);animation:scrollDot 2.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+@keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:20px}}
 
-/* ========== Cards & Grid ========== */
-.grid{display:grid;gap:1.2rem}
+/* Cards */
+.grid{display:grid;gap:1.5rem}
 .g2{grid-template-columns:1fr 1fr}
 .g3{grid-template-columns:1fr 1fr 1fr}
 .g4{grid-template-columns:1fr 1fr 1fr 1fr}
-.card{background:var(--bg2);border:1px solid rgba(155,27,48,.08);border-radius:var(--radius);padding:1.8rem;transition:.3s}
-.card:hover{border-color:rgba(155,27,48,.25);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.card .icon{font-size:2rem;margin-bottom:1rem}
-.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
-.card p{font-size:.88rem;color:var(--text2);line-height:1.7}
+.card{background:var(--bg2);border:1px solid rgba(155,27,48,.05);border-radius:var(--radius);padding:2.2rem;transition:.4s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;inset:-1px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(155,27,48,.15),transparent 60%);opacity:0;transition:.4s;z-index:-1}
+.card:hover{border-color:rgba(155,27,48,.15);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.card:hover::before{opacity:1}
+.card .icon{font-size:2.4rem;margin-bottom:1.2rem;display:block}
+.card h3{font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
+.card p{font-size:.88rem;color:var(--text2);line-height:1.85}
 
-/* ========== Comparison ========== */
-.compare{display:flex;gap:1.5rem;align-items:stretch}
-.compare-side{flex:1;background:var(--bg2);border-radius:var(--radius);padding:2rem;border:1px solid rgba(255,255,255,.04)}
-.compare-side.good{border-color:rgba(155,27,48,.2);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.04))}
-.compare-arrow{display:flex;align-items:center;font-size:2rem;color:var(--wine-light)}
-.compare-side h3{font-size:1.1rem;font-weight:700;margin-bottom:1.2rem}
+/* Comparison */
+.compare{display:flex;gap:2rem;align-items:stretch}
+.compare-side{flex:1;background:var(--bg2);border-radius:var(--radius);padding:2.5rem;border:1px solid rgba(255,255,255,.03)}
+.compare-side.good{border-color:rgba(155,27,48,.12);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.03))}
+.compare-arrow{display:flex;align-items:center;font-size:2.4rem;color:var(--wine-light);opacity:.4}
+.compare-side h3{font-size:1.15rem;font-weight:700;margin-bottom:1.4rem}
 .compare-side.bad h3{color:var(--text3)}
 .compare-side.good h3{color:var(--wine-light)}
-.flow-steps{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-bottom:1rem}
-.flow-step{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:.3rem;padding:.35rem .7rem;font-size:.8rem;font-weight:500}
-.flow-arrow{color:var(--text3);font-size:.9rem}
-.compare-side.good .flow-step{border-color:rgba(155,27,48,.2);background:rgba(155,27,48,.06)}
-.quote{border-left:3px solid var(--wine);padding:.8rem 1.2rem;background:rgba(155,27,48,.04);border-radius:0 var(--radius) var(--radius) 0;font-size:.9rem;color:var(--wine-light);font-style:italic;margin-top:2rem;max-width:56rem}
+.flow-steps{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:1.2rem}
+.flow-step{background:var(--bg3);border:1px solid rgba(255,255,255,.04);border-radius:.4rem;padding:.4rem .8rem;font-size:.8rem;font-weight:500}
+.flow-arrow{color:var(--text3);font-size:.85rem}
+.compare-side.good .flow-step{border-color:rgba(155,27,48,.12);background:rgba(155,27,48,.04)}
+.quote{border-left:3px solid var(--wine);padding:1rem 1.5rem;background:rgba(155,27,48,.025);border-radius:0 var(--radius) var(--radius) 0;font-size:.95rem;color:var(--wine-light);font-style:italic;margin-top:2.5rem}
 
-/* ========== Showcase ========== */
-.showcase-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
-.showcase-tab{padding:.6rem 1.5rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;cursor:pointer;background:var(--bg3);border:1px solid rgba(155,27,48,.1);color:var(--text2);transition:.3s}
-.showcase-tab:hover{border-color:rgba(155,27,48,.3);color:var(--text)}
-.showcase-tab.active{background:var(--grad1);color:#fff;border-color:transparent;box-shadow:0 4px 16px var(--wine-glow)}
-.showcase-frame{position:relative;background:var(--bg2);border:1px solid rgba(155,27,48,.15);border-radius:.8rem;padding:.6rem;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 80px rgba(155,27,48,.06);max-width:64rem;margin:0 auto}
-.showcase-frame img{width:100%;border-radius:.4rem;display:block;transition:opacity .4s ease}
+/* Showcase */
+.showcase-tabs{display:flex;gap:.6rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap}
+.showcase-tab{padding:.65rem 1.6rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;cursor:pointer;background:var(--bg3);border:1px solid rgba(155,27,48,.06);color:var(--text2);transition:.3s}
+.showcase-tab:hover{border-color:rgba(155,27,48,.2);color:var(--text)}
+.showcase-tab.active{background:var(--grad1);color:#fff;border-color:transparent;box-shadow:0 4px 20px var(--wine-glow)}
+.showcase-frame{position:relative;background:var(--bg2);border:1px solid rgba(155,27,48,.08);border-radius:1rem;padding:.5rem;box-shadow:0 30px 100px rgba(0,0,0,.5),0 0 120px rgba(155,27,48,.03),inset 0 1px 0 rgba(255,255,255,.02);max-width:64rem;margin:0 auto}
+.showcase-frame img{width:100%;border-radius:.6rem;display:block;transition:opacity .5s}
 .showcase-frame img.hidden{display:none;opacity:0}
-.showcase-caption{text-align:center;margin-top:1.2rem;font-size:.85rem;color:var(--text2)}
+.showcase-caption{text-align:center;margin-top:1.5rem;font-size:.88rem;color:var(--text2)}
 .showcase-caption strong{color:var(--text);font-weight:600}
 
-/* ========== Architecture ========== */
-.arch-layers{background:var(--bg2);border:1px solid rgba(155,27,48,.1);border-radius:var(--radius);padding:2rem;max-width:56rem;margin:0 auto}
-.arch-layer{border:1px solid rgba(155,27,48,.1);border-radius:.4rem;padding:.8rem 1rem;margin-bottom:.5rem}
+/* Architecture */
+.arch-layers{background:var(--bg2);border:1px solid rgba(155,27,48,.06);border-radius:var(--radius);padding:2.2rem;max-width:56rem;margin:0 auto}
+.arch-layer{border:1px solid rgba(155,27,48,.06);border-radius:.5rem;padding:1rem 1.2rem;margin-bottom:.6rem}
 .arch-layer:last-child{margin-bottom:0}
-.arch-label{font-size:.65rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
-.arch-tags{display:flex;gap:.4rem;flex-wrap:wrap}
-.arch-tag{background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.1);border-radius:.3rem;padding:.3rem .7rem;font-size:.78rem}
-.arch-tag.highlight{border-color:rgba(155,27,48,.3);background:rgba(155,27,48,.12);font-weight:600}
-.arch-connector{text-align:center;color:var(--wine-light);font-size:.7rem;margin:.2rem 0;letter-spacing:.06em}
+.arch-label{font-size:.62rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+.arch-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.arch-tag{background:rgba(155,27,48,.03);border:1px solid rgba(155,27,48,.06);border-radius:.35rem;padding:.35rem .8rem;font-size:.78rem}
+.arch-tag.highlight{border-color:rgba(155,27,48,.2);background:rgba(155,27,48,.08);font-weight:600}
+.arch-connector{text-align:center;color:var(--wine-light);font-size:.7rem;margin:.3rem 0;opacity:.5}
 
-/* ========== Industry ========== */
-.industry-card{text-align:center;padding:2rem 1.5rem}
-.industry-card .icon{font-size:2.5rem;margin-bottom:.8rem}
-.industry-card h3{margin-bottom:.4rem}
+/* Industry */
+.industry-card{text-align:center;padding:2.5rem 1.5rem}
+.industry-card .icon{font-size:2.8rem;margin-bottom:1rem}
+.industry-card h3{margin-bottom:.5rem}
 .industry-card .apps{font-size:.78rem;color:var(--text3)}
 
-/* ========== Pricing ========== */
-.pricing-card{text-align:center;padding:2rem 1.5rem;position:relative}
-.pricing-card.featured{border-color:rgba(155,27,48,.4);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.06))}
-.pricing-card.featured::before{content:'推荐';position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--grad1);color:#fff;font-size:.65rem;font-weight:700;padding:.2rem .8rem;border-radius:1rem}
-.pricing-card .edition{font-size:.75rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
-.pricing-card .price{font-size:2rem;font-weight:800;margin-bottom:.3rem}
+/* Pricing */
+.pricing-card{text-align:center;padding:2.5rem 1.5rem;position:relative}
+.pricing-card.featured{border-color:rgba(155,27,48,.25);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.04))}
+.pricing-card.featured::before{content:'鎺ㄨ崘';position:absolute;top:-.65rem;left:50%;transform:translateX(-50%);background:var(--grad1);color:#fff;font-size:.58rem;font-weight:700;padding:.25rem .9rem;border-radius:1rem;letter-spacing:.06em}
+.pricing-card .edition{font-size:.7rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.14em;margin-bottom:.6rem}
+.pricing-card .price{font-size:1.8rem;font-weight:800;margin-bottom:.4rem}
 .pricing-card .price .unit{font-size:.8rem;font-weight:400;color:var(--text2)}
-.pricing-card .desc{font-size:.8rem;color:var(--text3);margin-bottom:1.2rem}
-.pricing-card ul{list-style:none;text-align:left;margin-bottom:1.5rem}
-.pricing-card li{font-size:.82rem;padding:.3rem 0;color:var(--text2)}
-.pricing-card li::before{content:'✓';color:var(--wine-light);margin-right:.5rem;font-weight:700}
+.pricing-card .desc{font-size:.8rem;color:var(--text3);margin-bottom:1.4rem}
+.pricing-card ul{list-style:none;text-align:left;margin-bottom:1.8rem}
+.pricing-card li{font-size:.82rem;padding:.35rem 0;color:var(--text2)}
+.pricing-card li::before{content:'鉁?;color:var(--wine-light);margin-right:.5rem;font-weight:700}
 .pricing-card .btn{width:100%}
 
-/* ========== Footer ========== */
-.footer{background:var(--bg2);border-top:1px solid rgba(155,27,48,.1);padding:3rem 2.5rem 1.5rem;text-align:center}
-.footer-brand{font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
+/* Footer */
+.footer{background:var(--bg2);border-top:1px solid rgba(155,27,48,.06);padding:3.5rem 3rem 2rem;text-align:center}
+.footer-brand{font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
 .footer-brand .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.footer-company{font-size:.78rem;color:var(--text3);margin-bottom:1.5rem}
-.footer-links{display:flex;gap:2rem;justify-content:center;margin-bottom:1.5rem}
-.footer-links a{font-size:.8rem;color:var(--text3)}
+.footer-company{font-size:.78rem;color:var(--text3);margin-bottom:1.8rem}
+.footer-links{display:flex;gap:2.2rem;justify-content:center;margin-bottom:1.8rem}
+.footer-links a{font-size:.8rem;color:var(--text3);transition:.3s}
 .footer-links a:hover{color:var(--wine-light)}
-.footer-copy{font-size:.7rem;color:var(--text3);border-top:1px solid rgba(255,255,255,.04);padding-top:1rem}
+.footer-copy{font-size:.68rem;color:var(--text3);border-top:1px solid rgba(255,255,255,.03);padding-top:1.2rem}
 
-/* ========== Animations ========== */
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+/* Animations */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-.fade-up:nth-child(2){transition-delay:.08s}
-.fade-up:nth-child(3){transition-delay:.16s}
-.fade-up:nth-child(4){transition-delay:.24s}
-.fade-up:nth-child(5){transition-delay:.32s}
-.fade-up:nth-child(6){transition-delay:.4s}
+.fade-up:nth-child(2){transition-delay:.1s}
+.fade-up:nth-child(3){transition-delay:.2s}
+.fade-up:nth-child(4){transition-delay:.3s}
+.fade-up:nth-child(5){transition-delay:.4s}
+.fade-up:nth-child(6){transition-delay:.5s}
 
-/* ========== Responsive ========== */
-@media(max-width:1024px){
-  .g3,.g4{grid-template-columns:1fr 1fr}
-  .hero h1{font-size:2.8rem}
-  section{padding:4rem 1.5rem}
-}
-@media(max-width:640px){
-  .g2,.g3,.g4{grid-template-columns:1fr}
-  .hero h1{font-size:2.2rem}
-  .hero .subtitle{font-size:1rem}
-  .hero-stats{flex-wrap:wrap;gap:1.5rem}
-  .compare{flex-direction:column}
-  .compare-arrow{transform:rotate(90deg);justify-content:center}
-  .navbar{padding:.6rem 1rem}
-  .nav-links{display:none}
-  .hero-cta{flex-direction:column;align-items:center}
-}
+/* Responsive */
+@media(max-width:1024px){.g3,.g4{grid-template-columns:1fr 1fr}.hero h1{font-size:3.2rem}section{padding:5rem 2rem}.section-title{font-size:2.4rem}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}.hero h1{font-size:2.4rem}.hero .subtitle{font-size:1rem}.hero-stats{flex-wrap:wrap;gap:2rem}.hero-stat::after{display:none}.compare{flex-direction:column}.compare-arrow{transform:rotate(90deg);justify-content:center}.navbar{padding:.6rem 1.2rem}.nav-links{display:none}.hero-cta{flex-direction:column;align-items:center}section{padding:4rem 1.2rem}.section-title{font-size:1.8rem}}
+
 </style>
 </head>
 <body>
 
-<!-- 导航栏 -->
+<canvas id="particles"></canvas>
+
+<!-- Nav -->
+<!-- 瀵艰埅鏍?-->
 <nav class="navbar" id="navbar">
   <div class="nav-brand">
     <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -190,16 +178,16 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
       <line x1="28" y1="90" x2="28" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
       <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
     </svg>
-    <span><span class="cn">言绎</span> PromptLogic</span>
+    <span><span class="cn">瑷€缁?/span> PromptLogic</span>
   </div>
   <div class="nav-links">
-    <a href="#showcase">界面</a>
-    <a href="#features">功能</a>
-    <a href="#architecture">架构</a>
-    <a href="#industries">行业</a>
-    <a href="#pricing">定价</a>
-    <a href="#contact">联系</a>
-    <a href="#trial" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.8rem">免费试用</a>
+    <a href="#showcase">鐣岄潰</a>
+    <a href="#features">鍔熻兘</a>
+    <a href="#architecture">鏋舵瀯</a>
+    <a href="#industries">琛屼笟</a>
+    <a href="#pricing">瀹氫环</a>
+    <a href="#contact">鑱旂郴</a>
+    <a href="#trial" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.8rem">鍏嶈垂璇曠敤</a>
   </div>
 </nav>
 
@@ -216,54 +204,54 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
         <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
       </svg>
     </div>
-    <h1><span class="hl">言出法随</span>，智驭工业</h1>
-    <div class="subtitle">AI 驱动的工业自动化低代码平台</div>
-    <p class="tagline">用自然语言创建工业工作流，让工厂技术员从繁琐编程中解放。<br>视觉检测、运动控制、通信协议——一句话，全搞定。</p>
+    <h1><span class="hl">瑷€鍑烘硶闅?/span>锛屾櫤椹伐涓?/h1>
+    <div class="subtitle">AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲浣庝唬鐮佸钩鍙?/div>
+    <p class="tagline">鐢ㄨ嚜鐒惰瑷€鍒涘缓宸ヤ笟宸ヤ綔娴侊紝璁╁伐鍘傛妧鏈憳浠庣箒鐞愮紪绋嬩腑瑙ｆ斁銆?br>瑙嗚妫€娴嬨€佽繍鍔ㄦ帶鍒躲€侀€氫俊鍗忚鈥斺€斾竴鍙ヨ瘽锛屽叏鎼炲畾銆?/p>
     <div class="hero-cta">
-      <a href="#trial" class="btn btn-primary">🚀 免费试用 30 天</a>
-      <a href="#features" class="btn btn-outline">了解更多 ↓</a>
+      <a href="#trial" class="btn btn-primary">馃殌 鍏嶈垂璇曠敤 30 澶?/a>
+      <a href="#features" class="btn btn-outline">浜嗚В鏇村 鈫?/a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="val">16+</div><div class="lbl">内置节点</div></div>
-      <div class="hero-stat"><div class="val">6</div><div class="lbl">大行业覆盖</div></div>
-      <div class="hero-stat"><div class="val">7×24</div><div class="lbl">工业级可靠</div></div>
-      <div class="hero-stat"><div class="val">AI</div><div class="lbl">驱动核心</div></div>
+      <div class="hero-stat"><div class="val">16+</div><div class="lbl">鍐呯疆鑺傜偣</div></div>
+      <div class="hero-stat"><div class="val">6</div><div class="lbl">澶ц涓氳鐩?/div></div>
+      <div class="hero-stat"><div class="val">7脳24</div><div class="lbl">宸ヤ笟绾у彲闈?/div></div>
+      <div class="hero-stat"><div class="val">AI</div><div class="lbl">椹卞姩鏍稿績</div></div>
     </div>
   </div>
   <div class="hero-scroll"><span></span></div>
 </section>
 
-<!-- 痛点 → 价值 -->
+<!-- 鐥涚偣 鈫?浠峰€?-->
 <section id="problem">
   <div class="container">
-    <span class="section-label fade-up">为什么选择言绎</span>
-    <h2 class="section-title fade-up">从<span class="hl">繁琐编程</span>到<span class="hl">一句话搞定</span></h2>
+    <span class="section-label fade-up">涓轰粈涔堥€夋嫨瑷€缁?/span>
+    <h2 class="section-title fade-up">浠?span class="hl">绻佺悙缂栫▼</span>鍒?span class="hl">涓€鍙ヨ瘽鎼炲畾</span></h2>
     <div class="compare fade-up">
       <div class="compare-side bad">
-        <h3>❌ 传统工控软件</h3>
+        <h3>鉂?浼犵粺宸ユ帶杞欢</h3>
         <div class="flow-steps">
-          <span class="flow-step">工程师</span><span class="flow-arrow">→</span>
-          <span class="flow-step">学习节点</span><span class="flow-arrow">→</span>
-          <span class="flow-step">手动拖拽</span><span class="flow-arrow">→</span>
-          <span class="flow-step">手动连线</span><span class="flow-arrow">→</span>
-          <span class="flow-step">调试参数</span><span class="flow-arrow">→</span>
-          <span class="flow-step">运行</span>
+          <span class="flow-step">宸ョ▼甯?/span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">瀛︿範鑺傜偣</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">鎵嬪姩鎷栨嫿</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">鎵嬪姩杩炵嚎</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">璋冭瘯鍙傛暟</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">杩愯</span>
         </div>
-        <p style="color:var(--text3);font-size:.88rem">痛点：学习成本高 · 操作繁琐 · 人才依赖强 · 交期长</p>
+        <p style="color:var(--text3);font-size:.88rem">鐥涚偣锛氬涔犳垚鏈珮 路 鎿嶄綔绻佺悙 路 浜烘墠渚濊禆寮?路 浜ゆ湡闀?/p>
       </div>
-      <div class="compare-arrow">→</div>
+      <div class="compare-arrow">鈫?/div>
       <div class="compare-side good">
-        <h3>✅ 言绎愿景</h3>
+        <h3>鉁?瑷€缁庢効鏅?/h3>
         <div class="flow-steps">
-          <span class="flow-step">技术员</span><span class="flow-arrow">→</span>
-          <span class="flow-step">说一句话</span><span class="flow-arrow">→</span>
-          <span class="flow-step">AI 自动生成</span><span class="flow-arrow">→</span>
-          <span class="flow-step">微调运行</span>
+          <span class="flow-step">鎶€鏈憳</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">璇翠竴鍙ヨ瘽</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">AI 鑷姩鐢熸垚</span><span class="flow-arrow">鈫?/span>
+          <span class="flow-step">寰皟杩愯</span>
         </div>
-        <p style="color:var(--text2);font-size:.88rem">价值：零学习成本 · AI 代替专家经验 · 降低人才门槛</p>
+        <p style="color:var(--text2);font-size:.88rem">浠峰€硷細闆跺涔犳垚鏈?路 AI 浠ｆ浛涓撳缁忛獙 路 闄嶄綆浜烘墠闂ㄦ</p>
       </div>
     </div>
-    <div class="quote fade-up">「言绎的竞争对手不是同行，而是不会编程的工厂技术员的学习成本。」</div>
+    <div class="quote fade-up">銆岃█缁庣殑绔炰簤瀵规墜涓嶆槸鍚岃锛岃€屾槸涓嶄細缂栫▼鐨勫伐鍘傛妧鏈憳鐨勫涔犳垚鏈€傘€?/div>
   </div>
 </section>
 
@@ -271,14 +259,14 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
 <section id="showcase">
   <div class="container" style="text-align:center">
     <span class="section-label fade-up">PRODUCT INTERFACE</span>
-    <h2 class="section-title fade-up">专业级<span class="hl">工业软件</span>界面</h2>
-    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">深色主题设计，减少工厂环境屏幕刺眼。多面板布局，可拖拽停靠、折叠自适应。</p>
+    <h2 class="section-title fade-up">涓撲笟绾?span class="hl">宸ヤ笟杞欢</span>鐣岄潰</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">娣辫壊涓婚璁捐锛屽噺灏戝伐鍘傜幆澧冨睆骞曞埡鐪笺€傚闈㈡澘甯冨眬锛屽彲鎷栨嫿鍋滈潬銆佹姌鍙犺嚜閫傚簲銆?/p>
     <div class="showcase-tabs fade-up">
-      <div class="showcase-tab active" onclick="showScreenshot(0)">🚀 启动画面</div>
-      <div class="showcase-tab" onclick="showScreenshot(1)">🖥️ 主工作界面</div>
-      <div class="showcase-tab" onclick="showScreenshot(2)">🤖 AI 工作流生成</div>
-      <div class="showcase-tab" onclick="showScreenshot(3)">🎨 节点画布</div>
-      <div class="showcase-tab" onclick="showScreenshot(4)">📊 执行监控</div>
+      <div class="showcase-tab active" onclick="showScreenshot(0)">馃殌 鍚姩鐢婚潰</div>
+      <div class="showcase-tab" onclick="showScreenshot(1)">馃枼锔?涓诲伐浣滅晫闈?/div>
+      <div class="showcase-tab" onclick="showScreenshot(2)">馃 AI 宸ヤ綔娴佺敓鎴?/div>
+      <div class="showcase-tab" onclick="showScreenshot(3)">馃帹 鑺傜偣鐢诲竷</div>
+      <div class="showcase-tab" onclick="showScreenshot(4)">馃搳 鎵ц鐩戞帶</div>
     </div>
     <div class="showcase-frame fade-up">
       <img id="ss0" src="images/splash.png" alt="splash screen">
@@ -288,7 +276,7 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
       <img id="ss4" src="images/monitoring.png" alt="monitoring dashboard" class="hidden">
     </div>
     <div class="showcase-caption fade-up" id="ss-caption">
-      <strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈
+      <strong>鍚姩鐢婚潰</strong> 鈥?鍝佺墝灞曠ず + 鍚庡彴鍔犺浇锛堟彃浠舵壂鎻忋€侀厤缃鍙栥€丄I 妯″瀷棰勭儹锛夛紝杩涘害瀹炴椂鍙嶉
     </div>
   </div>
 </section>
@@ -296,104 +284,104 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
 <!-- Core Features -->
 <section id="features" style="background:var(--bg2)">
   <div class="container">
-    <span class="section-label fade-up">核心功能</span>
-    <h2 class="section-title fade-up">六大<span class="hl">核心能力</span>，开箱即用</h2>
-    <p class="section-desc fade-up">从 AI 智能生成到工业级执行，覆盖自动化全链路。</p>
+    <span class="section-label fade-up">鏍稿績鍔熻兘</span>
+    <h2 class="section-title fade-up">鍏ぇ<span class="hl">鏍稿績鑳藉姏</span>锛屽紑绠卞嵆鐢?/h2>
+    <p class="section-desc fade-up">浠?AI 鏅鸿兘鐢熸垚鍒板伐涓氱骇鎵ц锛岃鐩栬嚜鍔ㄥ寲鍏ㄩ摼璺€?/p>
     <div class="grid g3">
-      <div class="card fade-up"><div class="icon">🤖</div><h3>AI「言出法随」</h3><p>自然语言驱动工作流生成。说"检测圆形零件，不合格的剔除"，AI 自动创建完整视觉检测流程。支持 Gemini / Ollama / DeepSeek 多模型。</p></div>
-      <div class="card fade-up"><div class="icon">🎨</div><h3>可视化节点画布</h3><p>GDI+ 高性能渲染，60FPS 流畅拖拽。支持贝塞尔曲线连线、框选、撤销重做、自动布局。200+ 节点依然丝滑。</p></div>
-      <div class="card fade-up"><div class="icon">🏭</div><h3>工业级可靠</h3><p>7×24 不间断运行设计。四级异常处理机制、崩溃自动恢复、断电数据保护、原子化文件写入。UI 崩溃不影响执行。</p></div>
-      <div class="card fade-up"><div class="icon">🔌</div><h3>插件即插即用</h3><p>动态 DLL 加载，支持 Halcon 视觉、运动控制卡、TCP/Modbus/串口通信。新插件放入即生效，AI 自动感知新能力。</p></div>
-      <div class="card fade-up"><div class="icon">📊</div><h3>实时执行监控</h3><p>产量、良品率、节拍时间实时统计。良率趋势图、异常追溯、班次管理。生产数据 SQLite 持久化 + CSV 导出。</p></div>
-      <div class="card fade-up"><div class="icon">🔐</div><h3>企业级安全</h3><p>管理员 / 工程师 / 操作员三级角色权限。BCrypt 密码哈希、操作审计日志、RSA-2048 授权体系。支持 Windows AD 域集成。</p></div>
+      <div class="card fade-up"><div class="icon">馃</div><h3>AI銆岃█鍑烘硶闅忋€?/h3><p>鑷劧璇█椹卞姩宸ヤ綔娴佺敓鎴愩€傝"妫€娴嬪渾褰㈤浂浠讹紝涓嶅悎鏍肩殑鍓旈櫎"锛孉I 鑷姩鍒涘缓瀹屾暣瑙嗚妫€娴嬫祦绋嬨€傛敮鎸?Gemini / Ollama / DeepSeek 澶氭ā鍨嬨€?/p></div>
+      <div class="card fade-up"><div class="icon">馃帹</div><h3>鍙鍖栬妭鐐圭敾甯?/h3><p>GDI+ 楂樻€ц兘娓叉煋锛?0FPS 娴佺晠鎷栨嫿銆傛敮鎸佽礉濉炲皵鏇茬嚎杩炵嚎銆佹閫夈€佹挙閿€閲嶅仛銆佽嚜鍔ㄥ竷灞€銆?00+ 鑺傜偣渚濈劧涓濇粦銆?/p></div>
+      <div class="card fade-up"><div class="icon">馃彮</div><h3>宸ヤ笟绾у彲闈?/h3><p>7脳24 涓嶉棿鏂繍琛岃璁°€傚洓绾у紓甯稿鐞嗘満鍒躲€佸穿婧冭嚜鍔ㄦ仮澶嶃€佹柇鐢垫暟鎹繚鎶ゃ€佸師瀛愬寲鏂囦欢鍐欏叆銆俇I 宕╂簝涓嶅奖鍝嶆墽琛屻€?/p></div>
+      <div class="card fade-up"><div class="icon">馃攲</div><h3>鎻掍欢鍗虫彃鍗崇敤</h3><p>鍔ㄦ€?DLL 鍔犺浇锛屾敮鎸?Halcon 瑙嗚銆佽繍鍔ㄦ帶鍒跺崱銆乀CP/Modbus/涓插彛閫氫俊銆傛柊鎻掍欢鏀惧叆鍗崇敓鏁堬紝AI 鑷姩鎰熺煡鏂拌兘鍔涖€?/p></div>
+      <div class="card fade-up"><div class="icon">馃搳</div><h3>瀹炴椂鎵ц鐩戞帶</h3><p>浜ч噺銆佽壇鍝佺巼銆佽妭鎷嶆椂闂村疄鏃剁粺璁°€傝壇鐜囪秼鍔垮浘銆佸紓甯歌拷婧€佺彮娆＄鐞嗐€傜敓浜ф暟鎹?SQLite 鎸佷箙鍖?+ CSV 瀵煎嚭銆?/p></div>
+      <div class="card fade-up"><div class="icon">馃攼</div><h3>浼佷笟绾у畨鍏?/h3><p>绠＄悊鍛?/ 宸ョ▼甯?/ 鎿嶄綔鍛樹笁绾ц鑹叉潈闄愩€侭Crypt 瀵嗙爜鍝堝笇銆佹搷浣滃璁℃棩蹇椼€丷SA-2048 鎺堟潈浣撶郴銆傛敮鎸?Windows AD 鍩熼泦鎴愩€?/p></div>
     </div>
   </div>
 </section>
 
-<!-- 技术架构 -->
+<!-- 鎶€鏈灦鏋?-->
 <section id="architecture">
   <div class="container">
-    <span class="section-label fade-up">技术架构</span>
-    <h2 class="section-title fade-up">AI-Centric <span class="hl">Graph-Document</span> 四层架构</h2>
-    <p class="section-desc fade-up">以 AI 为一等公民的架构设计——AI 不是特殊路径，而是和鼠标键盘一样的「输入设备」。</p>
+    <span class="section-label fade-up">鎶€鏈灦鏋?/span>
+    <h2 class="section-title fade-up">AI-Centric <span class="hl">Graph-Document</span> 鍥涘眰鏋舵瀯</h2>
+    <p class="section-desc fade-up">浠?AI 涓轰竴绛夊叕姘戠殑鏋舵瀯璁捐鈥斺€擜I 涓嶆槸鐗规畩璺緞锛岃€屾槸鍜岄紶鏍囬敭鐩樹竴鏍风殑銆岃緭鍏ヨ澶囥€嶃€?/p>
     <div class="arch-layers fade-up">
       <div class="arch-layer">
-        <div class="arch-label">🖥️ 应用层 Shell</div>
-        <div class="arch-tags"><span class="arch-tag">📦 节点树</span><span class="arch-tag">🎨 画布</span><span class="arch-tag">📋 属性面板</span><span class="arch-tag highlight">💬 AI 聊天面板</span></div>
+        <div class="arch-label">馃枼锔?搴旂敤灞?Shell</div>
+        <div class="arch-tags"><span class="arch-tag">馃摝 鑺傜偣鏍?/span><span class="arch-tag">馃帹 鐢诲竷</span><span class="arch-tag">馃搵 灞炴€ч潰鏉?/span><span class="arch-tag highlight">馃挰 AI 鑱婂ぉ闈㈡澘</span></div>
       </div>
-      <div class="arch-connector">↕ EventBus 消息总线 ↕</div>
+      <div class="arch-connector">鈫?EventBus 娑堟伅鎬荤嚎 鈫?/div>
       <div class="arch-layer">
-        <div class="arch-label">📄 文档层 Document Layer</div>
-        <div class="arch-tags"><span class="arch-tag highlight">WorkflowDocument — 唯一数据源</span><span class="arch-tag">CommandManager — 所有操作统一</span><span class="arch-tag">UndoRedoStack — 事务级撤销</span></div>
-      </div>
-      <div class="arch-layer">
-        <div class="arch-label">⚙️ 服务层 Service Layer</div>
-        <div class="arch-tags"><span class="arch-tag highlight">🤖 AI Service（核心竞争力）</span><span class="arch-tag">▶️ Execution Service（独立进程·7×24）</span><span class="arch-tag">💾 Serialization Service</span></div>
+        <div class="arch-label">馃搫 鏂囨。灞?Document Layer</div>
+        <div class="arch-tags"><span class="arch-tag highlight">WorkflowDocument 鈥?鍞竴鏁版嵁婧?/span><span class="arch-tag">CommandManager 鈥?鎵€鏈夋搷浣滅粺涓€</span><span class="arch-tag">UndoRedoStack 鈥?浜嬪姟绾ф挙閿€</span></div>
       </div>
       <div class="arch-layer">
-        <div class="arch-label">🔌 插件层 Plugin Layer</div>
-        <div class="arch-tags"><span class="arch-tag">视觉 Halcon</span><span class="arch-tag">运控 运动卡</span><span class="arch-tag">通信 TCP/Modbus</span><span class="arch-tag">IO 数字量</span><span class="arch-tag">算法 SPC</span><span class="arch-tag">自定义 DLL</span></div>
+        <div class="arch-label">鈿欙笍 鏈嶅姟灞?Service Layer</div>
+        <div class="arch-tags"><span class="arch-tag highlight">馃 AI Service锛堟牳蹇冪珵浜夊姏锛?/span><span class="arch-tag">鈻讹笍 Execution Service锛堢嫭绔嬭繘绋嬄?脳24锛?/span><span class="arch-tag">馃捑 Serialization Service</span></div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-label">馃攲 鎻掍欢灞?Plugin Layer</div>
+        <div class="arch-tags"><span class="arch-tag">瑙嗚 Halcon</span><span class="arch-tag">杩愭帶 杩愬姩鍗?/span><span class="arch-tag">閫氫俊 TCP/Modbus</span><span class="arch-tag">IO 鏁板瓧閲?/span><span class="arch-tag">绠楁硶 SPC</span><span class="arch-tag">鑷畾涔?DLL</span></div>
       </div>
     </div>
     <div class="grid g3" style="margin-top:2rem">
-      <div class="card fade-up" style="text-align:center"><div class="icon">🔌</div><h3>AI = 输入设备</h3><p>和鼠标键盘走完全相同的 Command 管线，Undo/Redo 天然完整</p></div>
-      <div class="card fade-up" style="text-align:center"><div class="icon">🛡️</div><h3>进程隔离</h3><p>执行引擎独立于 UI 进程，UI 崩溃不影响产线运行</p></div>
-      <div class="card fade-up" style="text-align:center"><div class="icon">🧠</div><h3>上下文感知</h3><p>AI 实时感知画布状态、插件列表和历史对话，精准理解意图</p></div>
+      <div class="card fade-up" style="text-align:center"><div class="icon">馃攲</div><h3>AI = 杈撳叆璁惧</h3><p>鍜岄紶鏍囬敭鐩樿蛋瀹屽叏鐩稿悓鐨?Command 绠＄嚎锛孶ndo/Redo 澶╃劧瀹屾暣</p></div>
+      <div class="card fade-up" style="text-align:center"><div class="icon">馃洝锔?/div><h3>杩涚▼闅旂</h3><p>鎵ц寮曟搸鐙珛浜?UI 杩涚▼锛孶I 宕╂簝涓嶅奖鍝嶄骇绾胯繍琛?/p></div>
+      <div class="card fade-up" style="text-align:center"><div class="icon">馃</div><h3>涓婁笅鏂囨劅鐭?/h3><p>AI 瀹炴椂鎰熺煡鐢诲竷鐘舵€併€佹彃浠跺垪琛ㄥ拰鍘嗗彶瀵硅瘽锛岀簿鍑嗙悊瑙ｆ剰鍥?/p></div>
     </div>
   </div>
 </section>
 
-<!-- 行业应用 -->
+<!-- 琛屼笟搴旂敤 -->
 <section id="industries" style="background:var(--bg2)">
   <div class="container">
-    <span class="section-label fade-up">行业覆盖</span>
-    <h2 class="section-title fade-up">覆盖<span class="hl"> 6 大</span>核心制造行业</h2>
-    <p class="section-desc fade-up">从 3C 电子到金属加工，言绎为每个行业提供开箱即用的节点和模板。</p>
+    <span class="section-label fade-up">琛屼笟瑕嗙洊</span>
+    <h2 class="section-title fade-up">瑕嗙洊<span class="hl"> 6 澶?/span>鏍稿績鍒堕€犺涓?/h2>
+    <p class="section-desc fade-up">浠?3C 鐢靛瓙鍒伴噾灞炲姞宸ワ紝瑷€缁庝负姣忎釜琛屼笟鎻愪緵寮€绠卞嵆鐢ㄧ殑鑺傜偣鍜屾ā鏉裤€?/p>
     <div class="grid g3">
-      <div class="card industry-card fade-up"><div class="icon">📱</div><h3>3C 电子制造</h3><p class="apps">外观检测 · 尺寸测量 · 组装验证</p></div>
-      <div class="card industry-card fade-up"><div class="icon">🚗</div><h3>汽车零部件</h3><p class="apps">尺寸检测 · 装配校验 · 追溯管理</p></div>
-      <div class="card industry-card fade-up"><div class="icon">🔋</div><h3>锂电 / 光伏</h3><p class="apps">极片检测 · 电芯分选 · 焊接质检</p></div>
-      <div class="card industry-card fade-up"><div class="icon">💎</div><h3>半导体封装</h3><p class="apps">引脚检测 · 芯片定位 · 缺陷分析</p></div>
-      <div class="card industry-card fade-up"><div class="icon">💊</div><h3>食品医药</h3><p class="apps">包装检测 · 异物识别 · 称重分拣</p></div>
-      <div class="card industry-card fade-up"><div class="icon">⚙️</div><h3>金属加工</h3><p class="apps">焊缝检测 · 表面缺陷 · 尺寸控制</p></div>
+      <div class="card industry-card fade-up"><div class="icon">馃摫</div><h3>3C 鐢靛瓙鍒堕€?/h3><p class="apps">澶栬妫€娴?路 灏哄娴嬮噺 路 缁勮楠岃瘉</p></div>
+      <div class="card industry-card fade-up"><div class="icon">馃殫</div><h3>姹借溅闆堕儴浠?/h3><p class="apps">灏哄妫€娴?路 瑁呴厤鏍￠獙 路 杩芥函绠＄悊</p></div>
+      <div class="card industry-card fade-up"><div class="icon">馃攱</div><h3>閿傜數 / 鍏変紡</h3><p class="apps">鏋佺墖妫€娴?路 鐢佃姱鍒嗛€?路 鐒婃帴璐ㄦ</p></div>
+      <div class="card industry-card fade-up"><div class="icon">馃拵</div><h3>鍗婂浣撳皝瑁?/h3><p class="apps">寮曡剼妫€娴?路 鑺墖瀹氫綅 路 缂洪櫡鍒嗘瀽</p></div>
+      <div class="card industry-card fade-up"><div class="icon">馃拪</div><h3>椋熷搧鍖昏嵂</h3><p class="apps">鍖呰妫€娴?路 寮傜墿璇嗗埆 路 绉伴噸鍒嗘嫞</p></div>
+      <div class="card industry-card fade-up"><div class="icon">鈿欙笍</div><h3>閲戝睘鍔犲伐</h3><p class="apps">鐒婄紳妫€娴?路 琛ㄩ潰缂洪櫡 路 灏哄鎺у埗</p></div>
     </div>
   </div>
 </section>
 
-<!-- 定价方案 -->
+<!-- 瀹氫环鏂规 -->
 <section id="pricing">
   <div class="container">
-    <span class="section-label fade-up">定价方案</span>
-    <h2 class="section-title fade-up">灵活的<span class="hl">版本定价</span>，按需选择</h2>
-    <p class="section-desc fade-up">从免费试用到企业定制，满足不同规模团队的需求。</p>
+    <span class="section-label fade-up">瀹氫环鏂规</span>
+    <h2 class="section-title fade-up">鐏垫椿鐨?span class="hl">鐗堟湰瀹氫环</span>锛屾寜闇€閫夋嫨</h2>
+    <p class="section-desc fade-up">浠庡厤璐硅瘯鐢ㄥ埌浼佷笟瀹氬埗锛屾弧瓒充笉鍚岃妯″洟闃熺殑闇€姹傘€?/p>
     <div class="grid g4">
       <div class="card pricing-card fade-up">
-        <div class="edition">试用版</div>
-        <div class="price">免费</div>
-        <div class="desc">30 天全功能体验</div>
-        <ul><li>最多 20 个节点</li><li>基础内置插件</li><li>在线 AI 支持</li><li>社区邮件支持</li></ul>
-        <a href="#trial" class="btn btn-outline">开始试用</a>
+        <div class="edition">璇曠敤鐗?/div>
+        <div class="price">鍏嶈垂</div>
+        <div class="desc">30 澶╁叏鍔熻兘浣撻獙</div>
+        <ul><li>鏈€澶?20 涓妭鐐?/li><li>鍩虹鍐呯疆鎻掍欢</li><li>鍦ㄧ嚎 AI 鏀寔</li><li>绀惧尯閭欢鏀寔</li></ul>
+        <a href="#trial" class="btn btn-outline">寮€濮嬭瘯鐢?/a>
       </div>
       <div class="card pricing-card fade-up">
-        <div class="edition">标准版</div>
-        <div class="price">按年订阅</div>
-        <div class="desc">小型集成商首选</div>
-        <ul><li>最多 50 个节点</li><li>视觉基础插件</li><li>在线 AI 支持</li><li>5×8h 工作日支持</li><li>24h 响应</li></ul>
-        <a href="#contact" class="btn btn-outline">联系获取报价</a>
+        <div class="edition">鏍囧噯鐗?/div>
+        <div class="price">鎸夊勾璁㈤槄</div>
+        <div class="desc">灏忓瀷闆嗘垚鍟嗛閫?/div>
+        <ul><li>鏈€澶?50 涓妭鐐?/li><li>瑙嗚鍩虹鎻掍欢</li><li>鍦ㄧ嚎 AI 鏀寔</li><li>5脳8h 宸ヤ綔鏃ユ敮鎸?/li><li>24h 鍝嶅簲</li></ul>
+        <a href="#contact" class="btn btn-outline">鑱旂郴鑾峰彇鎶ヤ环</a>
       </div>
       <div class="card pricing-card featured fade-up">
-        <div class="edition">专业版</div>
-        <div class="price">按年订阅</div>
-        <div class="desc">中型集成商 · 最佳性价比</div>
-        <ul><li>无限节点</li><li>全部插件包</li><li>离线 AI（本地模型）</li><li>7×12h 支持</li><li>4h 快速响应</li><li>2 次/年现场服务</li></ul>
-        <a href="#contact" class="btn btn-primary">联系获取报价</a>
+        <div class="edition">涓撲笟鐗?/div>
+        <div class="price">鎸夊勾璁㈤槄</div>
+        <div class="desc">涓瀷闆嗘垚鍟?路 鏈€浣虫€т环姣?/div>
+        <ul><li>鏃犻檺鑺傜偣</li><li>鍏ㄩ儴鎻掍欢鍖?/li><li>绂荤嚎 AI锛堟湰鍦版ā鍨嬶級</li><li>7脳12h 鏀寔</li><li>4h 蹇€熷搷搴?/li><li>2 娆?骞寸幇鍦烘湇鍔?/li></ul>
+        <a href="#contact" class="btn btn-primary">鑱旂郴鑾峰彇鎶ヤ环</a>
       </div>
       <div class="card pricing-card fade-up">
-        <div class="edition">企业版</div>
-        <div class="price">买断 + 维保</div>
-        <div class="desc">大型工厂定制方案</div>
-        <ul><li>全部功能无限制</li><li>源码级定制</li><li>多用户 + API 接口</li><li>7×24h 专属支持</li><li>2h 极速响应</li><li>不限次现场服务</li></ul>
-        <a href="#contact" class="btn btn-outline">联系获取报价</a>
+        <div class="edition">浼佷笟鐗?/div>
+        <div class="price">涔版柇 + 缁翠繚</div>
+        <div class="desc">澶у瀷宸ュ巶瀹氬埗鏂规</div>
+        <ul><li>鍏ㄩ儴鍔熻兘鏃犻檺鍒?/li><li>婧愮爜绾у畾鍒?/li><li>澶氱敤鎴?+ API 鎺ュ彛</li><li>7脳24h 涓撳睘鏀寔</li><li>2h 鏋侀€熷搷搴?/li><li>涓嶉檺娆＄幇鍦烘湇鍔?/li></ul>
+        <a href="#contact" class="btn btn-outline">鑱旂郴鑾峰彇鎶ヤ环</a>
       </div>
     </div>
   </div>
@@ -402,40 +390,64 @@ section{padding:6rem 2.5rem;position:relative;overflow:hidden}
 <!-- CTA -->
 <section id="trial" style="background:linear-gradient(160deg,var(--bg),var(--bg3));text-align:center;padding:5rem 2.5rem">
   <div class="container">
-    <h2 class="section-title fade-up" style="margin-bottom:.8rem">准备好让工厂<span class="hl">「言出法随」</span>了吗？</h2>
-    <p class="section-desc fade-up" style="margin:0 auto 2rem;text-align:center;max-width:32rem">30 天免费试用，零风险体验 AI 驱动的工业自动化平台。</p>
+    <h2 class="section-title fade-up" style="margin-bottom:.8rem">鍑嗗濂借宸ュ巶<span class="hl">銆岃█鍑烘硶闅忋€?/span>浜嗗悧锛?/h2>
+    <p class="section-desc fade-up" style="margin:0 auto 2rem;text-align:center;max-width:32rem">30 澶╁厤璐硅瘯鐢紝闆堕闄╀綋楠?AI 椹卞姩鐨勫伐涓氳嚜鍔ㄥ寲骞冲彴銆?/p>
     <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
-      <a href="mailto:info@zhsji.com" class="btn btn-primary" style="padding:.7rem 2rem;font-size:1rem">📧 联系我们获取试用</a>
+      <a href="mailto:info@zhsji.com" class="btn btn-primary" style="padding:.7rem 2rem;font-size:1rem">馃摟 鑱旂郴鎴戜滑鑾峰彇璇曠敤</a>
     </div>
   </div>
 </section>
 
-<!-- 页脚 -->
+<!-- 椤佃剼 -->
 <footer class="footer" id="contact">
-  <div class="footer-brand"><span class="hl">言绎</span> PromptLogic</div>
-  <div class="footer-company">珠海三界智能科技有限公司<br>Zhuhai SJI Technology Co., Ltd.</div>
+  <div class="footer-brand"><span class="hl">瑷€缁?/span> PromptLogic</div>
+  <div class="footer-company">鐝犳捣涓夌晫鏅鸿兘绉戞妧鏈夐檺鍏徃<br>Zhuhai SJI Technology Co., Ltd.</div>
   <div class="footer-links">
-    <a href="#features">产品功能</a>
-    <a href="#architecture">技术架构</a>
-    <a href="#industries">行业应用</a>
-    <a href="#pricing">定价方案</a>
-    <a href="privacy.html">隐私政策</a>
+    <a href="#features">浜у搧鍔熻兘</a>
+    <a href="#architecture">鎶€鏈灦鏋?/a>
+    <a href="#industries">琛屼笟搴旂敤</a>
+    <a href="#pricing">瀹氫环鏂规</a>
+    <a href="privacy.html">闅愮鏀跨瓥</a>
   </div>
-  <div class="footer-copy">© 2026 珠海三界智能科技有限公司 · 粤ICP备XXXXXXXX号 · 保留所有权利</div>
+  <div class="footer-copy">漏 2026 鐝犳捣涓夌晫鏅鸿兘绉戞妧鏈夐檺鍏徃 路 绮CP澶嘪XXXXXXX鍙?路 淇濈暀鎵€鏈夋潈鍒?/div>
 </footer>
 
 <!-- JS -->
 <script>
-// 导航栏滚动效果
-window.addEventListener('scroll',function(){
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
-});
-// 滚动入场动画
+// Particle background
+(function(){
+  var c=document.getElementById('particles'),ctx=c.getContext('2d');
+  var w,h,particles=[];
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+  window.addEventListener('resize',resize);resize();
+  for(var i=0;i<80;i++){
+    particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.5+.5,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,o:Math.random()*.3+.1});
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<particles.length;i++){
+      var p=particles[i];
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(155,27,48,'+p.o+')';ctx.fill();
+      for(var j=i+1;j<particles.length;j++){
+        var q=particles[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(155,27,48,'+((.08)*(1-d/120))+')';ctx.stroke()}
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+// Navbar scroll
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60)});
+// Scroll animations
 var observer=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
 },{threshold:0.12});
 document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
-// 平滑锚点
+// Smooth anchors
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
     var t=document.querySelector(this.getAttribute('href'));
@@ -444,11 +456,11 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 });
 // Screenshot tabs
 var captions=[
-  '<strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈',
-  '<strong>主工作界面</strong> — 节点库、AI 助手、节点画布、属性面板、全局变量、执行日志，六大区域一览无余',
-  '<strong>AI 工作流生成</strong> — 输入一句话，AI 自动生成完整视觉检测工作流，真正做到「言出法随」',
-  '<strong>节点画布特写</strong> — 贝塞尔曲线连线、GDI+ 高性能渲染、60FPS 流畅拖拽，200+ 节点依然丝滑',
-  '<strong>执行监控面板</strong> — 产量、良率、节拍时间实时统计，良率趋势图，异常追溯一目了然'
+  '<strong>\u542f\u52a8\u753b\u9762</strong> \u2014 \u54c1\u724c\u5c55\u793a + \u540e\u53f0\u52a0\u8f7d\uff08\u63d2\u4ef6\u626b\u63cf\u3001\u914d\u7f6e\u8bfb\u53d6\u3001AI \u6a21\u578b\u9884\u70ed\uff09\uff0c\u8fdb\u5ea6\u5b9e\u65f6\u53cd\u9988',
+  '<strong>\u4e3b\u5de5\u4f5c\u754c\u9762</strong> \u2014 \u8282\u70b9\u5e93\u3001AI \u52a9\u624b\u3001\u8282\u70b9\u753b\u5e03\u3001\u5c5e\u6027\u9762\u677f\u3001\u5168\u5c40\u53d8\u91cf\u3001\u6267\u884c\u65e5\u5fd7\uff0c\u516d\u5927\u533a\u57df\u4e00\u89c8\u65e0\u4f59',
+  '<strong>AI \u5de5\u4f5c\u6d41\u751f\u6210</strong> \u2014 \u8f93\u5165\u4e00\u53e5\u8bdd\uff0cAI \u81ea\u52a8\u751f\u6210\u5b8c\u6574\u89c6\u89c9\u68c0\u6d4b\u5de5\u4f5c\u6d41\uff0c\u771f\u6b63\u505a\u5230\u300c\u8a00\u51fa\u6cd5\u968f\u300d',
+  '<strong>\u8282\u70b9\u753b\u5e03\u7279\u5199</strong> \u2014 \u8d1d\u585e\u5c14\u66f2\u7ebf\u8fde\u7ebf\u3001GDI+ \u9ad8\u6027\u80fd\u6e32\u67d3\u300160FPS \u6d41\u7545\u62d6\u62fd\uff0c200+ \u8282\u70b9\u4f9d\u7136\u4e1d\u6ed1',
+  '<strong>\u6267\u884c\u76d1\u63a7\u9762\u677f</strong> \u2014 \u4ea7\u91cf\u3001\u826f\u7387\u3001\u8282\u62cd\u65f6\u95f4\u5b9e\u65f6\u7edf\u8ba1\uff0c\u826f\u7387\u8d8b\u52bf\u56fe\uff0c\u5f02\u5e38\u8ffd\u6eaf\u4e00\u76ee\u4e86\u7136'
 ];
 function showScreenshot(idx){
   for(var i=0;i<5;i++){

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>言绎 PromptLogic — AI 驱动的工业自动化低代码平台</title>
+<meta name="description" content="用自然语言创建工业工作流，让工厂技术员「言出法随」。视觉检测、运动控制、通信协议，一句话搞定。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ========== Reset & Variables ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08080c;--bg2:#100d14;--bg3:#1a1520;--bg4:#221c2a;
+  --wine:#9b1b30;--wine-light:#c4354e;--wine-dark:#6e1322;--wine-glow:rgba(155,27,48,.25);
+  --gold:#c9a96e;--gold-light:#e0c992;
+  --text:#e8e4ec;--text2:#a09aaa;--text3:#6b6474;
+  --green:#34d399;--red:#ef4444;
+  --grad1:linear-gradient(135deg,#9b1b30,#c4354e);
+  --grad2:linear-gradient(135deg,#6e1322,#9b1b30);
+  --grad3:linear-gradient(135deg,#9b1b30,#c9a96e);
+  --radius:.6rem;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{color:var(--wine-light);text-decoration:none;transition:.2s}
+a:hover{color:var(--gold)}
+::selection{background:var(--wine);color:#fff}
+
+/* ========== Navigation ========== */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.8rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,12,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(155,27,48,.15);transition:.3s}
+.navbar.scrolled{padding:.5rem 2.5rem;background:rgba(8,8,12,.95);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+.nav-brand{display:flex;align-items:center;gap:.6rem}
+.nav-brand svg{width:32px;height:32px}
+.nav-brand span{font-size:1.1rem;font-weight:700;letter-spacing:.02em}
+.nav-brand .cn{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--text2);transition:.2s;position:relative}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--grad1);transition:.3s}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.4rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;cursor:pointer;transition:.3s;border:none}
+.btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 20px var(--wine-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--wine-glow);color:#fff}
+.btn-outline{background:transparent;color:var(--text);border:1px solid rgba(155,27,48,.4)}
+.btn-outline:hover{border-color:var(--wine-light);background:rgba(155,27,48,.08);color:#fff}
+
+/* ========== Sections ========== */
+section{padding:6rem 2.5rem;position:relative;overflow:hidden}
+.container{max-width:72rem;margin:0 auto}
+.section-label{display:inline-block;padding:.25rem .8rem;border-radius:2rem;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;background:rgba(155,27,48,.12);color:var(--wine-light);border:1px solid rgba(155,27,48,.2)}
+.section-title{font-size:2.4rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.03em;line-height:1.2}
+.section-title .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-desc{font-size:1rem;color:var(--text2);max-width:40rem;line-height:1.8;margin-bottom:2.5rem}
+
+/* ========== Hero ========== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding-top:5rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(155,27,48,.08) 0%,transparent 70%),radial-gradient(circle at 20% 80%,rgba(110,19,34,.06) 0%,transparent 40%),radial-gradient(circle at 80% 20%,rgba(201,169,110,.03) 0%,transparent 40%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(155,27,48,.3),transparent)}
+.hero-content{position:relative;z-index:1}
+.hero-logo{margin-bottom:2rem}
+.hero-logo svg{width:90px;height:90px;filter:drop-shadow(0 0 30px rgba(155,27,48,.4))}
+.hero h1{font-size:3.8rem;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:.8rem}
+.hero h1 .hl{background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:1.3rem;color:var(--text2);font-weight:300;letter-spacing:.06em;margin-bottom:.6rem}
+.hero .tagline{font-size:1rem;color:var(--text3);max-width:32rem;margin:0 auto 2rem;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;justify-content:center;margin-bottom:3rem}
+.hero-stats{display:flex;gap:3rem;justify-content:center}
+.hero-stat{text-align:center}
+.hero-stat .val{font-size:2rem;font-weight:800;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat .lbl{font-size:.7rem;color:var(--text3);margin-top:.15rem;letter-spacing:.04em}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);animation:bounce 2s infinite}
+.hero-scroll span{display:block;width:20px;height:32px;border:2px solid var(--text3);border-radius:10px;position:relative}
+.hero-scroll span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--wine-light);animation:scrollDot 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:18px}}
+
+/* ========== Cards & Grid ========== */
+.grid{display:grid;gap:1.2rem}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:1fr 1fr 1fr}
+.g4{grid-template-columns:1fr 1fr 1fr 1fr}
+.card{background:var(--bg2);border:1px solid rgba(155,27,48,.08);border-radius:var(--radius);padding:1.8rem;transition:.3s}
+.card:hover{border-color:rgba(155,27,48,.25);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.card .icon{font-size:2rem;margin-bottom:1rem}
+.card h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.card p{font-size:.88rem;color:var(--text2);line-height:1.7}
+
+/* ========== Comparison ========== */
+.compare{display:flex;gap:1.5rem;align-items:stretch}
+.compare-side{flex:1;background:var(--bg2);border-radius:var(--radius);padding:2rem;border:1px solid rgba(255,255,255,.04)}
+.compare-side.good{border-color:rgba(155,27,48,.2);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.04))}
+.compare-arrow{display:flex;align-items:center;font-size:2rem;color:var(--wine-light)}
+.compare-side h3{font-size:1.1rem;font-weight:700;margin-bottom:1.2rem}
+.compare-side.bad h3{color:var(--text3)}
+.compare-side.good h3{color:var(--wine-light)}
+.flow-steps{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin-bottom:1rem}
+.flow-step{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:.3rem;padding:.35rem .7rem;font-size:.8rem;font-weight:500}
+.flow-arrow{color:var(--text3);font-size:.9rem}
+.compare-side.good .flow-step{border-color:rgba(155,27,48,.2);background:rgba(155,27,48,.06)}
+.quote{border-left:3px solid var(--wine);padding:.8rem 1.2rem;background:rgba(155,27,48,.04);border-radius:0 var(--radius) var(--radius) 0;font-size:.9rem;color:var(--wine-light);font-style:italic;margin-top:2rem;max-width:56rem}
+
+/* ========== Showcase ========== */
+.showcase-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.showcase-tab{padding:.6rem 1.5rem;border-radius:var(--radius);font-size:.85rem;font-weight:600;cursor:pointer;background:var(--bg3);border:1px solid rgba(155,27,48,.1);color:var(--text2);transition:.3s}
+.showcase-tab:hover{border-color:rgba(155,27,48,.3);color:var(--text)}
+.showcase-tab.active{background:var(--grad1);color:#fff;border-color:transparent;box-shadow:0 4px 16px var(--wine-glow)}
+.showcase-frame{position:relative;background:var(--bg2);border:1px solid rgba(155,27,48,.15);border-radius:.8rem;padding:.6rem;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 80px rgba(155,27,48,.06);max-width:64rem;margin:0 auto}
+.showcase-frame img{width:100%;border-radius:.4rem;display:block;transition:opacity .4s ease}
+.showcase-frame img.hidden{display:none;opacity:0}
+.showcase-caption{text-align:center;margin-top:1.2rem;font-size:.85rem;color:var(--text2)}
+.showcase-caption strong{color:var(--text);font-weight:600}
+
+/* ========== Architecture ========== */
+.arch-layers{background:var(--bg2);border:1px solid rgba(155,27,48,.1);border-radius:var(--radius);padding:2rem;max-width:56rem;margin:0 auto}
+.arch-layer{border:1px solid rgba(155,27,48,.1);border-radius:.4rem;padding:.8rem 1rem;margin-bottom:.5rem}
+.arch-layer:last-child{margin-bottom:0}
+.arch-label{font-size:.65rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.arch-tags{display:flex;gap:.4rem;flex-wrap:wrap}
+.arch-tag{background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.1);border-radius:.3rem;padding:.3rem .7rem;font-size:.78rem}
+.arch-tag.highlight{border-color:rgba(155,27,48,.3);background:rgba(155,27,48,.12);font-weight:600}
+.arch-connector{text-align:center;color:var(--wine-light);font-size:.7rem;margin:.2rem 0;letter-spacing:.06em}
+
+/* ========== Industry ========== */
+.industry-card{text-align:center;padding:2rem 1.5rem}
+.industry-card .icon{font-size:2.5rem;margin-bottom:.8rem}
+.industry-card h3{margin-bottom:.4rem}
+.industry-card .apps{font-size:.78rem;color:var(--text3)}
+
+/* ========== Pricing ========== */
+.pricing-card{text-align:center;padding:2rem 1.5rem;position:relative}
+.pricing-card.featured{border-color:rgba(155,27,48,.4);background:linear-gradient(160deg,var(--bg2),rgba(155,27,48,.06))}
+.pricing-card.featured::before{content:'推荐';position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--grad1);color:#fff;font-size:.65rem;font-weight:700;padding:.2rem .8rem;border-radius:1rem}
+.pricing-card .edition{font-size:.75rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.pricing-card .price{font-size:2rem;font-weight:800;margin-bottom:.3rem}
+.pricing-card .price .unit{font-size:.8rem;font-weight:400;color:var(--text2)}
+.pricing-card .desc{font-size:.8rem;color:var(--text3);margin-bottom:1.2rem}
+.pricing-card ul{list-style:none;text-align:left;margin-bottom:1.5rem}
+.pricing-card li{font-size:.82rem;padding:.3rem 0;color:var(--text2)}
+.pricing-card li::before{content:'✓';color:var(--wine-light);margin-right:.5rem;font-weight:700}
+.pricing-card .btn{width:100%}
+
+/* ========== Footer ========== */
+.footer{background:var(--bg2);border-top:1px solid rgba(155,27,48,.1);padding:3rem 2.5rem 1.5rem;text-align:center}
+.footer-brand{font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
+.footer-brand .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-company{font-size:.78rem;color:var(--text3);margin-bottom:1.5rem}
+.footer-links{display:flex;gap:2rem;justify-content:center;margin-bottom:1.5rem}
+.footer-links a{font-size:.8rem;color:var(--text3)}
+.footer-links a:hover{color:var(--wine-light)}
+.footer-copy{font-size:.7rem;color:var(--text3);border-top:1px solid rgba(255,255,255,.04);padding-top:1rem}
+
+/* ========== Animations ========== */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:.08s}
+.fade-up:nth-child(3){transition-delay:.16s}
+.fade-up:nth-child(4){transition-delay:.24s}
+.fade-up:nth-child(5){transition-delay:.32s}
+.fade-up:nth-child(6){transition-delay:.4s}
+
+/* ========== Responsive ========== */
+@media(max-width:1024px){
+  .g3,.g4{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:2.8rem}
+  section{padding:4rem 1.5rem}
+}
+@media(max-width:640px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .hero h1{font-size:2.2rem}
+  .hero .subtitle{font-size:1rem}
+  .hero-stats{flex-wrap:wrap;gap:1.5rem}
+  .compare{flex-direction:column}
+  .compare-arrow{transform:rotate(90deg);justify-content:center}
+  .navbar{padding:.6rem 1rem}
+  .nav-links{display:none}
+  .hero-cta{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar" id="navbar">
+  <div class="nav-brand">
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9b1b30"/><stop offset="100%" stop-color="#c9a96e"/></linearGradient></defs>
+      <path d="M30 25 C30 25 60 25 70 25 C85 25 95 35 95 50 C95 65 85 75 70 75 L55 75 C40 75 30 85 30 95" stroke="url(#lg)" stroke-width="12" fill="none" stroke-linecap="round"/>
+      <circle cx="80" cy="20" r="6" fill="#9b1b30"/>
+      <line x1="22" y1="88" x2="22" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+      <line x1="28" y1="90" x2="28" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+      <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span><span class="cn">言绎</span> PromptLogic</span>
+  </div>
+  <div class="nav-links">
+    <a href="#showcase">界面</a>
+    <a href="#features">功能</a>
+    <a href="#architecture">架构</a>
+    <a href="#industries">行业</a>
+    <a href="#pricing">定价</a>
+    <a href="#contact">联系</a>
+    <a href="#trial" class="btn btn-primary" style="padding:.4rem 1rem;font-size:.8rem">免费试用</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-logo">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9b1b30"/><stop offset="100%" stop-color="#c9a96e"/></linearGradient></defs>
+        <path d="M30 25 C30 25 60 25 70 25 C85 25 95 35 95 50 C95 65 85 75 70 75 L55 75 C40 75 30 85 30 95" stroke="url(#lg2)" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <circle cx="80" cy="20" r="6" fill="#9b1b30"/>
+        <line x1="22" y1="88" x2="22" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+        <line x1="28" y1="90" x2="28" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+        <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1><span class="hl">言出法随</span>，智驭工业</h1>
+    <div class="subtitle">AI 驱动的工业自动化低代码平台</div>
+    <p class="tagline">用自然语言创建工业工作流，让工厂技术员从繁琐编程中解放。<br>视觉检测、运动控制、通信协议——一句话，全搞定。</p>
+    <div class="hero-cta">
+      <a href="#trial" class="btn btn-primary">🚀 免费试用 30 天</a>
+      <a href="#features" class="btn btn-outline">了解更多 ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="val">16+</div><div class="lbl">内置节点</div></div>
+      <div class="hero-stat"><div class="val">6</div><div class="lbl">大行业覆盖</div></div>
+      <div class="hero-stat"><div class="val">7×24</div><div class="lbl">工业级可靠</div></div>
+      <div class="hero-stat"><div class="val">AI</div><div class="lbl">驱动核心</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</section>
+
+<!-- 痛点 → 价值 -->
+<section id="problem">
+  <div class="container">
+    <span class="section-label fade-up">为什么选择言绎</span>
+    <h2 class="section-title fade-up">从<span class="hl">繁琐编程</span>到<span class="hl">一句话搞定</span></h2>
+    <div class="compare fade-up">
+      <div class="compare-side bad">
+        <h3>❌ 传统工控软件</h3>
+        <div class="flow-steps">
+          <span class="flow-step">工程师</span><span class="flow-arrow">→</span>
+          <span class="flow-step">学习节点</span><span class="flow-arrow">→</span>
+          <span class="flow-step">手动拖拽</span><span class="flow-arrow">→</span>
+          <span class="flow-step">手动连线</span><span class="flow-arrow">→</span>
+          <span class="flow-step">调试参数</span><span class="flow-arrow">→</span>
+          <span class="flow-step">运行</span>
+        </div>
+        <p style="color:var(--text3);font-size:.88rem">痛点：学习成本高 · 操作繁琐 · 人才依赖强 · 交期长</p>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-side good">
+        <h3>✅ 言绎愿景</h3>
+        <div class="flow-steps">
+          <span class="flow-step">技术员</span><span class="flow-arrow">→</span>
+          <span class="flow-step">说一句话</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI 自动生成</span><span class="flow-arrow">→</span>
+          <span class="flow-step">微调运行</span>
+        </div>
+        <p style="color:var(--text2);font-size:.88rem">价值：零学习成本 · AI 代替专家经验 · 降低人才门槛</p>
+      </div>
+    </div>
+    <div class="quote fade-up">「言绎的竞争对手不是 ComfyUI，而是不会编程的工厂技术员的学习成本。」</div>
+  </div>
+</section>
+
+<!-- Product UI Showcase -->
+<section id="showcase">
+  <div class="container" style="text-align:center">
+    <span class="section-label fade-up">PRODUCT INTERFACE</span>
+    <h2 class="section-title fade-up">专业级<span class="hl">工业软件</span>界面</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">深色主题设计，减少工厂环境屏幕刺眼。多面板布局，可拖拽停靠、折叠自适应。</p>
+    <div class="showcase-tabs fade-up">
+      <div class="showcase-tab active" onclick="showScreenshot(0)">🚀 启动画面</div>
+      <div class="showcase-tab" onclick="showScreenshot(1)">🖥️ 主工作界面</div>
+      <div class="showcase-tab" onclick="showScreenshot(2)">🤖 AI 工作流生成</div>
+      <div class="showcase-tab" onclick="showScreenshot(3)">🎨 节点画布</div>
+      <div class="showcase-tab" onclick="showScreenshot(4)">📊 执行监控</div>
+    </div>
+    <div class="showcase-frame fade-up">
+      <img id="ss0" src="images/splash.png" alt="splash screen">
+      <img id="ss1" src="images/main_interface.png" alt="main interface" class="hidden">
+      <img id="ss2" src="images/ai_workflow.png" alt="ai workflow generation" class="hidden">
+      <img id="ss3" src="images/canvas.png" alt="node canvas" class="hidden">
+      <img id="ss4" src="images/monitoring.png" alt="monitoring dashboard" class="hidden">
+    </div>
+    <div class="showcase-caption fade-up" id="ss-caption">
+      <strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈
+    </div>
+  </div>
+</section>
+
+<!-- Core Features -->
+<section id="features" style="background:var(--bg2)">
+  <div class="container">
+    <span class="section-label fade-up">核心功能</span>
+    <h2 class="section-title fade-up">六大<span class="hl">核心能力</span>，开箱即用</h2>
+    <p class="section-desc fade-up">从 AI 智能生成到工业级执行，覆盖自动化全链路。</p>
+    <div class="grid g3">
+      <div class="card fade-up"><div class="icon">🤖</div><h3>AI「言出法随」</h3><p>自然语言驱动工作流生成。说"检测圆形零件，不合格的剔除"，AI 自动创建完整视觉检测流程。支持 Gemini / Ollama / DeepSeek 多模型。</p></div>
+      <div class="card fade-up"><div class="icon">🎨</div><h3>可视化节点画布</h3><p>GDI+ 高性能渲染，60FPS 流畅拖拽。支持贝塞尔曲线连线、框选、撤销重做、自动布局。200+ 节点依然丝滑。</p></div>
+      <div class="card fade-up"><div class="icon">🏭</div><h3>工业级可靠</h3><p>7×24 不间断运行设计。四级异常处理机制、崩溃自动恢复、断电数据保护、原子化文件写入。UI 崩溃不影响执行。</p></div>
+      <div class="card fade-up"><div class="icon">🔌</div><h3>插件即插即用</h3><p>动态 DLL 加载，支持 Halcon 视觉、运动控制卡、TCP/Modbus/串口通信。新插件放入即生效，AI 自动感知新能力。</p></div>
+      <div class="card fade-up"><div class="icon">📊</div><h3>实时执行监控</h3><p>产量、良品率、节拍时间实时统计。良率趋势图、异常追溯、班次管理。生产数据 SQLite 持久化 + CSV 导出。</p></div>
+      <div class="card fade-up"><div class="icon">🔐</div><h3>企业级安全</h3><p>管理员 / 工程师 / 操作员三级角色权限。BCrypt 密码哈希、操作审计日志、RSA-2048 授权体系。支持 Windows AD 域集成。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 技术架构 -->
+<section id="architecture">
+  <div class="container">
+    <span class="section-label fade-up">技术架构</span>
+    <h2 class="section-title fade-up">AI-Centric <span class="hl">Graph-Document</span> 四层架构</h2>
+    <p class="section-desc fade-up">以 AI 为一等公民的架构设计——AI 不是特殊路径，而是和鼠标键盘一样的「输入设备」。</p>
+    <div class="arch-layers fade-up">
+      <div class="arch-layer">
+        <div class="arch-label">🖥️ 应用层 Shell</div>
+        <div class="arch-tags"><span class="arch-tag">📦 节点树</span><span class="arch-tag">🎨 画布</span><span class="arch-tag">📋 属性面板</span><span class="arch-tag highlight">💬 AI 聊天面板</span></div>
+      </div>
+      <div class="arch-connector">↕ EventBus 消息总线 ↕</div>
+      <div class="arch-layer">
+        <div class="arch-label">📄 文档层 Document Layer</div>
+        <div class="arch-tags"><span class="arch-tag highlight">WorkflowDocument — 唯一数据源</span><span class="arch-tag">CommandManager — 所有操作统一</span><span class="arch-tag">UndoRedoStack — 事务级撤销</span></div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-label">⚙️ 服务层 Service Layer</div>
+        <div class="arch-tags"><span class="arch-tag highlight">🤖 AI Service（核心竞争力）</span><span class="arch-tag">▶️ Execution Service（独立进程·7×24）</span><span class="arch-tag">💾 Serialization Service</span></div>
+      </div>
+      <div class="arch-layer">
+        <div class="arch-label">🔌 插件层 Plugin Layer</div>
+        <div class="arch-tags"><span class="arch-tag">视觉 Halcon</span><span class="arch-tag">运控 运动卡</span><span class="arch-tag">通信 TCP/Modbus</span><span class="arch-tag">IO 数字量</span><span class="arch-tag">算法 SPC</span><span class="arch-tag">自定义 DLL</span></div>
+      </div>
+    </div>
+    <div class="grid g3" style="margin-top:2rem">
+      <div class="card fade-up" style="text-align:center"><div class="icon">🔌</div><h3>AI = 输入设备</h3><p>和鼠标键盘走完全相同的 Command 管线，Undo/Redo 天然完整</p></div>
+      <div class="card fade-up" style="text-align:center"><div class="icon">🛡️</div><h3>进程隔离</h3><p>执行引擎独立于 UI 进程，UI 崩溃不影响产线运行</p></div>
+      <div class="card fade-up" style="text-align:center"><div class="icon">🧠</div><h3>上下文感知</h3><p>AI 实时感知画布状态、插件列表和历史对话，精准理解意图</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 行业应用 -->
+<section id="industries" style="background:var(--bg2)">
+  <div class="container">
+    <span class="section-label fade-up">行业覆盖</span>
+    <h2 class="section-title fade-up">覆盖<span class="hl"> 6 大</span>核心制造行业</h2>
+    <p class="section-desc fade-up">从 3C 电子到金属加工，言绎为每个行业提供开箱即用的节点和模板。</p>
+    <div class="grid g3">
+      <div class="card industry-card fade-up"><div class="icon">📱</div><h3>3C 电子制造</h3><p class="apps">外观检测 · 尺寸测量 · 组装验证</p></div>
+      <div class="card industry-card fade-up"><div class="icon">🚗</div><h3>汽车零部件</h3><p class="apps">尺寸检测 · 装配校验 · 追溯管理</p></div>
+      <div class="card industry-card fade-up"><div class="icon">🔋</div><h3>锂电 / 光伏</h3><p class="apps">极片检测 · 电芯分选 · 焊接质检</p></div>
+      <div class="card industry-card fade-up"><div class="icon">💎</div><h3>半导体封装</h3><p class="apps">引脚检测 · 芯片定位 · 缺陷分析</p></div>
+      <div class="card industry-card fade-up"><div class="icon">💊</div><h3>食品医药</h3><p class="apps">包装检测 · 异物识别 · 称重分拣</p></div>
+      <div class="card industry-card fade-up"><div class="icon">⚙️</div><h3>金属加工</h3><p class="apps">焊缝检测 · 表面缺陷 · 尺寸控制</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 定价方案 -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-label fade-up">定价方案</span>
+    <h2 class="section-title fade-up">灵活的<span class="hl">版本定价</span>，按需选择</h2>
+    <p class="section-desc fade-up">从免费试用到企业定制，满足不同规模团队的需求。</p>
+    <div class="grid g4">
+      <div class="card pricing-card fade-up">
+        <div class="edition">试用版</div>
+        <div class="price">免费 <span class="unit">/ 30 天</span></div>
+        <div class="desc">快速体验核心功能</div>
+        <ul><li>最多 20 个节点</li><li>基础内置插件</li><li>在线 AI 支持</li><li>社区邮件支持</li></ul>
+        <a href="#trial" class="btn btn-outline">开始试用</a>
+      </div>
+      <div class="card pricing-card fade-up">
+        <div class="edition">标准版</div>
+        <div class="price">¥4,800 <span class="unit">/ 年</span></div>
+        <div class="desc">小型集成商首选</div>
+        <ul><li>最多 50 个节点</li><li>视觉基础插件</li><li>在线 AI 支持</li><li>5×8h 工作日支持</li><li>24h 响应</li></ul>
+        <a href="#contact" class="btn btn-outline">联系销售</a>
+      </div>
+      <div class="card pricing-card featured fade-up">
+        <div class="edition">专业版</div>
+        <div class="price">¥12,800 <span class="unit">/ 年</span></div>
+        <div class="desc">中型集成商 · 最佳性价比</div>
+        <ul><li>无限节点</li><li>全部插件包</li><li>离线 AI（本地模型）</li><li>7×12h 支持</li><li>4h 快速响应</li><li>2 次/年现场服务</li></ul>
+        <a href="#contact" class="btn btn-primary">立即选购</a>
+      </div>
+      <div class="card pricing-card fade-up">
+        <div class="edition">企业版</div>
+        <div class="price">¥68,000 <span class="unit">买断</span></div>
+        <div class="desc">大型工厂 + ¥12K/年维保</div>
+        <ul><li>全部功能无限制</li><li>源码级定制</li><li>多用户 + API 接口</li><li>7×24h 专属支持</li><li>2h 极速响应</li><li>不限次现场服务</li></ul>
+        <a href="#contact" class="btn btn-outline">咨询定制</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="trial" style="background:linear-gradient(160deg,var(--bg),var(--bg3));text-align:center;padding:5rem 2.5rem">
+  <div class="container">
+    <h2 class="section-title fade-up" style="margin-bottom:.8rem">准备好让工厂<span class="hl">「言出法随」</span>了吗？</h2>
+    <p class="section-desc fade-up" style="margin:0 auto 2rem;text-align:center;max-width:32rem">30 天免费试用，零风险体验 AI 驱动的工业自动化平台。</p>
+    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
+      <a href="mailto:contact@sji-tech.com" class="btn btn-primary" style="padding:.7rem 2rem;font-size:1rem">📧 联系我们获取试用</a>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer" id="contact">
+  <div class="footer-brand"><span class="hl">言绎</span> PromptLogic</div>
+  <div class="footer-company">珠海三界智能科技有限公司<br>Zhuhai SJI Technology Co., Ltd.</div>
+  <div class="footer-links">
+    <a href="#features">产品功能</a>
+    <a href="#architecture">技术架构</a>
+    <a href="#industries">行业应用</a>
+    <a href="#pricing">定价方案</a>
+  </div>
+  <div class="footer-copy">© 2026 珠海三界智能科技有限公司 · 粤ICP备XXXXXXXX号 · 保留所有权利</div>
+</footer>
+
+<!-- JS -->
+<script>
+// 导航栏滚动效果
+window.addEventListener('scroll',function(){
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60);
+});
+// 滚动入场动画
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
+// 平滑锚点
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+// Screenshot tabs
+var captions=[
+  '<strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈',
+  '<strong>主工作界面</strong> — 节点库、AI 助手、节点画布、属性面板、全局变量、执行日志，六大区域一览无余',
+  '<strong>AI 工作流生成</strong> — 输入一句话，AI 自动生成完整视觉检测工作流，真正做到「言出法随」',
+  '<strong>节点画布特写</strong> — 贝塞尔曲线连线、GDI+ 高性能渲染、60FPS 流畅拖拽，200+ 节点依然丝滑',
+  '<strong>执行监控面板</strong> — 产量、良率、节拍时间实时统计，良率趋势图，异常追溯一目了然'
+];
+function showScreenshot(idx){
+  for(var i=0;i<5;i++){
+    document.getElementById('ss'+i).className=i===idx?'':'hidden';
+    document.querySelectorAll('.showcase-tab')[i].className='showcase-tab'+(i===idx?' active':'');
+  }
+  document.getElementById('ss-caption').innerHTML=captions[idx];
+}
+</script>
+
+</body>
+</html>

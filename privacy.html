@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 — 言绎 PromptLogic</title>
+<meta name="description" content="言绎 PromptLogic 隐私政策，了解我们如何保护您的数据安全。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08080c;--bg2:#100d14;--wine:#9b1b30;--wine-light:#c4354e;--gold:#c9a96e;--text:#e8e4ec;--text2:#a09aaa;--text3:#6b6474;--grad1:linear-gradient(135deg,#9b1b30,#c4354e);--radius:.6rem}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Inter','Noto Sans SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--wine-light);text-decoration:none}
+a:hover{color:var(--gold)}
+::selection{background:var(--wine);color:#fff}
+
+.header{padding:1.2rem 2.5rem;border-bottom:1px solid rgba(155,27,48,.15);display:flex;align-items:center;justify-content:space-between}
+.header a.brand{display:flex;align-items:center;gap:.5rem;font-size:1rem;font-weight:700;color:var(--text)}
+.header .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.content{max-width:48rem;margin:0 auto;padding:3rem 2rem 5rem}
+h1{font-size:2rem;font-weight:800;margin-bottom:.5rem;letter-spacing:-.02em}
+h1 .hl{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.updated{font-size:.8rem;color:var(--text3);margin-bottom:2.5rem}
+h2{font-size:1.15rem;font-weight:700;margin:2rem 0 .8rem;color:var(--wine-light)}
+h2:first-of-type{margin-top:0}
+p{font-size:.9rem;color:var(--text2);margin-bottom:1rem}
+ul{margin:0 0 1rem 1.5rem;font-size:.9rem;color:var(--text2)}
+li{margin-bottom:.3rem}
+strong{color:var(--text);font-weight:600}
+
+.footer{border-top:1px solid rgba(155,27,48,.1);padding:1.5rem 2.5rem;text-align:center;font-size:.7rem;color:var(--text3)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="brand"><span class="hl">言绎</span> PromptLogic</a>
+  <a href="index.html" style="font-size:.85rem;color:var(--text3)">← 返回首页</a>
+</div>
+
+<div class="content">
+  <h1><span class="hl">隐私</span>政策</h1>
+  <div class="updated">最后更新日期：2026 年 3 月 24 日</div>
+
+  <h2>1. 引言</h2>
+  <p>珠海三界智能科技有限公司（以下简称"我们"）非常重视您的隐私。本隐私政策适用于言绎 PromptLogic 软件平台及其官方网站（www.zhsji.com），旨在向您说明我们如何收集、使用、存储和保护您的个人信息。</p>
+
+  <h2>2. 信息收集</h2>
+  <p>我们可能收集以下类型的信息：</p>
+  <ul>
+    <li><strong>账户信息</strong>：用户名、密码（BCrypt 加密存储）、角色权限等</li>
+    <li><strong>设备信息</strong>：用于软件授权的机器指纹（CPU、MAC 地址、硬盘序列号的哈希值）</li>
+    <li><strong>操作日志</strong>：软件内的操作审计记录（用于安全追溯）</li>
+    <li><strong>生产数据</strong>：产量、良率等统计数据（仅存储在本地）</li>
+  </ul>
+  <p><strong>我们不会收集</strong>：工作流文件内容、视觉检测图像、通信数据等生产核心数据。所有生产数据均存储在您的本地设备上。</p>
+
+  <h2>3. 信息使用</h2>
+  <p>我们收集的信息仅用于以下目的：</p>
+  <ul>
+    <li>提供软件授权验证服务</li>
+    <li>保障软件安全和功能正常运行</li>
+    <li>提供技术支持和售后服务</li>
+    <li>改进产品功能和用户体验</li>
+  </ul>
+
+  <h2>4. 数据存储与安全</h2>
+  <ul>
+    <li>所有用户数据均存储在<strong>本地设备</strong>（SQLite 数据库），不上传至云端</li>
+    <li>密码采用 <strong>BCrypt 加盐哈希</strong>存储，不可逆解密</li>
+    <li>授权文件采用 <strong>RSA-2048 数字签名</strong>，防止篡改</li>
+    <li>工作流文件采用<strong>原子化写入</strong>，防止断电数据损坏</li>
+    <li>离线部署模式下，软件<strong>不需要网络连接</strong>，无数据外传风险</li>
+  </ul>
+
+  <h2>5. 信息共享</h2>
+  <p>我们<strong>不会</strong>向任何第三方出售、出租或共享您的个人信息，除非：</p>
+  <ul>
+    <li>获得您的明确授权同意</li>
+    <li>法律法规要求的情况</li>
+    <li>为保护我们的合法权益（如防止欺诈）</li>
+  </ul>
+
+  <h2>6. AI 服务相关</h2>
+  <p>使用在线 AI 功能时（如 Gemini、DeepSeek），您的自然语言指令将发送至对应的 AI 服务提供商处理。我们建议：</p>
+  <ul>
+    <li>不要在 AI 对话中输入敏感的生产数据或商业机密</li>
+    <li>对于保密性要求高的场景，使用<strong>离线 AI 模式</strong>（专业版及以上，所有数据在本地处理）</li>
+  </ul>
+
+  <h2>7. Cookie 政策</h2>
+  <p>本网站（www.zhsji.com）为纯静态网站，<strong>不使用 Cookie</strong>，不追踪用户行为，不收集浏览数据。</p>
+
+  <h2>8. 未成年人保护</h2>
+  <p>言绎 PromptLogic 为工业自动化专业软件，不面向未成年人。我们不会故意收集未满 18 周岁未成年人的个人信息。</p>
+
+  <h2>9. 政策变更</h2>
+  <p>我们可能不时更新本隐私政策。重大变更时，我们会通过软件内通知或在本页面发布公告的方式告知您。</p>
+
+  <h2>10. 联系我们</h2>
+  <p>如果您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：</p>
+  <ul>
+    <li><strong>公司</strong>：珠海三界智能科技有限公司</li>
+    <li><strong>邮箱</strong>：contact@sji-tech.com</li>
+    <li><strong>地址</strong>：广东省珠海市</li>
+  </ul>
+</div>
+
+<div class="footer">© 2026 珠海三界智能科技有限公司 · 保留所有权利</div>
+
+</body>
+</html>

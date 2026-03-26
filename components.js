@@ -4,7 +4,7 @@
  */
 
 // Company Logo (SJI)
-const COMPANY_LOGO = `<img src="images/sji-logo.svg" alt="三界智能" style="height:32px;width:auto">`;
+const COMPANY_LOGO = `<img src="images/sji-logo.svg" alt="" style="height:32px;width:auto">`;
 
 // Product Logo (言绎 PromptLogic) - kept for product pages
 const PRODUCT_LOGO_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ function injectNavbar() {
   nav.innerHTML = `
     <a class="nav-brand" href="index.html">
       ${COMPANY_LOGO}
-      <span><span class="cn">三界智能</span></span>
+      <span><span class="cn"></span></span>
     </a>
     <div class="nav-links" id="navLinks">
       ${linksHTML}
@@ -69,7 +69,7 @@ function injectFooter() {
         <div class="footer-brand-block">
           <a class="footer-logo" href="index.html">
             ${COMPANY_LOGO}
-            <span><span class="cn">三界智能</span> · 珠海三界智能科技有限公司</span>
+            <span><span class="cn"></span> · 珠海三界智能科技有限公司</span>
           </a>
           <p>珠海三界智能科技有限公司 — AI 驱动的工业自动化低代码平台。用自然语言创建工业工作流，让工厂技术员「言出法随」。</p>
           <div class="footer-social">

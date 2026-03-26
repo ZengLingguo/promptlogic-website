@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关于我们 — 珠海三界智能科技有限公司</title>
+<meta name="description" content="了解珠海三界智能科技有限公司：使命、愿景、核心团队和发展历程。AI 驱动工业自动化创新的引领者。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.value-card{text-align:center;padding:2.5rem 1.5rem}
+.value-card .v-icon{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 1.2rem;
+  background:rgba(155,27,48,.08);border:1px solid rgba(155,27,48,.12);
+  display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.team-card{text-align:center;padding:2rem 1rem}
+.team-avatar{
+  width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;
+  background:var(--bg3);border:2px solid rgba(155,27,48,.1);
+  display:flex;align-items:center;justify-content:center;font-size:2rem;
+  transition:.3s;
+}
+.team-card:hover .team-avatar{border-color:var(--wine-light);transform:scale(1.05)}
+.team-card h3{font-size:.95rem;margin-bottom:.2rem}
+.team-card .role{font-size:.75rem;color:var(--wine-light);font-weight:600;margin-bottom:.5rem}
+.team-card p{font-size:.78rem;color:var(--text3)}
+
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.intro-text h3{font-size:1.3rem;margin-bottom:1rem;color:var(--wine-light)}
+.intro-text p{font-size:.92rem;color:var(--text2);line-height:1.9;margin-bottom:1.5rem}
+
+.mission-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.mission-card{padding:2rem;background:var(--bg3);border:1px solid rgba(155,27,48,.06);border-radius:var(--radius)}
+.mission-card h4{font-size:.7rem;font-weight:600;color:var(--wine-light);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem}
+.mission-card p{font-size:.92rem;color:var(--text2);line-height:1.8}
+
+@media(max-width:1024px){
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .intro-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .values-grid,.mission-cards{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">ABOUT US</span>
+    <h1>关于<span class="hl">三界智能</span></h1>
+    <p class="page-desc">AI 驱动工业自动化创新，让每一位工厂技术员都能驾驭智能化未来</p>
+  </div>
+</section>
+
+<!-- Company Introduction -->
+<section>
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text fade-up">
+        <h3>用 AI 重新定义工业自动化</h3>
+        <p>珠海三界智能科技有限公司成立于珠海，是一家专注于工业自动化领域 AI 技术创新的高新技术企业。公司核心团队深耕工业视觉检测、运动控制和智能制造领域多年，拥有丰富的行业经验和技术积累。</p>
+        <p>我们的核心产品 PromptLogic（言绎）是全球首款 AI 驱动的工业自动化低代码平台，通过自然语言编程技术，彻底打破了传统工业自动化开发的高门槛壁垒，让工厂技术员无需编程背景即可创建复杂的工业工作流。</p>
+        <div class="stats-row" style="justify-content:flex-start;gap:2.5rem;margin-top:2rem">
+          <div class="stat-item" style="text-align:left"><div class="stat-val" style="font-size:2rem">2024</div><div class="stat-label">公司成立</div></div>
+          <div class="stat-item" style="text-align:left"><div class="stat-val" style="font-size:2rem">珠海</div><div class="stat-label">总部所在地</div></div>
+          <div class="stat-item" style="text-align:left"><div class="stat-val" style="font-size:2rem">AI+</div><div class="stat-label">核心技术</div></div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="mission-cards">
+          <div class="mission-card">
+            <h4>🎯 使命</h4>
+            <p>用 AI 技术降低工业自动化门槛，让每一位工厂技术员都能轻松创建智能工作流。</p>
+          </div>
+          <div class="mission-card">
+            <h4>🔭 愿景</h4>
+            <p>成为全球领先的工业自动化 AI 平台提供商，推动制造业智能化转型。</p>
+          </div>
+          <div class="mission-card">
+            <h4>💡 理念</h4>
+            <p>技术为人服务，AI 不是取代人，而是赋能人，让人做更有价值的事。</p>
+          </div>
+          <div class="mission-card">
+            <h4>⚡ 价值观</h4>
+            <p>创新驱动 · 客户至上 · 精益求精 · 合作共赢</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="section-alt">
+  <div class="container section-header-center">
+    <span class="section-label fade-up">CORE VALUES</span>
+    <h2 class="section-title fade-up">核心<span class="hl">优势</span></h2>
+    <p class="section-desc fade-up">扎根技术创新，赋能行业发展。</p>
+    <div class="values-grid">
+      <div class="card value-card fade-up">
+        <div class="v-icon">🧠</div>
+        <h3>AI 技术领先</h3>
+        <p>自主研发的自然语言编程引擎，将自然语言精准解析为工业工作流，准确率达行业领先水平。</p>
+      </div>
+      <div class="card value-card fade-up">
+        <div class="v-icon">🏗️</div>
+        <h3>工业级架构</h3>
+        <p>四层解耦架构设计，经过多个项目验证的工业运行时，7×24 小时稳定运行保障。</p>
+      </div>
+      <div class="card value-card fade-up">
+        <div class="v-icon">🔌</div>
+        <h3>开放生态</h3>
+        <p>标准化插件接口，支持第三方开发自定义节点，构建开放共赢的工业自动化生态。</p>
+      </div>
+      <div class="card value-card fade-up">
+        <div class="v-icon">👨‍🔬</div>
+        <h3>资深团队</h3>
+        <p>核心团队来自头部工业自动化企业及 AI 实验室，平均行业经验 8 年以上。</p>
+      </div>
+      <div class="card value-card fade-up">
+        <div class="v-icon">📋</div>
+        <h3>知识产权</h3>
+        <p>多项核心技术专利及软件著作权，持续投入研发，保持技术竞争优势。</p>
+      </div>
+      <div class="card value-card fade-up">
+        <div class="v-icon">🤝</div>
+        <h3>行业合作</h3>
+        <p>与多家行业龙头企业建立深度战略合作，在真实产线中验证和打磨产品。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section>
+  <div class="container section-header-center">
+    <span class="section-label fade-up">TEAM</span>
+    <h2 class="section-title fade-up">核心<span class="hl">团队</span></h2>
+    <p class="section-desc fade-up">一群对工业自动化和 AI 充满热情的技术人。</p>
+    <div class="team-grid">
+      <div class="card team-card fade-up">
+        <div class="team-avatar">👤</div>
+        <h3>创始人 / CEO</h3>
+        <div class="role">战略规划 & 商务拓展</div>
+        <p>深耕工业自动化领域多年，拥有丰富的行业资源和管理经验。</p>
+      </div>
+      <div class="card team-card fade-up">
+        <div class="team-avatar">👤</div>
+        <h3>技术总监 / CTO</h3>
+        <div class="role">AI & 架构设计</div>
+        <p>AI 算法和工业软件架构专家，主导 PromptLogic 全栈技术架构。</p>
+      </div>
+      <div class="card team-card fade-up">
+        <div class="team-avatar">👤</div>
+        <h3>产品总监</h3>
+        <div class="role">产品设计 & 用户体验</div>
+        <p>多年工业软件产品经验，深入理解一线工程师的真实需求和使用场景。</p>
+      </div>
+      <div class="card team-card fade-up">
+        <div class="team-avatar">👤</div>
+        <h3>视觉算法负责人</h3>
+        <div class="role">视觉检测 & 深度学习</div>
+        <p>精通 Halcon、OpenCV、深度学习，覆盖工业视觉检测全流程算法。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section-alt">
+  <div class="container section-header-center">
+    <span class="section-label fade-up">MILESTONES</span>
+    <h2 class="section-title fade-up">发展<span class="hl">历程</span></h2>
+    <div class="timeline fade-up">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2024 Q1</div>
+          <h3>公司成立</h3>
+          <p>珠海三界智能科技有限公司在珠海正式注册成立，启动 PromptLogic 平台研发。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2024 Q3</div>
+          <h3>核心引擎完成</h3>
+          <p>完成节点画布引擎、执行引擎和插件系统开发，平台核心架构定型。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2025 Q1</div>
+          <h3>AI 功能上线</h3>
+          <p>自然语言编程引擎接入，实现一句话生成工作流的核心功能突破。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2025 Q4</div>
+          <h3>商业化落地</h3>
+          <p>首批行业客户签约，平台在 3C 电子、新能源等领域实现商业化部署。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2026</div>
+          <h3>生态拓展</h3>
+          <p>开放插件开发平台，构建工业自动化开发者生态，持续拓展行业应用场景。</p>
+        </div>
+        <div class="timeline-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;padding:6rem 0">
+  <div class="container">
+    <h2 class="section-title fade-up">与我们<span class="hl">同行</span></h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">加入三界智能，一起用 AI 重新定义工业自动化的未来。</p>
+    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
+      <a href="contact.html" class="btn btn-primary">联系我们</a>
+      <a href="products.html" class="btn btn-outline">了解产品</a>
+    </div>
+  </div>
+</section>
+
+<script src="components.js"></script>
+</body>
+</html>

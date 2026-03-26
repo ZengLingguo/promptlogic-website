@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>解决方案 — 珠海三界智能科技有限公司</title>
+<meta name="description" content="PromptLogic 覆盖六大行业的解决方案：3C 电子、新能源、汽车零部件、医药包装、食品饮料和通用制造。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.solution-detail{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+  align-items:center;margin-bottom:4rem;padding-bottom:4rem;
+  border-bottom:1px solid rgba(155,27,48,.06);
+}
+.solution-detail:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.solution-detail:nth-child(even){direction:rtl}
+.solution-detail:nth-child(even) > *{direction:ltr}
+.solution-icon-lg{
+  font-size:4rem;
+  width:120px;height:120px;border-radius:1.5rem;
+  background:rgba(155,27,48,.04);border:1px solid rgba(155,27,48,.08);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto;
+}
+.solution-visual{
+  background:var(--bg3);border:1px solid rgba(155,27,48,.06);
+  border-radius:var(--radius-lg);
+  height:280px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.solution-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(155,27,48,.04) 0%,transparent 60%);
+}
+.solution-text .section-label{margin-bottom:.8rem}
+.solution-text h3{font-size:1.5rem;margin-bottom:.8rem}
+.solution-text p{font-size:.92rem;color:var(--text2);line-height:1.9;margin-bottom:1rem}
+.solution-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.solution-tag{
+  background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.08);
+  border-radius:2rem;padding:.3rem .8rem;font-size:.72rem;
+  font-weight:600;color:var(--wine-light);
+}
+
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.case-card{padding:2rem;text-align:center}
+.case-card .case-icon{font-size:2rem;margin-bottom:.8rem}
+.case-card h3{font-size:1rem;margin-bottom:.4rem}
+.case-card p{font-size:.82rem;color:var(--text3);line-height:1.7}
+.case-card .case-result{
+  margin-top:.8rem;font-size:.82rem;font-weight:600;
+  color:var(--gold);
+}
+
+@media(max-width:1024px){
+  .solution-detail,.solution-detail:nth-child(even){grid-template-columns:1fr;direction:ltr}
+  .case-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .case-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">SOLUTIONS</span>
+    <h1>行业<span class="hl">解决方案</span></h1>
+    <p class="page-desc">从 3C 电子到通用制造，PromptLogic 的节点化架构天然适配多行业、多场景部署</p>
+  </div>
+</section>
+
+<!-- Solutions Overview -->
+<section>
+  <div class="container section-header-center">
+    <span class="section-label fade-up">INDUSTRY COVERAGE</span>
+    <h2 class="section-title fade-up">覆盖<span class="hl">六大</span>核心行业</h2>
+    <p class="section-desc fade-up">每个方案均可通过拖拽节点快速定制，无需编写一行代码。</p>
+    <div class="grid g3">
+      <div class="card industry-card fade-up"><span class="icon">📱</span><h3>3C 电子</h3><p class="apps">外观检测 · 尺寸测量 · 屏幕缺陷</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🔋</span><h3>新能源</h3><p class="apps">电芯焊缝 · 极片对齐 · 涂布检测</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🚗</span><h3>汽车零部件</h3><p class="apps">装配验证 · 螺丝检测 · 间隙测量</p></div>
+      <div class="card industry-card fade-up"><span class="icon">💊</span><h3>医药包装</h3><p class="apps">标签识别 · 液位检测 · 批号 OCR</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🍜</span><h3>食品饮料</h3><p class="apps">异物检测 · 封装完整 · 日期读取</p></div>
+      <div class="card industry-card fade-up"><span class="icon">🏭</span><h3>通用制造</h3><p class="apps">分拣计数 · 定位引导 · 在线测量</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Details -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-header-center" style="margin-bottom:4rem">
+      <span class="section-label fade-up">DETAILS</span>
+      <h2 class="section-title fade-up">方案<span class="hl">详情</span></h2>
+    </div>
+
+    <div class="solution-detail fade-up">
+      <div class="solution-text">
+        <span class="section-label">3C ELECTRONICS</span>
+        <h3>📱 3C 电子行业方案</h3>
+        <p>针对 3C 电子产品的高精度、高节拍检测需求，PromptLogic 提供从外观检测到尺寸测量的完整解决方案。通过 AI 自动配置检测参数，大幅降低调试时间。</p>
+        <div class="solution-tags">
+          <span class="solution-tag">外观缺陷检测</span>
+          <span class="solution-tag">精密尺寸测量</span>
+          <span class="solution-tag">屏幕异物检测</span>
+          <span class="solution-tag">标签 OCR</span>
+          <span class="solution-tag">装配验证</span>
+        </div>
+      </div>
+      <div class="solution-visual">
+        <div class="solution-icon-lg">📱</div>
+      </div>
+    </div>
+
+    <div class="solution-detail fade-up">
+      <div class="solution-text">
+        <span class="section-label">NEW ENERGY</span>
+        <h3>🔋 新能源行业方案</h3>
+        <p>覆盖锂电池全产线质量管控场景，从极片涂布到电芯焊缝检测，提供高可靠、低延迟的在线检测方案。支持与 MES 系统实时对接，实现生产数据闭环。</p>
+        <div class="solution-tags">
+          <span class="solution-tag">电芯焊缝检测</span>
+          <span class="solution-tag">极片对齐检测</span>
+          <span class="solution-tag">涂布均匀性</span>
+          <span class="solution-tag">电池壳体检测</span>
+          <span class="solution-tag">MES 对接</span>
+        </div>
+      </div>
+      <div class="solution-visual">
+        <div class="solution-icon-lg">🔋</div>
+      </div>
+    </div>
+
+    <div class="solution-detail fade-up">
+      <div class="solution-text">
+        <span class="section-label">AUTOMOTIVE</span>
+        <h3>🚗 汽车零部件方案</h3>
+        <p>满足汽车零部件行业严格的质量标准要求。从装配验证到表面缺陷检测，PromptLogic 提供高精度、可追溯的自动化检测方案，确保每一个零部件都符合品质标准。</p>
+        <div class="solution-tags">
+          <span class="solution-tag">装配完整性验证</span>
+          <span class="solution-tag">螺丝有无检测</span>
+          <span class="solution-tag">间隙/段差测量</span>
+          <span class="solution-tag">表面缺陷检测</span>
+        </div>
+      </div>
+      <div class="solution-visual">
+        <div class="solution-icon-lg">🚗</div>
+      </div>
+    </div>
+
+    <div class="solution-detail fade-up">
+      <div class="solution-text">
+        <span class="section-label">PHARMA & FOOD</span>
+        <h3>💊 医药 & 食品行业方案</h3>
+        <p>符合 GMP/FDA 规范要求的智能视觉检测方案。从药品包装的标签识别到食品生产线的异物检测，确保每一件产品都安全合规。</p>
+        <div class="solution-tags">
+          <span class="solution-tag">标签识别验证</span>
+          <span class="solution-tag">液位检测</span>
+          <span class="solution-tag">批号 OCR</span>
+          <span class="solution-tag">异物检测</span>
+          <span class="solution-tag">封装完整性</span>
+          <span class="solution-tag">日期读取</span>
+        </div>
+      </div>
+      <div class="solution-visual">
+        <div class="solution-icon-lg">💊</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Success Cases -->
+<section>
+  <div class="container section-header-center">
+    <span class="section-label fade-up">SUCCESS CASES</span>
+    <h2 class="section-title fade-up">客户<span class="hl">成功案例</span></h2>
+    <p class="section-desc fade-up">在真实产线上验证的成功部署案例。</p>
+    <div class="case-grid">
+      <div class="card case-card fade-up">
+        <div class="case-icon">📱</div>
+        <h3>某 3C 龙头企业</h3>
+        <p>外观检测产线部署 PromptLogic，覆盖手机外壳、屏幕、接口等 15 个检测项。</p>
+        <div class="case-result">检测效率提升 300%，漏检率降至 0.01%</div>
+      </div>
+      <div class="card case-card fade-up">
+        <div class="case-icon">🔋</div>
+        <h3>某新能源电池厂</h3>
+        <p>电芯焊缝检测全线升级，替代传统人工目检，实现 7×24 自动化在线检测。</p>
+        <div class="case-result">节拍时间从 3s 降至 0.8s</div>
+      </div>
+      <div class="card case-card fade-up">
+        <div class="case-icon">💊</div>
+        <h3>某医药包装线</h3>
+        <p>药品标签 OCR 识别与批号校验系统部署，满足 GMP 审计追溯要求。</p>
+        <div class="case-result">OCR 识别准确率 99.99%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-alt" style="text-align:center;padding:6rem 0">
+  <div class="container">
+    <h2 class="section-title fade-up">需要定制<span class="hl">行业方案</span>？</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">告诉我们您的检测需求，我们为您量身定制最优解决方案。</p>
+    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
+      <a href="contact.html" class="btn btn-primary" style="padding:.8rem 2.2rem;font-size:1rem">📧 联系我们</a>
+      <a href="products.html" class="btn btn-outline" style="padding:.8rem 2.2rem;font-size:1rem">了解产品详情</a>
+    </div>
+  </div>
+</section>
+
+<script src="components.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品中心 — PromptLogic 智能平台 | 珠海三界智能科技</title>
+<meta name="description" content="PromptLogic — AI 驱动的工业自动化低代码平台。自然语言编程、可视化节点画布、视觉检测、运动控制，全流程覆盖。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.showcase-caption{text-align:center;margin-top:1.5rem;font-size:.88rem;color:var(--text2)}
+.showcase-caption strong{color:var(--text);font-weight:600}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">PRODUCT</span>
+    <h1>PromptLogic <span class="hl">智能平台</span></h1>
+    <p class="page-desc">AI 驱动的工业自动化低代码平台，用自然语言创建工业工作流</p>
+  </div>
+</section>
+
+<!-- Pain Point → Value -->
+<section id="problem">
+  <div class="container">
+    <span class="section-label fade-up">为什么选择言绎</span>
+    <h2 class="section-title fade-up">从<span class="hl">繁琐编程</span>到<span class="hl">一句话搞定</span></h2>
+    <p class="section-desc fade-up">传统工业自动化开发：学 C#、学 Halcon、学 PLC 通信协议，培养一个合格工程师需要 2-3 年。言绎让工厂技术员用自然语言直接描述需求，AI 自动生成工作流。</p>
+    <div class="compare fade-up">
+      <div class="compare-side bad">
+        <h3>❌ 传统方式</h3>
+        <div class="flow-steps">
+          <span class="flow-step">学习 C# 语法</span><span class="flow-arrow">→</span>
+          <span class="flow-step">配置 Halcon 环境</span><span class="flow-arrow">→</span>
+          <span class="flow-step">编写视觉算法</span><span class="flow-arrow">→</span>
+          <span class="flow-step">调试 PLC 通信</span><span class="flow-arrow">→</span>
+          <span class="flow-step">手写状态机</span><span class="flow-arrow">→</span>
+          <span class="flow-step">反复调试</span>
+        </div>
+        <p style="color:var(--text3);font-size:.88rem">痛点：门槛高 · 周期长 · 人才稀缺 · 维护困难</p>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-side good">
+        <h3>✅ 言绎方式</h3>
+        <div class="flow-steps">
+          <span class="flow-step">描述需求</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI 生成工作流</span><span class="flow-arrow">→</span>
+          <span class="flow-step">拖拽微调</span><span class="flow-arrow">→</span>
+          <span class="flow-step">一键运行</span>
+        </div>
+        <p style="color:var(--text2);font-size:.88rem">价值：零学习成本 · AI 代替专家经验 · 降低人才门槛</p>
+      </div>
+    </div>
+    <div class="quote fade-up" style="margin-top:2.5rem">「言绎的竞争对手不是同行，而是不会编程的工厂技术员的学习成本。」</div>
+  </div>
+</section>
+
+<!-- Product Interface -->
+<section class="section-alt" id="showcase">
+  <div class="container section-header-center">
+    <span class="section-label fade-up">PRODUCT INTERFACE</span>
+    <h2 class="section-title fade-up">专业级<span class="hl">工业软件</span>界面</h2>
+    <p class="section-desc fade-up">深色主题设计，减少工厂环境屏幕刺眼。多面板布局，可拖拽停靠、折叠自适应。</p>
+    <div class="tabs fade-up">
+      <div class="tab active" onclick="showScreenshot(0)">🚀 启动画面</div>
+      <div class="tab" onclick="showScreenshot(1)">🖥️ 主工作界面</div>
+      <div class="tab" onclick="showScreenshot(2)">🤖 AI 工作流生成</div>
+      <div class="tab" onclick="showScreenshot(3)">🎨 节点画布</div>
+      <div class="tab" onclick="showScreenshot(4)">📊 执行监控</div>
+    </div>
+    <div class="showcase-frame fade-up">
+      <img id="ss0" src="images/splash.png" alt="启动画面" onerror="this.style.height='350px';this.style.background='var(--bg3)'">
+      <img id="ss1" src="images/main_interface.png" alt="主工作界面" class="hidden">
+      <img id="ss2" src="images/ai_workflow.png" alt="AI 工作流生成" class="hidden">
+      <img id="ss3" src="images/canvas.png" alt="节点画布" class="hidden">
+      <img id="ss4" src="images/monitoring.png" alt="执行监控" class="hidden">
+    </div>
+    <div class="showcase-caption fade-up" id="ss-caption">
+      <strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈
+    </div>
+  </div>
+</section>
+
+<!-- Core Features -->
+<section id="features">
+  <div class="container">
+    <span class="section-label fade-up">CORE FEATURES</span>
+    <h2 class="section-title fade-up">六大<span class="hl">核心能力</span></h2>
+    <p class="section-desc fade-up">从自然语言到物理执行，端到端覆盖工业自动化全流程。</p>
+    <div class="grid g3">
+      <div class="card fade-up">
+        <span class="icon">🗣️</span>
+        <h3>自然语言编程</h3>
+        <p>输入一句话描述你的需求，AI 自动解析意图并生成完整的节点工作流。支持中文，无需编程基础。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">🔗</span>
+        <h3>可视化节点画布</h3>
+        <p>拖拽式节点编辑器，贝塞尔曲线连线，GDI+ 高性能渲染。200+ 节点依然 60FPS 流畅操作。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">👁️</span>
+        <h3>视觉检测集成</h3>
+        <p>内置 Halcon / VisionPro 插件，模板匹配、OCR、缺陷检测，节点库一站式覆盖主流视觉任务。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">⚙️</span>
+        <h3>运动控制</h3>
+        <p>支持雷赛、正运动等主流运动控制卡，多轴联动、回零、点位运动均封装为可配置节点。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">📡</span>
+        <h3>通信协议</h3>
+        <p>Modbus TCP/RTU、TCP/IP、串口通信、OPC UA，工厂常用协议全覆盖，拖入即用。</p>
+      </div>
+      <div class="card fade-up">
+        <span class="icon">🔌</span>
+        <h3>插件生态</h3>
+        <p>标准化 IPlugin 接口，第三方可开发自定义节点。独立 DLL 热加载，不影响主程序运行。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="section-alt" id="architecture">
+  <div class="container">
+    <span class="section-label fade-up">ARCHITECTURE</span>
+    <h2 class="section-title fade-up">四层<span class="hl">工业级</span>架构</h2>
+    <p class="section-desc fade-up">.NET Framework 4.8 + C# 7.3，经过验证的工业运行时。四层解耦，每层可独立测试和替换。</p>
+    <div class="arch-layers fade-up">
+      <div class="arch-layer">
+        <div class="arch-label">🖥️ Shell / UI 层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">AntdUI</span>
+          <span class="arch-tag">WinForms 深色主题</span>
+          <span class="arch-tag">节点画布 (GDI+)</span>
+          <span class="arch-tag">AI 聊天面板</span>
+        </div>
+      </div>
+      <div class="arch-connector">↕ IEventBus</div>
+      <div class="arch-layer">
+        <div class="arch-label">⚙️ Engine 引擎层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">ExecutionEngine</span>
+          <span class="arch-tag">CommandManager</span>
+          <span class="arch-tag">PluginManager</span>
+          <span class="arch-tag">WorkflowSerializer</span>
+        </div>
+      </div>
+      <div class="arch-connector">↕ INode / IPlugin</div>
+      <div class="arch-layer">
+        <div class="arch-label">📦 Core 核心层</div>
+        <div class="arch-tags">
+          <span class="arch-tag highlight">WorkflowDocument</span>
+          <span class="arch-tag">NodeRegistry</span>
+          <span class="arch-tag">TypeResolver</span>
+          <span class="arch-tag">VariableManager</span>
+        </div>
+      </div>
+      <div class="arch-connector">↕ Interfaces</div>
+      <div class="arch-layer">
+        <div class="arch-label">📜 Contracts 契约层</div>
+        <div class="arch-tags">
+          <span class="arch-tag">INode</span>
+          <span class="arch-tag">IPlugin</span>
+          <span class="arch-tag">ICommand</span>
+          <span class="arch-tag">IEventBus</span>
+          <span class="arch-tag">DTO / Enum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing">
+  <div class="container section-header-center">
+    <span class="section-label fade-up">PRICING</span>
+    <h2 class="section-title fade-up">灵活<span class="hl">定价</span>方案</h2>
+    <p class="section-desc fade-up">从试用到企业级部署，总有一款适合你的规模。</p>
+    <div class="grid g4">
+      <div class="card pricing-card fade-up">
+        <div class="edition">试用版</div>
+        <div class="price">免费</div>
+        <div class="desc">30 天全功能体验</div>
+        <ul><li>最多 20 个节点</li><li>基础内置插件</li><li>在线 AI 支持</li><li>社区邮件支持</li></ul>
+        <a href="contact.html" class="btn btn-outline">开始试用</a>
+      </div>
+      <div class="card pricing-card fade-up">
+        <div class="edition">标准版</div>
+        <div class="price">按年订阅</div>
+        <div class="desc">小型集成商首选</div>
+        <ul><li>最多 50 个节点</li><li>视觉基础插件</li><li>在线 AI 支持</li><li>5×8h 工作日支持</li><li>24h 响应</li></ul>
+        <a href="contact.html" class="btn btn-outline">联系获取报价</a>
+      </div>
+      <div class="card pricing-card featured fade-up">
+        <div class="edition">专业版</div>
+        <div class="price">按年订阅</div>
+        <div class="desc">中型集成商 · 最佳性价比</div>
+        <ul><li>无限节点</li><li>全部插件包</li><li>离线 AI（本地模型）</li><li>7×12h 支持</li><li>4h 快速响应</li><li>2 次/年现场服务</li></ul>
+        <a href="contact.html" class="btn btn-primary">联系获取报价</a>
+      </div>
+      <div class="card pricing-card fade-up">
+        <div class="edition">企业版</div>
+        <div class="price">买断 + 维保</div>
+        <div class="desc">大型工厂定制方案</div>
+        <ul><li>全部功能无限制</li><li>源码级定制</li><li>多用户 + API 接口</li><li>7×24h 专属支持</li><li>2h 极速响应</li><li>不限次现场服务</li></ul>
+        <a href="contact.html" class="btn btn-outline">联系获取报价</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-alt" style="text-align:center;padding:6rem 0">
+  <div class="container">
+    <h2 class="section-title fade-up">准备好<span class="hl">开始体验</span>了吗？</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">30 天免费试用，零风险体验 AI 驱动的工业自动化平台。</p>
+    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
+      <a href="contact.html" class="btn btn-primary" style="padding:.8rem 2.2rem;font-size:1rem">📧 联系我们获取试用</a>
+    </div>
+  </div>
+</section>
+
+<script src="components.js"></script>
+<script>
+// Screenshot switcher
+var captions=[
+  '<strong>启动画面</strong> — 品牌展示 + 后台加载（插件扫描、配置读取、AI 模型预热），进度实时反馈',
+  '<strong>主工作界面</strong> — 节点库、AI 助手、节点画布、属性面板、全局变量、执行日志，六大区域一览无余',
+  '<strong>AI 工作流生成</strong> — 输入一句话，AI 自动生成完整视觉检测工作流，真正做到「言出法随」',
+  '<strong>节点画布特写</strong> — 贝塞尔曲线连线、GDI+ 高性能渲染、60FPS 流畅拖拽，200+ 节点依然丝滑',
+  '<strong>执行监控面板</strong> — 产量、良率、节拍时间实时统计，良率趋势图，异常追溯一目了然'
+];
+function showScreenshot(idx){
+  for(var i=0;i<5;i++){
+    document.getElementById('ss'+i).className=i===idx?'':'hidden';
+    document.querySelectorAll('.tab')[i].className='tab'+(i===idx?' active':'');
+  }
+  document.getElementById('ss-caption').innerHTML=captions[idx];
+}
+</script>
+</body>
+</html>

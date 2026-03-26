@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻动态 — 珠海三界智能科技有限公司</title>
+<meta name="description" content="珠海三界智能科技有限公司最新动态、行业资讯和技术分享。关注 PromptLogic 产品更新和工业自动化前沿趋势。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.news-featured{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;
+  margin-bottom:3rem;
+}
+.news-featured-card{
+  background:var(--bg2);border:1px solid rgba(155,27,48,.06);
+  border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);
+}
+.news-featured-card:hover{
+  border-color:rgba(155,27,48,.15);
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-lg);
+}
+.news-featured-img{
+  height:240px;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;position:relative;overflow:hidden;
+}
+.news-featured-img::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(transparent,var(--bg2));
+}
+.news-featured-body{padding:1.5rem 2rem 2rem}
+.news-featured-body .news-card-date{margin-bottom:.6rem}
+.news-featured-body h3{font-size:1.2rem;margin-bottom:.6rem;line-height:1.4}
+.news-featured-body p{font-size:.88rem;color:var(--text2);line-height:1.8}
+
+.news-list{margin-top:2rem}
+.news-list-item{
+  display:flex;gap:2rem;align-items:center;
+  padding:1.5rem 0;
+  border-bottom:1px solid rgba(155,27,48,.04);
+  transition:var(--transition);
+}
+.news-list-item:hover{padding-left:.5rem}
+.news-list-item:last-child{border-bottom:none}
+.news-list-date{
+  min-width:80px;text-align:center;
+  background:var(--bg3);border:1px solid rgba(155,27,48,.06);
+  border-radius:.5rem;padding:.8rem .5rem;
+  flex-shrink:0;
+}
+.news-list-date .day{font-size:1.4rem;font-weight:800;color:var(--wine-light);display:block}
+.news-list-date .month{font-size:.62rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em}
+.news-list-content h3{font-size:1rem;margin-bottom:.3rem;transition:.3s}
+.news-list-item:hover .news-list-content h3{color:var(--wine-light)}
+.news-list-content p{font-size:.82rem;color:var(--text3);line-height:1.7}
+.news-list-content .news-tag{
+  display:inline-block;font-size:.62rem;font-weight:600;
+  background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.08);
+  border-radius:2rem;padding:.15rem .6rem;
+  color:var(--wine-light);margin-right:.5rem;margin-bottom:.4rem;
+}
+
+@media(max-width:768px){
+  .news-featured{grid-template-columns:1fr}
+  .news-list-item{flex-direction:column;gap:1rem;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">NEWS</span>
+    <h1>新闻<span class="hl">动态</span></h1>
+    <p class="page-desc">了解三界智能最新产品更新、行业洞察和公司活动</p>
+  </div>
+</section>
+
+<!-- News Tabs -->
+<section>
+  <div class="container">
+    <div class="tabs fade-up">
+      <div class="tab active" onclick="filterNews('all')">全部</div>
+      <div class="tab" onclick="filterNews('company')">公司动态</div>
+      <div class="tab" onclick="filterNews('industry')">行业资讯</div>
+      <div class="tab" onclick="filterNews('tech')">技术分享</div>
+    </div>
+
+    <!-- Featured -->
+    <div class="news-featured fade-up">
+      <div class="news-featured-card" data-category="company">
+        <div class="news-featured-img">🚀</div>
+        <div class="news-featured-body">
+          <div class="news-card-date">2026-03-20 · 公司动态</div>
+          <h3>PromptLogic v2.0 正式发布 — 全新 AI 工作流引擎</h3>
+          <p>全新 AI 工作流生成引擎上线，支持自然语言一句话创建完整视觉检测方案。新增离线模型支持，优化节点画布性能，200+ 节点依然流畅。开发效率提升 10 倍以上。</p>
+        </div>
+      </div>
+      <div class="news-featured-card" data-category="company">
+        <div class="news-featured-img">🏆</div>
+        <div class="news-featured-body">
+          <div class="news-card-date">2026-03-15 · 公司动态</div>
+          <h3>三界智能入选珠海市高新技术企业培育库</h3>
+          <p>凭借在工业自动化 AI 领域的技术创新和多项自主知识产权，我司成功入选珠海市高新技术企业培育库，标志着公司技术实力获得政府层面认可。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- News List -->
+    <div class="news-list fade-up">
+      <div class="news-list-item" data-category="company">
+        <div class="news-list-date">
+          <span class="day">10</span>
+          <span class="month">2026.03</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">公司动态</span>
+          <h3>与某知名 3C 企业达成战略合作协议</h3>
+          <p>PromptLogic 平台将全面部署于合作方的质量检测产线，覆盖外观检测、OCR 识别等核心场景，预计年检测量将超过百万件。</p>
+        </div>
+      </div>
+
+      <div class="news-list-item" data-category="industry">
+        <div class="news-list-date">
+          <span class="day">05</span>
+          <span class="month">2026.03</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">行业资讯</span>
+          <h3>2026 工业视觉检测市场趋势报告</h3>
+          <p>AI 驱动的低代码平台正在成为工业视觉检测领域的新趋势，传统编程式方案面临技术门槛和人才短缺双重挑战。</p>
+        </div>
+      </div>
+
+      <div class="news-list-item" data-category="tech">
+        <div class="news-list-date">
+          <span class="day">28</span>
+          <span class="month">2026.02</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">技术分享</span>
+          <h3>深入理解 PromptLogic 的节点执行引擎</h3>
+          <p>本文详细讲解 PromptLogic 执行引擎的拓扑排序算法、并行执行策略和异常处理机制，帮助开发者深度了解平台架构。</p>
+        </div>
+      </div>
+
+      <div class="news-list-item" data-category="tech">
+        <div class="news-list-date">
+          <span class="day">20</span>
+          <span class="month">2026.02</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">技术分享</span>
+          <h3>如何用自然语言构建一个完整的视觉检测工作流</h3>
+          <p>实战教程：一步步演示如何通过 PromptLogic 的 AI 功能，用一句中文描述生成包含图像采集、预处理、模板匹配和结果判定的完整工作流。</p>
+        </div>
+      </div>
+
+      <div class="news-list-item" data-category="industry">
+        <div class="news-list-date">
+          <span class="day">15</span>
+          <span class="month">2026.02</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">行业资讯</span>
+          <h3>新能源电池行业质量检测面临的挑战与机遇</h3>
+          <p>随着新能源汽车市场的爆发式增长，电池质量检测需求激增。AI + 机器视觉方案正在重塑这一领域的检测标准和效率。</p>
+        </div>
+      </div>
+
+      <div class="news-list-item" data-category="company">
+        <div class="news-list-date">
+          <span class="day">08</span>
+          <span class="month">2026.02</span>
+        </div>
+        <div class="news-list-content">
+          <span class="news-tag">公司动态</span>
+          <h3>PromptLogic 插件开发者平台即将开放</h3>
+          <p>为构建工业自动化开发者生态，我司将于 Q2 正式开放插件开发者平台，支持第三方开发自定义节点并在平台内发布。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-alt" style="text-align:center;padding:5rem 0">
+  <div class="container">
+    <h2 class="section-title fade-up" style="font-size:2rem">关注我们，获取<span class="hl">最新资讯</span></h2>
+    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center;margin-top:2rem">
+      <a href="contact.html" class="btn btn-primary">联系我们</a>
+    </div>
+  </div>
+</section>
+
+<script src="components.js"></script>
+<script>
+function filterNews(category) {
+  // Update tabs
+  document.querySelectorAll('.tab').forEach(function(t, i) {
+    t.className = 'tab';
+  });
+  event.target.className = 'tab active';
+
+  // Filter items
+  var items = document.querySelectorAll('.news-list-item, .news-featured-card');
+  items.forEach(function(item) {
+    if (category === 'all' || item.getAttribute('data-category') === category) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

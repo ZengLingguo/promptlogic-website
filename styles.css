@@ -5,10 +5,10 @@
 /* === Reset & Variables === */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#f8f7fa;
-  --bg2:#ffffff;
-  --bg3:#f0eef3;
-  --bg4:#e8e5ed;
+  --bg:#e8e6ec;
+  --bg2:#f0eef3;
+  --bg3:#dfdce5;
+  --bg4:#d5d1dc;
   --wine:#9b1b30;
   --wine-light:#b82740;
   --wine-dark:#6e1322;

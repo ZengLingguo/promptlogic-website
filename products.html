@@ -11,19 +11,38 @@
 <body>
 <canvas id="particles"></canvas>
 
-<section class="page-hero">
+<section class="page-hero" style="background:url('images/banner2.png') center/cover no-repeat">
   <div class="container">
-    <div class="section-label">PRODUCTS</div>
+    <div class="section-label" style="border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff">PRODUCTS</div>
     <h1>产品中心</h1>
     <p class="page-desc">PromptLogic — AI 驱动的工业自动化低代码平台</p>
   </div>
 </section>
 
-<!-- Product Showcase -->
+<!-- Product Intro -->
 <section>
   <div class="container">
+    <div class="about-preview">
+      <div class="about-text fade-up">
+        <div class="section-label">PROMPTLOGIC</div>
+        <h2>言绎 · 低代码平台</h2>
+        <p>PromptLogic 是三界智能自主研发的工业自动化低代码平台，集成了视觉检测算法库、节点画布编辑器、AI 自然语言工作流引擎、设备通信模块和数据分析仪表盘。</p>
+        <p>用户只需通过拖拽节点或用中文描述需求，AI 即可自动生成完整检测方案，无需编程基础。平台已覆盖 200+ 常用算法节点，涵盖图像采集、预处理、特征提取、缺陷判定、结果输出等全流程。</p>
+        <a href="contact.html" class="btn btn-primary">申请试用</a>
+      </div>
+      <div class="about-img fade-up">
+        <img src="images/main_interface.png" alt="PromptLogic 主界面">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Showcase Gallery -->
+<section class="section-alt">
+  <div class="container">
     <div class="section-center">
-      <h2 class="section-title fade-up">平台功能展示</h2>
+      <div class="section-label fade-up">SHOWCASE</div>
+      <h2 class="section-title fade-up">功能展示</h2>
       <p class="section-desc fade-up">从需求描述到检测部署，全流程可视化操作</p>
     </div>
     <div class="case-grid">
@@ -37,7 +56,7 @@
       </div>
       <div class="case-item fade-up">
         <img src="images/canvas.png" alt="节点画布">
-        <div class="case-overlay"><h4>节点画布</h4></div>
+        <div class="case-overlay"><h4>节点画布编辑器</h4></div>
       </div>
       <div class="case-item fade-up">
         <img src="images/monitoring.png" alt="执行监控">
@@ -47,53 +66,84 @@
   </div>
 </section>
 
-<!-- Core Features -->
-<section class="section-alt">
+<!-- Core Features (6) -->
+<section>
   <div class="container">
     <div class="section-center">
-      <h2 class="section-title fade-up">六大核心能力</h2>
+      <div class="section-label fade-up">FEATURES</div>
+      <h2 class="section-title fade-up">六大核心功能</h2>
     </div>
     <div class="grid g3">
       <div class="card fade-up">
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div>
         <h3>自然语言编程</h3>
-        <p>用中文描述需求，AI 自动生成完整的视觉检测工作流节点图</p>
+        <p>用中文描述检测需求，AI 自动分析语义，生成完整的节点化工作流方案。支持追问修改，实现「对话式」开发体验。</p>
       </div>
       <div class="card fade-up">
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>机器视觉算法</h3>
-        <p>内置模板匹配、Blob分析、边缘检测、深度学习推理等 200+ 算法节点</p>
+        <h3>机器视觉算法库</h3>
+        <p>内置模板匹配、Blob 分析、边缘检测、颜色识别、深度学习推理等 200+ 算法节点，覆盖主流检测场景。</p>
       </div>
       <div class="card fade-up">
-        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>流程自动化</h3>
-        <p>拖拽节点搭建自动化工作流，支持条件分支、循环、并行执行</p>
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+        <h3>节点画布编辑器</h3>
+        <p>直观的拖拽式节点画布，支持节点组合、子流程封装、条件分支和循环控制，搭建复杂工作流如同搭积木。</p>
       </div>
       <div class="card fade-up">
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 7 9 3 5 7l4 4"/><path d="m17 11 4 4-4 4-4-4"/><path d="m8 12 4 4 6-6-4-4Z"/><path d="m16 8 3-3"/><path d="M9 21a6 6 0 0 0-6-6"/></svg></div>
         <h3>设备通信</h3>
-        <p>支持 Modbus、OPC-UA、TCP/IP、串口等主流工业通信协议</p>
+        <p>支持 Modbus TCP/RTU、OPC-UA、S7、TCP/IP、串口等主流工业协议，一键对接 PLC、传感器和执行器。</p>
       </div>
       <div class="card fade-up">
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3>数据分析</h3>
-        <p>实时监控仪表盘、SPC 统计分析、执行日志追溯与报表导出</p>
+        <h3>数据分析仪表盘</h3>
+        <p>实时监控检测数据，内置 SPC 统计分析、良率趋势图、异常报警。支持执行日志追溯和报表导出。</p>
       </div>
       <div class="card fade-up">
         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-        <h3>插件生态</h3>
-        <p>开放式架构，支持第三方扩展开发，灵活对接企业现有系统</p>
+        <h3>插件扩展系统</h3>
+        <p>开放式插件架构，支持第三方节点开发。提供完善的 SDK 和 API 文档，可灵活对接 MES、ERP 等企业系统。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-label fade-up">WHY CHOOSE</div>
+      <h2 class="section-title fade-up">为什么选择 PromptLogic</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div style="font-size:2.4rem;font-weight:800;color:var(--wine-light);margin-bottom:.6rem">90%</div>
+        <h3>降低开发门槛</h3>
+        <p>无需 C#、Python 等编程基础，一线技术员也能独立完成检测方案开发</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div style="font-size:2.4rem;font-weight:800;color:var(--wine-light);margin-bottom:.6rem">10x</div>
+        <h3>提升开发效率</h3>
+        <p>从数周编码缩短至数天拖拽+AI 生成，项目交付周期大幅压缩</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div style="font-size:2.4rem;font-weight:800;color:var(--wine-light);margin-bottom:.6rem">99.5%</div>
+        <h3>检测准确率</h3>
+        <p>深度学习+传统算法双引擎融合，远超人工检测水平</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section style="text-align:center">
+<section style="text-align:center;background:linear-gradient(135deg,#1a1625,#2d1f3d 50%,#3a1528);color:#fff;padding:5rem 0">
   <div class="container">
-    <h2 class="section-title fade-up">开始使用 PromptLogic</h2>
-    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto">联系我们获取免费试用，体验 AI 驱动的低代码工业自动化开发</p>
-    <a href="contact.html" class="btn btn-primary fade-up">联系我们获取试用</a>
+    <h2 class="section-title fade-up" style="color:#fff">开始使用 PromptLogic</h2>
+    <p class="section-desc fade-up" style="color:rgba(255,255,255,.7);margin-left:auto;margin-right:auto">联系我们获取免费试用，体验 AI 驱动的低代码工业自动化开发</p>
+    <div style="display:flex;gap:1rem;justify-content:center" class="fade-up">
+      <a href="contact.html" class="btn btn-white">联系获取试用</a>
+      <a href="solutions.html" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3)">查看行业方案</a>
+    </div>
   </div>
 </section>
 

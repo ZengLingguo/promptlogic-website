@@ -4,214 +4,120 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>解决方案 — 珠海三界智能科技有限公司</title>
-<meta name="description" content="PromptLogic 覆盖六大行业的解决方案：3C 电子、新能源、汽车零部件、医药包装、食品饮料和通用制造。">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="三界智能为 3C 电子、新能源、汽车零部件、医药等行业提供定制化的工业视觉检测解决方案。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.solution-detail{
-  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
-  align-items:center;margin-bottom:4rem;padding-bottom:4rem;
-  border-bottom:1px solid rgba(155,27,48,.06);
-}
-.solution-detail:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-.solution-detail:nth-child(even){direction:rtl}
-.solution-detail:nth-child(even) > *{direction:ltr}
-.solution-icon-lg{
-  font-size:4rem;
-  width:120px;height:120px;border-radius:1.5rem;
-  background:rgba(155,27,48,.04);border:1px solid rgba(155,27,48,.08);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto;
-}
-.solution-visual{
-  background:var(--bg3);border:1px solid rgba(155,27,48,.06);
-  border-radius:var(--radius-lg);
-  height:280px;display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.solution-visual::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%,rgba(155,27,48,.04) 0%,transparent 60%);
-}
-.solution-text .section-label{margin-bottom:.8rem}
-.solution-text h3{font-size:1.5rem;margin-bottom:.8rem}
-.solution-text p{font-size:.92rem;color:var(--text2);line-height:1.9;margin-bottom:1rem}
-.solution-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem}
-.solution-tag{
-  background:rgba(155,27,48,.06);border:1px solid rgba(155,27,48,.08);
-  border-radius:2rem;padding:.3rem .8rem;font-size:.72rem;
-  font-weight:600;color:var(--wine-light);
-}
-
-.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.case-card{padding:2rem;text-align:center}
-.case-card .case-icon{font-size:2rem;margin-bottom:.8rem}
-.case-card h3{font-size:1rem;margin-bottom:.4rem}
-.case-card p{font-size:.82rem;color:var(--text3);line-height:1.7}
-.case-card .case-result{
-  margin-top:.8rem;font-size:.82rem;font-weight:600;
-  color:var(--gold);
-}
-
-@media(max-width:1024px){
-  .solution-detail,.solution-detail:nth-child(even){grid-template-columns:1fr;direction:ltr}
-  .case-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:640px){
-  .case-grid{grid-template-columns:1fr}
-}
-</style>
 </head>
 <body>
-
 <canvas id="particles"></canvas>
 
-<!-- Page Hero -->
 <section class="page-hero">
   <div class="container">
-    <span class="section-label">SOLUTIONS</span>
-    <h1>行业<span class="hl">解决方案</span></h1>
-    <p class="page-desc">从 3C 电子到通用制造，PromptLogic 的节点化架构天然适配多行业、多场景部署</p>
+    <div class="section-label">SOLUTIONS</div>
+    <h1>解决方案</h1>
+    <p class="page-desc">面向多个制造行业，提供深度定制的智能检测与自动化方案</p>
   </div>
 </section>
 
-<!-- Solutions Overview -->
+<!-- Industry Cards -->
 <section>
-  <div class="container section-header-center">
-    <span class="section-label fade-up">INDUSTRY COVERAGE</span>
-    <h2 class="section-title fade-up">覆盖<span class="hl">六大</span>核心行业</h2>
-    <p class="section-desc fade-up">每个方案均可通过拖拽节点快速定制，无需编写一行代码。</p>
+  <div class="container">
+    <div class="section-center">
+      <h2 class="section-title fade-up">行业覆盖</h2>
+      <p class="section-desc fade-up">深耕工业自动化，已在多个制造领域成功落地应用</p>
+    </div>
     <div class="grid g3">
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>3C 电子</h3><p class="apps">外观检测 · 尺寸测量 · 屏幕缺陷</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></span><h3>新能源</h3><p class="apps">电芯焊缝 · 极片对齐 · 涂布检测</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span><h3>汽车零部件</h3><p class="apps">装配验证 · 螺丝检测 · 间隙测量</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span><h3>医药包装</h3><p class="apps">标签识别 · 液位检测 · 批号 OCR</p></div>
-      <div class="card industry-card fade-up"><span class="icon">🍜</span><h3>食品饮料</h3><p class="apps">异物检测 · 封装完整 · 日期读取</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg></span><h3>通用制造</h3><p class="apps">分拣计数 · 定位引导 · 在线测量</p></div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>3C 电子</h3>
+        <p>外观检测 · 尺寸测量 · 屏幕缺陷</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg>
+        </div>
+        <h3>新能源</h3>
+        <p>电芯焊缝 · 极片对齐 · 涂布检测</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+        </div>
+        <h3>汽车零部件</h3>
+        <p>装配验证 · 螺丝检测 · 间隙测量</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+        </div>
+        <h3>医药包装</h3>
+        <p>标签识别 · 液位检测 · 批号 OCR</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+        </div>
+        <h3>通用制造</h3>
+        <p>分拣计数 · 定位引导 · 在线测量</p>
+      </div>
+      <div class="card fade-up" style="text-align:center;padding:2.5rem 1.5rem">
+        <div class="icon" style="display:flex;justify-content:center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8c0-5-4-6-5-6s-5 1-5 6c0 3.86 2 6 2 6h6s2-2.14 2-6Z"/><path d="M12 19c0 1.66-1.34 3-3 3"/><path d="M6 14h12"/><path d="M12 14v8"/></svg>
+        </div>
+        <h3>食品饮料</h3>
+        <p>包装检测 · 异物识别 · 产线监控</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Solution Details -->
+<!-- Solution Detail -->
 <section class="section-alt">
   <div class="container">
-    <div class="section-header-center" style="margin-bottom:4rem">
-      <span class="section-label fade-up">DETAILS</span>
-      <h2 class="section-title fade-up">方案<span class="hl">详情</span></h2>
+    <div class="section-center">
+      <h2 class="section-title fade-up">方案优势</h2>
     </div>
-
-    <div class="solution-detail fade-up">
-      <div class="solution-text">
-        <span class="section-label">3C ELECTRONICS</span>
-        <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> 3C 电子行业方案</h3>
-        <p>针对 3C 电子产品的高精度、高节拍检测需求，PromptLogic 提供从外观检测到尺寸测量的完整解决方案。通过 AI 自动配置检测参数，大幅降低调试时间。</p>
-        <div class="solution-tags">
-          <span class="solution-tag">外观缺陷检测</span>
-          <span class="solution-tag">精密尺寸测量</span>
-          <span class="solution-tag">屏幕异物检测</span>
-          <span class="solution-tag">标签 OCR</span>
-          <span class="solution-tag">装配验证</span>
+    <div class="grid g2">
+      <div class="card fade-up">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
+        <h3>快速部署</h3>
+        <p>从需求分析到正式上线，最快 3 天即可完成全流程部署。标准化的节点库和预置模板大幅缩短项目交付周期。</p>
       </div>
-      <div class="solution-visual">
-        <div class="solution-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-      </div>
-    </div>
-
-    <div class="solution-detail fade-up">
-      <div class="solution-text">
-        <span class="section-label">NEW ENERGY</span>
-        <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg> 新能源行业方案</h3>
-        <p>覆盖锂电池全产线质量管控场景，从极片涂布到电芯焊缝检测，提供高可靠、低延迟的在线检测方案。支持与 MES 系统实时对接，实现生产数据闭环。</p>
-        <div class="solution-tags">
-          <span class="solution-tag">电芯焊缝检测</span>
-          <span class="solution-tag">极片对齐检测</span>
-          <span class="solution-tag">涂布均匀性</span>
-          <span class="solution-tag">电池壳体检测</span>
-          <span class="solution-tag">MES 对接</span>
+      <div class="card fade-up">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
+        <h3>高精度检测</h3>
+        <p>自研深度学习算法结合传统视觉算法，综合检测准确率达到 99.5% 以上，远超人工检测水平。</p>
       </div>
-      <div class="solution-visual">
-        <div class="solution-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></div>
-      </div>
-    </div>
-
-    <div class="solution-detail fade-up">
-      <div class="solution-text">
-        <span class="section-label">AUTOMOTIVE</span>
-        <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg> 汽车零部件方案</h3>
-        <p>满足汽车零部件行业严格的质量标准要求。从装配验证到表面缺陷检测，PromptLogic 提供高精度、可追溯的自动化检测方案，确保每一个零部件都符合品质标准。</p>
-        <div class="solution-tags">
-          <span class="solution-tag">装配完整性验证</span>
-          <span class="solution-tag">螺丝有无检测</span>
-          <span class="solution-tag">间隙/段差测量</span>
-          <span class="solution-tag">表面缺陷检测</span>
+      <div class="card fade-up">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         </div>
+        <h3>数据安全</h3>
+        <p>支持完全私有化部署，所有数据和模型均在本地运行，确保企业核心数据安全可控。</p>
       </div>
-      <div class="solution-visual">
-        <div class="solution-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
-      </div>
-    </div>
-
-    <div class="solution-detail fade-up">
-      <div class="solution-text">
-        <span class="section-label">PHARMA & FOOD</span>
-        <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg> 医药 & 食品行业方案</h3>
-        <p>符合 GMP/FDA 规范要求的智能视觉检测方案。从药品包装的标签识别到食品生产线的异物检测，确保每一件产品都安全合规。</p>
-        <div class="solution-tags">
-          <span class="solution-tag">标签识别验证</span>
-          <span class="solution-tag">液位检测</span>
-          <span class="solution-tag">批号 OCR</span>
-          <span class="solution-tag">异物检测</span>
-          <span class="solution-tag">封装完整性</span>
-          <span class="solution-tag">日期读取</span>
+      <div class="card fade-up">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         </div>
-      </div>
-      <div class="solution-visual">
-        <div class="solution-icon-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Success Cases -->
-<section>
-  <div class="container section-header-center">
-    <span class="section-label fade-up">SUCCESS CASES</span>
-    <h2 class="section-title fade-up">客户<span class="hl">成功案例</span></h2>
-    <p class="section-desc fade-up">在真实产线上验证的成功部署案例。</p>
-    <div class="case-grid">
-      <div class="card case-card fade-up">
-        <div class="case-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3>某 3C 龙头企业</h3>
-        <p>外观检测产线部署 PromptLogic，覆盖手机外壳、屏幕、接口等 15 个检测项。</p>
-        <div class="case-result">检测效率提升 300%，漏检率降至 0.01%</div>
-      </div>
-      <div class="card case-card fade-up">
-        <div class="case-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></div>
-        <h3>某新能源电池厂</h3>
-        <p>电芯焊缝检测全线升级，替代传统人工目检，实现 7×24 自动化在线检测。</p>
-        <div class="case-result">节拍时间从 3s 降至 0.8s</div>
-      </div>
-      <div class="card case-card fade-up">
-        <div class="case-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div>
-        <h3>某医药包装线</h3>
-        <p>药品标签 OCR 识别与批号校验系统部署，满足 GMP 审计追溯要求。</p>
-        <div class="case-result">OCR 识别准确率 99.99%</div>
+        <h3>持续升级</h3>
+        <p>定期推送平台更新和新算法节点，确保客户始终使用最新的 AI 技术和最佳实践。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="section-alt" style="text-align:center;padding:6rem 0">
+<section style="text-align:center">
   <div class="container">
-    <h2 class="section-title fade-up">需要定制<span class="hl">行业方案</span>？</h2>
-    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto;text-align:center">告诉我们您的检测需求，我们为您量身定制最优解决方案。</p>
-    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
-      <a href="contact.html" class="btn btn-primary" style="padding:.8rem 2.2rem;font-size:1rem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> 联系我们</a>
-      <a href="products.html" class="btn btn-outline" style="padding:.8rem 2.2rem;font-size:1rem">了解产品详情</a>
-    </div>
+    <h2 class="section-title fade-up">需要定制方案？</h2>
+    <p class="section-desc fade-up" style="margin-left:auto;margin-right:auto">联系我们的行业顾问，获取针对您生产场景的专属解决方案</p>
+    <a href="contact.html" class="btn btn-primary fade-up">联系我们</a>
   </div>
 </section>
 

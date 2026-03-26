@@ -4,357 +4,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>珠海三界智能科技有限公司 — AI 驱动的工业自动化低代码平台</title>
-<meta name="description" content="珠海三界智能科技有限公司，专注于 AI 驱动的工业自动化低代码平台 PromptLogic。用自然语言创建工业工作流，让工厂技术员「言出法随」。">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="珠海三界智能科技有限公司，专注 AI 驱动的工业自动化低代码平台 PromptLogic，赋能制造业数字化转型。">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-/* === Homepage Hero === */
-.hero{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding-top:5rem;position:relative;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 45% at 50% 35%,rgba(155,27,48,.04) 0%,transparent 70%),
-             radial-gradient(circle at 15% 85%,rgba(110,19,34,.02) 0%,transparent 35%),
-             radial-gradient(circle at 85% 15%,rgba(201,169,110,.02) 0%,transparent 35%);
-  pointer-events:none;z-index:0;
-}
-.hero::after{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(0,0,0,.06),transparent);
-}
-.hero-content{position:relative;z-index:1}
-.hero-logo{margin-bottom:2.5rem}
-.hero-logo svg{
-  width:110px;height:110px;
-  filter:drop-shadow(0 0 40px rgba(155,27,48,.3));
-  animation:logoPulse 4s ease-in-out infinite;
-}
-@keyframes logoPulse{
-  0%,100%{filter:drop-shadow(0 0 20px rgba(155,27,48,.15))}
-  50%{filter:drop-shadow(0 0 40px rgba(155,27,48,.3))}
-}
-.hero h1{font-size:4.2rem;font-weight:900;letter-spacing:-.05em;line-height:1.05;margin-bottom:1.2rem}
-.hero .subtitle{font-size:1.4rem;color:var(--text2);font-weight:300;letter-spacing:.1em;margin-bottom:1rem}
-.hero .tagline{font-size:1.05rem;color:var(--text3);max-width:28rem;margin:0 auto 3rem;line-height:1.9}
-.hero-cta{display:flex;gap:1.2rem;justify-content:center;margin-bottom:4.5rem}
-.hero-cta .btn{padding:.8rem 2.2rem;font-size:.95rem}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);animation:bounce 2.5s ease-in-out infinite}
-.hero-scroll span{display:block;width:22px;height:36px;border:2px solid rgba(155,27,48,.25);border-radius:11px;position:relative}
-.hero-scroll span::after{content:'';position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--wine-light);animation:scrollDot 2.5s infinite}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
-@keyframes scrollDot{0%{opacity:1;top:6px}100%{opacity:0;top:20px}}
-
-/* Highlights strip */
-.highlights{padding:4rem 0}
-.highlights-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
-.highlight-item{
-  text-align:center;padding:2rem 1rem;
-  border-radius:var(--radius);
-  background:var(--bg2);border:1px solid rgba(0,0,0,.06);
-  transition:var(--transition);
-}
-.highlight-item:hover{border-color:rgba(155,27,48,.15);transform:translateY(-3px)}
-.highlight-item .h-icon{font-size:2rem;margin-bottom:.8rem}
-.highlight-item .h-val{font-size:1.8rem;font-weight:800;background:var(--grad3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.highlight-item .h-label{font-size:.78rem;color:var(--text3);margin-top:.3rem}
-
-/* About preview */
-.about-preview{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.about-preview-text .section-label{margin-bottom:1rem}
-.about-preview-visual{position:relative}
-.about-visual-card{
-  background:var(--bg3);border:1px solid rgba(155,27,48,.08);
-  border-radius:var(--radius-lg);padding:2.5rem;
-  position:relative;overflow:hidden;
-}
-.about-visual-card::before{
-  content:'';position:absolute;top:-50%;right:-50%;
-  width:200%;height:200%;
-  background:radial-gradient(circle,rgba(155,27,48,.04) 0%,transparent 60%);
-}
-.av-stat{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;position:relative}
-.av-stat:last-child{margin-bottom:0}
-.av-stat .av-icon{
-  width:48px;height:48px;border-radius:.6rem;
-  background:rgba(155,27,48,.08);border:1px solid rgba(155,27,48,.12);
-  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
-  flex-shrink:0;
-}
-.av-stat h4{font-size:.92rem;font-weight:600;margin-bottom:.2rem}
-.av-stat p{font-size:.78rem;color:var(--text3)}
-
-/* Product preview */
-.product-preview{position:relative}
-.product-frame{
-  background:var(--bg2);border:1px solid rgba(155,27,48,.08);
-  border-radius:1rem;padding:.5rem;
-  box-shadow:0 30px 100px rgba(0,0,0,.5),0 0 80px rgba(155,27,48,.03);
-  max-width:56rem;margin:0 auto 2rem;
-}
-.product-frame img{width:100%;border-radius:.6rem;display:block}
-.product-features-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:56rem;margin:0 auto}
-.pf-mini{text-align:center;padding:1rem}
-.pf-mini .icon{font-size:1.5rem;margin-bottom:.5rem;display:block}
-.pf-mini h4{font-size:.88rem;font-weight:600;margin-bottom:.3rem}
-.pf-mini p{font-size:.75rem;color:var(--text3)}
-
-/* CTA section */
-.cta-section{text-align:center;padding:6rem 0}
-.cta-section h2{margin-bottom:.8rem}
-.cta-section p{margin:0 auto 2rem;text-align:center;max-width:32rem;font-size:1.05rem;color:var(--text2)}
-
-@media(max-width:1024px){
-  .hero h1{font-size:3.2rem}
-  .highlights-grid{grid-template-columns:repeat(2,1fr)}
-  .about-preview{grid-template-columns:1fr}
-  .product-features-mini{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .hero h1{font-size:2.4rem}
-  .hero .subtitle{font-size:1rem}
-  .hero-cta{flex-direction:column;align-items:center}
-  .highlights-grid{grid-template-columns:1fr}
-  .product-features-mini{grid-template-columns:1fr}
-}
-</style>
 </head>
 <body>
-
 <canvas id="particles"></canvas>
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-content">
-    <div class="hero-logo">
-      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9b1b30"/><stop offset="100%" stop-color="#c9a96e"/></linearGradient></defs>
-        <path d="M30 25 C30 25 60 25 70 25 C85 25 95 35 95 50 C95 65 85 75 70 75 L55 75 C40 75 30 85 30 95" stroke="url(#lg2)" stroke-width="12" fill="none" stroke-linecap="round"/>
-        <circle cx="80" cy="20" r="6" fill="#9b1b30"/>
-        <line x1="22" y1="88" x2="22" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
-        <line x1="28" y1="90" x2="28" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
-        <line x1="34" y1="92" x2="34" y2="105" stroke="#9b1b30" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <h1><span class="hl">言出法随</span>，智驭工业</h1>
-    <div class="subtitle">AI 驱动的工业自动化低代码平台</div>
-    <p class="tagline">用自然语言创建工业工作流，让工厂技术员从繁琐编程中解放。<br>视觉检测、运动控制、通信协议——一句话，全搞定。</p>
-    <div class="hero-cta">
-      <a href="products.html" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg> 了解产品</a>
-      <a href="about.html" class="btn btn-outline">关于我们 →</a>
-    </div>
-    <div class="stats-row">
-      <div class="stat-item"><div class="stat-val">16+</div><div class="stat-label">内置节点</div></div>
-      <div class="stat-item"><div class="stat-val">6</div><div class="stat-label">大行业覆盖</div></div>
-      <div class="stat-item"><div class="stat-val">7×24</div><div class="stat-label">工业级可靠</div></div>
-      <div class="stat-item"><div class="stat-val">AI</div><div class="stat-label">驱动核心</div></div>
+<!-- Banner Slider -->
+<div class="banner">
+  <div class="banner-slide active" style="background:linear-gradient(135deg,#1a1625,#2d1f3d 50%,#3a1528)">
+    <div class="banner-content">
+      <h1>AI 赋能工业自动化</h1>
+      <p>用自然语言创建工业工作流，让工厂技术员「言出法随」。PromptLogic 低代码平台，降低 90% 开发门槛。</p>
+      <a href="products.html" class="btn btn-white">了解产品</a>
     </div>
   </div>
-  <div class="hero-scroll"><span></span></div>
-</section>
+  <div class="banner-slide" style="background:linear-gradient(135deg,#1e1028,#351a2e 50%,#1a1625)">
+    <div class="banner-content">
+      <h1>一句话，生成完整工作流</h1>
+      <p>内置大语言模型驱动的 AI 工作流引擎，只需用自然语言描述需求，即可自动生成节点化视觉检测方案。</p>
+      <a href="about.html" class="btn btn-white">关于我们</a>
+    </div>
+  </div>
+  <div class="banner-dots">
+    <div class="banner-dot active"></div>
+    <div class="banner-dot"></div>
+  </div>
+</div>
 
-<!-- Highlights -->
-<section class="highlights section-alt">
-  <div class="container">
-    <div class="highlights-grid">
-      <div class="highlight-item fade-up">
-        <div class="h-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <div class="h-val">零门槛</div>
-        <div class="h-label">无需编程基础</div>
-      </div>
-      <div class="highlight-item fade-up">
-        <div class="h-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="h-val">10x</div>
-        <div class="h-label">开发效率提升</div>
-      </div>
-      <div class="highlight-item fade-up">
-        <div class="h-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-        <div class="h-val">工业级</div>
-        <div class="h-label">稳定性与安全性</div>
-      </div>
-      <div class="highlight-item fade-up">
-        <div class="h-icon">🧩</div>
-        <div class="h-val">插件化</div>
-        <div class="h-label">灵活扩展生态</div>
-      </div>
+<!-- Highlight Bar -->
+<div class="highlight-bar">
+  <div class="highlight-item fade-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+    <div>
+      <h4>专业项目经验</h4>
+      <p>深耕工业视觉检测领域，覆盖 3C、新能源、汽车、医药等行业</p>
     </div>
   </div>
-</section>
+  <div class="highlight-item fade-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <div>
+      <h4>行业好口碑</h4>
+      <p>以技术创新驱动发展，与多家知名制造企业建立长期合作关系</p>
+    </div>
+  </div>
+  <div class="highlight-item fade-up">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    <div>
+      <h4>优质客户群体</h4>
+      <p>服务覆盖 3C 电子、新能源、汽车制造等多个行业头部企业</p>
+    </div>
+  </div>
+</div>
 
 <!-- About Preview -->
-<section id="about-preview">
+<section>
   <div class="container">
     <div class="about-preview">
-      <div class="about-preview-text">
-        <span class="section-label fade-up">关于我们</span>
-        <h2 class="section-title fade-up">珠海三界<span class="hl">智能科技</span></h2>
-        <p class="section-desc fade-up">
-          珠海三界智能科技有限公司专注于工业自动化领域的 AI 技术创新，致力于让每一位工厂技术员都能轻松驾驭复杂的自动化系统。我们的核心产品 PromptLogic 平台，通过自然语言编程与可视化节点画布，彻底变革了工业自动化开发方式。
-        </p>
-        <a href="about.html" class="btn btn-outline fade-up">了解更多 →</a>
+      <div class="about-img fade-up">
+        <img src="images/main_interface.png" alt="PromptLogic 平台界面">
       </div>
-      <div class="about-preview-visual fade-up">
-        <div class="about-visual-card">
-          <div class="av-stat">
-            <div class="av-icon">🏢</div>
-            <div>
-              <h4>珠海总部</h4>
-              <p>国家高新技术产业区</p>
-            </div>
-          </div>
-          <div class="av-stat">
-            <div class="av-icon">👨‍💻</div>
-            <div>
-              <h4>核心研发团队</h4>
-              <p>深耕工业自动化与 AI 技术</p>
-            </div>
-          </div>
-          <div class="av-stat">
-            <div class="av-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-            <div>
-              <h4>自主知识产权</h4>
-              <p>多项核心技术专利</p>
-            </div>
-          </div>
-          <div class="av-stat">
-            <div class="av-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.68.05l2.37-1.15a1 1 0 0 1 1.36.52l.13.3a1 1 0 0 1-.32 1.2l-1.37.95"/><path d="m5.15 12.84-2.36-2.36a2 2 0 0 1 0-3l.07-.06a2 2 0 0 1 3.01.22l2.97 3.41"/><path d="m2 16 6 6"/><path d="m7 21 4.5-4.5"/></svg></div>
-            <div>
-              <h4>行业合作伙伴</h4>
-              <p>覆盖多个制造业领域</p>
-            </div>
-          </div>
-        </div>
+      <div class="about-text fade-up">
+        <div class="section-label">ABOUT US</div>
+        <h2>珠海三界智能科技有限公司</h2>
+        <p>三界智能专注于 AI 驱动的工业自动化低代码平台研发，核心产品 PromptLogic（言绎）致力于降低工业视觉检测的技术门槛。通过拖拽式节点编程和 AI 自然语言工作流生成，让一线技术员也能快速构建复杂的视觉检测方案。</p>
+        <a href="about.html" class="btn btn-outline">查看更多</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Product Preview -->
-<section class="section-alt" id="product-preview">
-  <div class="container section-header-center">
-    <span class="section-label fade-up">核心产品</span>
-    <h2 class="section-title fade-up">PromptLogic <span class="hl">智能平台</span></h2>
-    <p class="section-desc fade-up">AI 驱动的工业自动化低代码平台，用自然语言创建工业工作流。</p>
-    <div class="product-frame fade-up">
-      <img src="images/main_interface.png" alt="PromptLogic 主工作界面" onerror="this.style.height='300px';this.style.background='var(--bg3)';this.alt='产品界面预览'">
+<!-- Products Preview -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-label fade-up">PRODUCTS</div>
+      <h2 class="section-title fade-up">核心产品</h2>
+      <p class="section-desc fade-up">PromptLogic 平台提供从视觉检测到设备控制的全流程低代码开发能力</p>
     </div>
-    <div class="product-features-mini fade-up">
-      <div class="pf-mini">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg></span>
-        <h4>自然语言编程</h4>
-        <p>一句话描述需求，AI 自动生成工作流</p>
+    <div class="case-grid">
+      <div class="case-item fade-up">
+        <img src="images/canvas.png" alt="节点画布">
+        <div class="case-overlay"><h4>节点画布编辑器</h4></div>
       </div>
-      <div class="pf-mini">
-        <span class="icon">🔗</span>
-        <h4>可视化节点画布</h4>
-        <p>拖拽式编辑器，200+ 节点流畅运行</p>
+      <div class="case-item fade-up">
+        <img src="images/ai_workflow.png" alt="AI 工作流">
+        <div class="case-overlay"><h4>AI 工作流引擎</h4></div>
       </div>
-      <div class="pf-mini">
-        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
-        <h4>视觉检测集成</h4>
-        <p>内置 Halcon/VisionPro 插件</p>
+      <div class="case-item fade-up">
+        <img src="images/main_interface.png" alt="主界面">
+        <div class="case-overlay"><h4>集成开发环境</h4></div>
+      </div>
+      <div class="case-item fade-up">
+        <img src="images/monitoring.png" alt="执行监控">
+        <div class="case-overlay"><h4>实时执行监控</h4></div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2.5rem" class="fade-up">
-      <a href="products.html" class="btn btn-primary">查看产品详情 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- Solutions Preview -->
-<section id="solutions-preview">
-  <div class="container section-header-center">
-    <span class="section-label fade-up">解决方案</span>
-    <h2 class="section-title fade-up">覆盖<span class="hl">六大</span>行业</h2>
-    <p class="section-desc fade-up">从 3C 电子到新能源，言绎的节点化架构天然适配多行业、多场景部署。</p>
-    <div class="grid g3">
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><h3>3C 电子</h3><p class="apps">外观检测 · 尺寸测量 · 屏幕缺陷</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="13" x2="23" y2="11"/></svg></span><h3>新能源</h3><p class="apps">电芯焊缝 · 极片对齐 · 涂布检测</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span><h3>汽车零部件</h3><p class="apps">装配验证 · 螺丝检测 · 间隙测量</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span><h3>医药包装</h3><p class="apps">标签识别 · 液位检测 · 批号 OCR</p></div>
-      <div class="card industry-card fade-up"><span class="icon">🍜</span><h3>食品饮料</h3><p class="apps">异物检测 · 封装完整 · 日期读取</p></div>
-      <div class="card industry-card fade-up"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg></span><h3>通用制造</h3><p class="apps">分拣计数 · 定位引导 · 在线测量</p></div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem" class="fade-up">
-      <a href="solutions.html" class="btn btn-outline">查看全部解决方案 →</a>
+    <div style="text-align:center;margin-top:2rem" class="fade-up">
+      <a href="products.html" class="btn btn-outline">更多产品详情</a>
     </div>
   </div>
 </section>
 
 <!-- News Preview -->
-<section class="section-alt" id="news-preview">
+<section>
   <div class="container">
-    <span class="section-label fade-up">新闻动态</span>
-    <h2 class="section-title fade-up">最新<span class="hl">动态</span></h2>
-    <p class="section-desc fade-up">了解三界智能最新产品更新、行业洞察和公司活动。</p>
-    <div class="grid g3">
-      <div class="news-card fade-up">
-        <div class="news-card-img">📰</div>
-        <div class="news-card-body">
-          <div class="news-card-date">2026-03-20</div>
-          <h3>PromptLogic v2.0 正式发布</h3>
-          <p>全新 AI 工作流生成引擎，支持自然语言一句话创建完整视觉检测方案，开发效率提升 10 倍。</p>
-          <a href="news.html" class="news-card-link">阅读更多 →</a>
+    <div class="section-center">
+      <div class="section-label fade-up">NEWS</div>
+      <h2 class="section-title fade-up">新闻资讯</h2>
+    </div>
+    <div class="news-list-grid">
+      <div class="news-row fade-up">
+        <div class="news-thumb">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3)"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
+        </div>
+        <div class="news-body">
+          <div class="news-date">2026-03-20</div>
+          <h3>PromptLogic v2.0 正式发布 — 全新 AI 工作流引擎</h3>
+          <p>全新 AI 工作流生成引擎上线，支持自然语言一句话创建完整视觉检测方案。新增离线模型支持，优化节点画布性能。</p>
+          <a href="news.html" class="news-more">了解详情 →</a>
         </div>
       </div>
-      <div class="news-card fade-up">
-        <div class="news-card-img"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
-        <div class="news-card-body">
-          <div class="news-card-date">2026-03-15</div>
-          <h3>三界智能入选珠海市高新技术企业</h3>
-          <p>凭借在工业自动化 AI 领域的技术创新，我司成功入选珠海市高新技术企业培育库。</p>
-          <a href="news.html" class="news-card-link">阅读更多 →</a>
+      <div class="news-row fade-up">
+        <div class="news-thumb">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text3)"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
         </div>
-      </div>
-      <div class="news-card fade-up">
-        <div class="news-card-img"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.68.05l2.37-1.15a1 1 0 0 1 1.36.52l.13.3a1 1 0 0 1-.32 1.2l-1.37.95"/><path d="m5.15 12.84-2.36-2.36a2 2 0 0 1 0-3l.07-.06a2 2 0 0 1 3.01.22l2.97 3.41"/><path d="m2 16 6 6"/><path d="m7 21 4.5-4.5"/></svg></div>
-        <div class="news-card-body">
-          <div class="news-card-date">2026-03-10</div>
-          <h3>与某知名 3C 企业达成战略合作</h3>
-          <p>PromptLogic 平台将全面部署于合作方的质量检测产线，覆盖外观检测、OCR 等核心场景。</p>
-          <a href="news.html" class="news-card-link">阅读更多 →</a>
+        <div class="news-body">
+          <div class="news-date">2026-03-15</div>
+          <h3>三界智能入选珠海市高新技术企业培育库</h3>
+          <p>凭借在工业自动化 AI 领域的技术创新和多项自主知识产权，我司成功入选珠海市高新技术企业培育库。</p>
+          <a href="news.html" class="news-more">了解详情 →</a>
         </div>
       </div>
     </div>
-    <div style="text-align:center;margin-top:2.5rem" class="fade-up">
-      <a href="news.html" class="btn btn-outline">查看全部新闻 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- Partners -->
-<section id="partners">
-  <div class="container section-header-center">
-    <span class="section-label fade-up">合作伙伴</span>
-    <h2 class="section-title fade-up">信赖<span class="hl">之选</span></h2>
-    <div class="partners-overflow fade-up">
-      <div class="partners-track">
-        <div class="partner-logo">合作企业 A</div>
-        <div class="partner-logo">合作企业 B</div>
-        <div class="partner-logo">合作企业 C</div>
-        <div class="partner-logo">合作企业 D</div>
-        <div class="partner-logo">合作企业 E</div>
-        <div class="partner-logo">合作企业 F</div>
-        <div class="partner-logo">合作企业 A</div>
-        <div class="partner-logo">合作企业 B</div>
-        <div class="partner-logo">合作企业 C</div>
-        <div class="partner-logo">合作企业 D</div>
-        <div class="partner-logo">合作企业 E</div>
-        <div class="partner-logo">合作企业 F</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section section-alt" id="cta">
-  <div class="container">
-    <h2 class="section-title fade-up">准备好让工厂<span class="hl">「言出法随」</span>了吗？</h2>
-    <p class="fade-up">30 天免费试用，零风险体验 AI 驱动的工业自动化平台。</p>
-    <div class="fade-up" style="display:flex;gap:1rem;justify-content:center">
-      <a href="contact.html" class="btn btn-primary" style="padding:.8rem 2.2rem;font-size:1rem"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> 联系我们获取试用</a>
-      <a href="products.html" class="btn btn-outline" style="padding:.8rem 2.2rem;font-size:1rem">了解产品详情</a>
+    <div style="text-align:center;margin-top:2rem" class="fade-up">
+      <a href="news.html" class="btn btn-outline">更多新闻资讯</a>
     </div>
   </div>
 </section>

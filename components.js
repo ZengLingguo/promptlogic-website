@@ -3,7 +3,7 @@
  * 动态注入 Header 和 Footer，保持各页面一致性
  */
 
-// Company Logo (SJI - 三界智能)
+// Company Logo (SJI)
 const COMPANY_LOGO = `<img src="images/sji-logo.svg" alt="三界智能" style="height:32px;width:auto">`;
 
 // Product Logo (言绎 PromptLogic) - kept for product pages
@@ -141,12 +141,12 @@ function initParticles() {
       if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
       if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
       ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(155,27,48,' + p.o + ')'; ctx.fill();
+      ctx.fillStyle = 'rgba(155,27,48,' + (p.o * 0.5) + ')'; ctx.fill();
       for (let j = i + 1; j < pts.length; j++) {
         const q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
         if (d < 120) {
           ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = 'rgba(155,27,48,' + (.08 * (1 - d / 120)) + ')'; ctx.stroke();
+          ctx.strokeStyle = 'rgba(155,27,48,' + (.04 * (1 - d / 120)) + ')'; ctx.stroke();
         }
       }
     }

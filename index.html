@@ -15,14 +15,14 @@
 }
 .hero::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 45% at 50% 35%,rgba(155,27,48,.06) 0%,transparent 70%),
-             radial-gradient(circle at 15% 85%,rgba(110,19,34,.04) 0%,transparent 35%),
+  background:radial-gradient(ellipse 60% 45% at 50% 35%,rgba(155,27,48,.04) 0%,transparent 70%),
+             radial-gradient(circle at 15% 85%,rgba(110,19,34,.02) 0%,transparent 35%),
              radial-gradient(circle at 85% 15%,rgba(201,169,110,.02) 0%,transparent 35%);
   pointer-events:none;z-index:0;
 }
 .hero::after{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(155,27,48,.2),transparent);
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.06),transparent);
 }
 .hero-content{position:relative;z-index:1}
 .hero-logo{margin-bottom:2.5rem}
@@ -32,8 +32,8 @@
   animation:logoPulse 4s ease-in-out infinite;
 }
 @keyframes logoPulse{
-  0%,100%{filter:drop-shadow(0 0 30px rgba(155,27,48,.25))}
-  50%{filter:drop-shadow(0 0 60px rgba(155,27,48,.5))}
+  0%,100%{filter:drop-shadow(0 0 20px rgba(155,27,48,.15))}
+  50%{filter:drop-shadow(0 0 40px rgba(155,27,48,.3))}
 }
 .hero h1{font-size:4.2rem;font-weight:900;letter-spacing:-.05em;line-height:1.05;margin-bottom:1.2rem}
 .hero .subtitle{font-size:1.4rem;color:var(--text2);font-weight:300;letter-spacing:.1em;margin-bottom:1rem}
@@ -52,7 +52,7 @@
 .highlight-item{
   text-align:center;padding:2rem 1rem;
   border-radius:var(--radius);
-  background:var(--bg2);border:1px solid rgba(155,27,48,.05);
+  background:var(--bg2);border:1px solid rgba(0,0,0,.06);
   transition:var(--transition);
 }
 .highlight-item:hover{border-color:rgba(155,27,48,.15);transform:translateY(-3px)}

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- SJI Company Logo - 三界智能 -->
+  <!-- S shape -->
+  <path d="M12 28 C12 28 42 12 62 12 C78 12 88 22 88 34 C88 48 72 54 52 58 C32 62 16 68 16 82 C16 96 30 108 52 108 C72 108 88 98 88 98" stroke="#f0ecf4" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- J shape -->
+  <path d="M108 12 L108 78 C108 96 96 108 80 108" stroke="#f0ecf4" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <!-- Red dot on J -->
+  <circle cx="108" cy="8" r="8" fill="#e02020"/>
+  <!-- I shape -->
+  <rect x="128" y="12" width="14" height="96" rx="7" fill="#f0ecf4"/>
+  <!-- Red dot on I -->
+  <circle cx="135" cy="8" r="8" fill="#e02020"/>
+  <!-- Red accent lines bottom left -->
+  <line x1="4" y1="94" x2="4" y2="114" stroke="#e02020" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="11" y1="98" x2="11" y2="114" stroke="#e02020" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="18" y1="102" x2="18" y2="114" stroke="#e02020" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

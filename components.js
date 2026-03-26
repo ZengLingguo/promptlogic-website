@@ -3,8 +3,11 @@
  * 动态注入 Header 和 Footer，保持各页面一致性
  */
 
-// SVG Logo
-const LOGO_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+// Company Logo (SJI - 三界智能)
+const COMPANY_LOGO = `<img src="images/sji-logo.svg" alt="三界智能" style="height:32px;width:auto">`;
+
+// Product Logo (言绎 PromptLogic) - kept for product pages
+const PRODUCT_LOGO_SVG = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
   <defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9b1b30"/><stop offset="100%" stop-color="#c9a96e"/></linearGradient></defs>
   <path d="M30 25 C30 25 60 25 70 25 C85 25 95 35 95 50 C95 65 85 75 70 75 L55 75 C40 75 30 85 30 95" stroke="url(#lg)" stroke-width="12" fill="none" stroke-linecap="round"/>
   <circle cx="80" cy="20" r="6" fill="#9b1b30"/>
@@ -43,8 +46,8 @@ function injectNavbar() {
 
   nav.innerHTML = `
     <a class="nav-brand" href="index.html">
-      ${LOGO_SVG}
-      <span><span class="cn">言绎</span> PromptLogic</span>
+      ${COMPANY_LOGO}
+      <span><span class="cn">三界智能</span></span>
     </a>
     <div class="nav-links" id="navLinks">
       ${linksHTML}
@@ -65,8 +68,8 @@ function injectFooter() {
       <div class="footer-top">
         <div class="footer-brand-block">
           <a class="footer-logo" href="index.html">
-            ${LOGO_SVG}
-            <span><span class="cn">言绎</span> PromptLogic</span>
+            ${COMPANY_LOGO}
+            <span><span class="cn">三界智能</span> · 珠海三界智能科技有限公司</span>
           </a>
           <p>珠海三界智能科技有限公司 — AI 驱动的工业自动化低代码平台。用自然语言创建工业工作流，让工厂技术员「言出法随」。</p>
           <div class="footer-social">
